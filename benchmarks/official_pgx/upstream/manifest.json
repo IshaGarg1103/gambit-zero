@@ -1,0 +1,11 @@
+{
+  "repository": "https://github.com/sotetsuk/pgx",
+  "commit": "87278d2d6e677fd87248c457207b59cfa42e578d",
+  "tag": "v2.6.0",
+  "sha256": {
+    "requirements.txt": "e98e9ef812c27bf401d9d004f3e153f7c1a72367481dc87eeeb561396a44649e",
+    "README.md": "d6722500cca7b731efdc37da2a51ae979a3345093fdcd94dd97e8fecc618b47f",
+    "network.py": "1dbed283f7ba43decba7d8340a50bed2f40c3ed8c88d205d890228e4ee17e26b",
+    "train.py": "2116beffdb36dbf0bc255c6f8e725deb6c91a9ebb50412edf620dcd857280c37"
+  }
+}

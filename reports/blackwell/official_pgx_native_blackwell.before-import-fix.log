@@ -1,0 +1,16 @@
+Unmodified official CLI return code: 1
+Traceback (most recent call last):
+  File "/marimo/tinychess-m0/scripts/run_official_pgx_example.py", line 141, in <module>
+    main()
+  File "/marimo/tinychess-m0/scripts/run_official_pgx_example.py", line 51, in main
+    raise RuntimeError("Unmodified CLI behavior changed; inspect before bypassing anything\n" + exact.stderr)
+RuntimeError: Unmodified CLI behavior changed; inspect before bypassing anything
+/marimo/tinychess-m0/benchmarks/official_pgx/.venv/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/marimo/tinychess-m0/benchmarks/official_pgx/.venv/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/marimo/tinychess-m0/benchmarks/official_pgx/upstream/train.py", line 33, in <module>
+    from network import AZNet
+ModuleNotFoundError: No module named 'network'
+

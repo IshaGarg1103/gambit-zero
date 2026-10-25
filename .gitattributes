@@ -1,0 +1,7 @@
+# Preserve pinned upstream bytes and archived GPU evidence, including whitespace.
+benchmarks/official_pgx/upstream/* -whitespace -text
+reports/blackwell/* -whitespace -text
+# Two trailing spaces are intentional Markdown hard line breaks.
+*.md whitespace=-blank-at-eol
+# Preserve the byte-identical GPU-tested vendored move-mask copy.
+src/tinychess/chess/_pgx_legal.py -whitespace

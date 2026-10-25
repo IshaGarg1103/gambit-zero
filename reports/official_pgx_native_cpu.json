@@ -1,0 +1,68 @@
+{
+  "upstream": {
+    "repository": "https://github.com/sotetsuk/pgx",
+    "commit": "87278d2d6e677fd87248c457207b59cfa42e578d",
+    "tag": "v2.6.0",
+    "sha256": {
+      "requirements.txt": "e98e9ef812c27bf401d9d004f3e153f7c1a72367481dc87eeeb561396a44649e",
+      "README.md": "d6722500cca7b731efdc37da2a51ae979a3345093fdcd94dd97e8fecc618b47f",
+      "network.py": "1dbed283f7ba43decba7d8340a50bed2f40c3ed8c88d205d890228e4ee17e26b",
+      "train.py": "2116beffdb36dbf0bc255c6f8e725deb6c91a9ebb50412edf620dcd857280c37"
+    }
+  },
+  "backend": "native",
+  "rules_policy": "native-pgx-chess-v2-NOT-PARITY-APPROVED",
+  "packages": {
+    "jax": "0.7.2",
+    "jaxlib": "0.7.2",
+    "pgx": "2.6.0",
+    "mctx": "0.0.6",
+    "optax": "0.2.6",
+    "dm-haiku": "0.0.15",
+    "wandb": "0.22.2",
+    "omegaconf": "2.3.0",
+    "pydantic": "2.12.3"
+  },
+  "devices": [
+    {
+      "kind": "cpu",
+      "platform": "cpu"
+    }
+  ],
+  "unmodified_cli": {
+    "returncode": 1,
+    "stdout": "env_id='chess' seed=0 max_num_iters=1 num_channels=8 num_layers=1 resnet_v2=True selfplay_batch_size=2 num_simulations=4 max_num_steps=4 training_batch_size=8 learning_rate=0.001 eval_interval=1\n",
+    "stderr": "/Users/ishagarg/pytorch-practice/tiny-chess/benchmarks/official_pgx/.venv/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.\n  warnings.warn(\n/Users/ishagarg/pytorch-practice/tiny-chess/benchmarks/official_pgx/.venv/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.\n  warnings.warn(\n/Users/ishagarg/pytorch-practice/tiny-chess/benchmarks/official_pgx/upstream/train.py:39: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/\n  class Config(BaseModel):\nTraceback (most recent call last):\n  File \"/Users/ishagarg/pytorch-practice/tiny-chess/benchmarks/official_pgx/upstream/train.py\", line 66, in <module>\n    baseline = pgx.make_baseline_model(config.env_id + \"_v0\")\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ishagarg/pytorch-practice/tiny-chess/benchmarks/official_pgx/.venv/lib/python3.11/site-packages/pgx/_src/baseline.py\", line 42, in make_baseline_model\n    assert False\n           ^^^^^\nAssertionError\n"
+  },
+  "modifications": [
+    "delete module-level unsupported chess_v0 baseline assignment",
+    "do not execute upstream __main__/evaluate/W&B/checkpoint code",
+    "retain native chess environment"
+  ],
+  "config": [
+    "env_id=chess",
+    "seed=0",
+    "max_num_iters=1",
+    "num_channels=8",
+    "num_layers=1",
+    "selfplay_batch_size=2",
+    "num_simulations=4",
+    "max_num_steps=4",
+    "training_batch_size=8",
+    "eval_interval=1"
+  ],
+  "parameter_count": 613042,
+  "selfplay_compile_and_first_run_seconds": 2.383510292005667,
+  "selfplay_warm_seconds": 0.0077941660056239925,
+  "training_compile_and_one_update_seconds": 0.4785715000034543,
+  "transient_positions": 8,
+  "saved_dataset_positions": 0,
+  "saved_checkpoints": 0,
+  "completed_episode_endings": 0,
+  "valid_value_targets": 0,
+  "policy_loss": 8.230815887451172,
+  "value_loss": 0.0,
+  "synthetic_return_and_mask_check": "passed",
+  "upstream_discount_on_wrapped_truncation": null,
+  "status": "bounded_official_routines_passed"
+}
