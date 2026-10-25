@@ -1,0 +1,8 @@
+{
+  "package": "pgx==2.6.0",
+  "env_version": "v2",
+  "commit": "87278d2d6e677fd87248c457207b59cfa42e578d",
+  "upstream_source_sha256": "2770bf1ba2aae5d8cf6f2c8b4bab24f1e4f820d8aee2ed063b1891d7ae0f6323",
+  "adapter_sha256": "4b9a0e9c9340e16dd56b1cf35a47a02a0e2546b935443f2bd205adba4d1ebd23",
+  "rules_policy": "tinychess-auto-fide-pgx-v1"
+}

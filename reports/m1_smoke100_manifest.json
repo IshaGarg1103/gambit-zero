@@ -1,0 +1,383 @@
+{
+  "action_map": "pgx-2.6.0-chess-v2-uci-v1",
+  "by_month": {
+    "2026-01": {
+      "accepted": 10,
+      "encountered": 19,
+      "positions": 690,
+      "rejected": 9,
+      "split": "train"
+    },
+    "2026-02": {
+      "accepted": 10,
+      "encountered": 84,
+      "positions": 607,
+      "rejected": 74,
+      "split": "train"
+    },
+    "2026-03": {
+      "accepted": 10,
+      "encountered": 56,
+      "positions": 610,
+      "rejected": 46,
+      "split": "train"
+    },
+    "2026-04": {
+      "accepted": 10,
+      "encountered": 95,
+      "positions": 692,
+      "rejected": 85,
+      "split": "train"
+    },
+    "2026-05": {
+      "accepted": 10,
+      "encountered": 72,
+      "positions": 625,
+      "rejected": 62,
+      "split": "train"
+    },
+    "2026-06": {
+      "accepted": 10,
+      "encountered": 69,
+      "positions": 833,
+      "rejected": 59,
+      "split": "train"
+    },
+    "2026-07": {
+      "accepted": 10,
+      "encountered": 62,
+      "positions": 816,
+      "rejected": 52,
+      "split": "train"
+    },
+    "2026-08": {
+      "accepted": 15,
+      "encountered": 182,
+      "positions": 1091,
+      "rejected": 167,
+      "split": "validation"
+    },
+    "2026-09": {
+      "accepted": 15,
+      "encountered": 113,
+      "positions": 1306,
+      "rejected": 98,
+      "split": "test"
+    }
+  },
+  "checkmate_assertions": 21,
+  "checksums": {
+    "2026-01.games.parquet": "283f4b596bd8833b72f144a3b5b33eb92dc72c0ceb3e6c1b293e6b66b63abafc",
+    "2026-01.positions.parquet": "27d846a4f684655df8c07e84742e578c65235cd6bd59b4bd8d8e7026b12bde5b",
+    "2026-02.games.parquet": "89eff6cee8497e691ebb5dc6012b6be891e371fbfdf1836fd448cb08b5bdacb8",
+    "2026-02.positions.parquet": "afb2d55aed81b7d2096cce995579e92a0d2bc5028e910af1daca1b4a353b2619",
+    "2026-03.games.parquet": "e6e7e60fa261134439786015889d3b50b5301502053bec51573daf3b0fe79560",
+    "2026-03.positions.parquet": "6f51160efdd9709204f3c6d960ca4850ca66767056bc44b8768dee1ad1ffe46d",
+    "2026-04.games.parquet": "8300fdb6560931ea532cd3b0c26f574eb05c21e5f2972d25eaf9ab84cb30c239",
+    "2026-04.positions.parquet": "52862a16f31dd77d5d04f83cd7914eca87bf19c8194e0652f6ca8c01f9e1a010",
+    "2026-05.games.parquet": "21f7e25e3a08448ea40a948909f27805cee9756ee16daf714b6294a86be31ad1",
+    "2026-05.positions.parquet": "1824374e17a712e1e34e94153b022795afb825eb476d9d7d45dc292672c477f4",
+    "2026-06.games.parquet": "017c1da73bfa0f095424a9bc425fafeb8e5e2ef75bec2a5f7d776829e1a87364",
+    "2026-06.positions.parquet": "bfc0e2c6ab0020ea6ba6178ad4665c1eb0d6311a44a4f8f85ffdbab8315e69bf",
+    "2026-07.games.parquet": "c20dd89e3587e64fca5f3044c900953b691f4208b118f979dda7927c4e6ef789",
+    "2026-07.positions.parquet": "c87e3bbc9091860db0bb288215b82c4fadf0454870fa0003cb7e85880d552b11",
+    "2026-08.games.parquet": "69827fb43c455e91703f4a68098cd19af55f1e13ef8e6a3fa60eed12161125ff",
+    "2026-08.positions.parquet": "db614f560be196f7cb59209bde3cfd5cb548887d342fdcdef154b62c560b35d2",
+    "2026-09.games.parquet": "0b5abe67415df0ac125a30e3a0d1d22464488f3ec105203ac668e1afa65968a4",
+    "2026-09.positions.parquet": "79b3f472df6cc8dd7803c3325daaa67f6c2facaf7f39f9c907fbe0d3d12d2aaf",
+    "audit.json": "6e750224679f8f0bdc5cd02df9ebcd645b3ce73741d5921cef5ccb02507a9345",
+    "index.json": "4589413826943c63f98fbaa50a87ce9569f56632a6551cd4fc127e0a76b6b41a",
+    "position_disjoint_eval.jsonl": "fe5050a08c79eb1cd64315f87d7e0007d34af722db0a2cb6e680d31ef44ac23a",
+    "rejected_games.jsonl": "6828a3cec20d31854576f425e782afc1930d85d9b52bb46bbcea96a8f20ea0e3"
+  },
+  "config": {
+    "filters": {
+      "max_plies": 512,
+      "min_base_seconds": 180,
+      "min_rating": 1800,
+      "reject_terminations": [
+        "Abandoned",
+        "Rules infraction",
+        "Aborted"
+      ],
+      "time_forfeit_value_weight": 0.0
+    },
+    "frozen_evaluation_fens": [],
+    "months": {
+      "2026-01": {
+        "smoke100": 10,
+        "smoke1000": 100,
+        "split": "train"
+      },
+      "2026-02": {
+        "smoke100": 10,
+        "smoke1000": 100,
+        "split": "train"
+      },
+      "2026-03": {
+        "smoke100": 10,
+        "smoke1000": 100,
+        "split": "train"
+      },
+      "2026-04": {
+        "smoke100": 10,
+        "smoke1000": 100,
+        "split": "train"
+      },
+      "2026-05": {
+        "smoke100": 10,
+        "smoke1000": 100,
+        "split": "train"
+      },
+      "2026-06": {
+        "smoke100": 10,
+        "smoke1000": 100,
+        "split": "train"
+      },
+      "2026-07": {
+        "smoke100": 10,
+        "smoke1000": 100,
+        "split": "train"
+      },
+      "2026-08": {
+        "smoke100": 15,
+        "smoke1000": 150,
+        "split": "validation"
+      },
+      "2026-09": {
+        "smoke100": 15,
+        "smoke1000": 150,
+        "split": "test"
+      }
+    },
+    "sampling": {
+      "chronology_bias": true,
+      "future_method": "UTC-day-stratified bottom-k hash sampling during sequential decompression from a frame boundary",
+      "method": "sequential_prefix_smoke_only"
+    },
+    "schema": "human_v3",
+    "seed": 20261025,
+    "source": {
+      "cache": "data/raw/m1_prefixes",
+      "checksum_url": "https://database.lichess.org/standard/sha256sums.txt",
+      "compressed_prefix_bytes": 4194304,
+      "max_total_download_bytes": 41943040,
+      "url_template": "https://database.lichess.org/standard/lichess_db_standard_rated_{month}.pgn.zst"
+    },
+    "storage": {
+      "compression": "zstd",
+      "max_game_text_bytes": 1048576,
+      "max_line_chars": 65536,
+      "output_budget_bytes": 1073741824,
+      "primary": "undecided_until_measured"
+    }
+  },
+  "config_sha256": "d6f3baefbc6681fce38f05f54664a1159f735ddae259f3392aaa1b4360930cb0",
+  "counts": {
+    "accepted_games": 100,
+    "checkmate_games": 21,
+    "encountered_games": 752,
+    "parity_positions": 7370,
+    "positions": 7270,
+    "time_forfeit_games": 18
+  },
+  "dataset_digest": "38236359ceee1e45df9ef3c7b6dabd2a2bcdfdbf1fdfcd999a28a2738b4eead2",
+  "encoder": "pgx-v2-history8-ep-context8-v1",
+  "frozen_evaluation_fixtures": 0,
+  "full_legal_action_parity_mismatches": 0,
+  "rejection_counts": {
+    "excluded_termination:abandoned": 1,
+    "invalid_time_control": 1,
+    "rating_below_minimum": 497,
+    "time_control_below_minimum": 153
+  },
+  "rules_policy": "tinychess-auto-fide-pgx-v1",
+  "sampling_bias": "Chronological prefixes only; not representative within each month",
+  "schema": "human_v3",
+  "source_full_archives_verified": false,
+  "sources": [
+    {
+      "archive_checksum_verified": false,
+      "archive_size_bytes": 30661381578,
+      "checksum_index_sha256": "2b740e83b74acca97045261c6ffbe1b38e4fd51a7f32719d0022837bfa334a01",
+      "checksum_index_url": "https://database.lichess.org/standard/sha256sums.txt",
+      "chronology_bias": true,
+      "content_range": "bytes 0-4194303/30661381578",
+      "etag": "\"697fa8ce-7238f8dca\"",
+      "last_modified": "Sun, 01 Feb 2026 19:26:06 GMT",
+      "month": "2026-01",
+      "prefix_bytes": 4194304,
+      "prefix_sha256": "c5ae94bfc7defe430bc685fca7ef19b9ed96f4e74290375dc7028a88321e4541",
+      "prefix_start": 0,
+      "published_archive_sha256": "53388f5c5be7eb2c3ce4d5071d7453a35ada6cea4f965bc6118cf1edb05e40e5",
+      "response_status": 206,
+      "retrieved_utc": "2026-10-25T07:04:51.312048+00:00",
+      "sampling": "sequential_prefix_smoke_only",
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-01.pgn.zst"
+    },
+    {
+      "archive_checksum_verified": false,
+      "archive_size_bytes": 27755967701,
+      "checksum_index_sha256": "2b740e83b74acca97045261c6ffbe1b38e4fd51a7f32719d0022837bfa334a01",
+      "checksum_index_url": "https://database.lichess.org/standard/sha256sums.txt",
+      "chronology_bias": true,
+      "content_range": "bytes 0-4194303/27755967701",
+      "etag": "\"69abaf96-6766274d5\"",
+      "last_modified": "Sat, 07 Mar 2026 04:54:46 GMT",
+      "month": "2026-02",
+      "prefix_bytes": 4194304,
+      "prefix_sha256": "8bab5121540ee4ff4bf76c6e135146ec2065a08610fccd995f15b4a9face3bd9",
+      "prefix_start": 0,
+      "published_archive_sha256": "feeffa53b5056b2776f8e2e6c638a83eaaa1d1ffbaa88f711299db6c2b156c01",
+      "response_status": 206,
+      "retrieved_utc": "2026-10-25T07:04:56.724064+00:00",
+      "sampling": "sequential_prefix_smoke_only",
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-02.pgn.zst"
+    },
+    {
+      "archive_checksum_verified": false,
+      "archive_size_bytes": 29351713061,
+      "checksum_index_sha256": "2b740e83b74acca97045261c6ffbe1b38e4fd51a7f32719d0022837bfa334a01",
+      "checksum_index_url": "https://database.lichess.org/standard/sha256sums.txt",
+      "chronology_bias": true,
+      "content_range": "bytes 0-4194303/29351713061",
+      "etag": "\"69cdcc33-6d57f9925\"",
+      "last_modified": "Thu, 02 Apr 2026 01:53:55 GMT",
+      "month": "2026-03",
+      "prefix_bytes": 4194304,
+      "prefix_sha256": "11b66c47b3344474711f075bb97281bf9d50d0ef0949ab8251ce7ad7b8e0c673",
+      "prefix_start": 0,
+      "published_archive_sha256": "d3adc2bcc58e85f4398ece2f7f8ea422c5ec5269a7d2921257bc31c5b914180f",
+      "response_status": 206,
+      "retrieved_utc": "2026-10-25T07:04:59.092891+00:00",
+      "sampling": "sequential_prefix_smoke_only",
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-03.pgn.zst"
+    },
+    {
+      "archive_checksum_verified": false,
+      "archive_size_bytes": 29325351334,
+      "checksum_index_sha256": "2b740e83b74acca97045261c6ffbe1b38e4fd51a7f32719d0022837bfa334a01",
+      "checksum_index_url": "https://database.lichess.org/standard/sha256sums.txt",
+      "chronology_bias": true,
+      "content_range": "bytes 0-4194303/29325351334",
+      "etag": "\"69f576b6-6d3ed59a6\"",
+      "last_modified": "Sat, 02 May 2026 03:59:50 GMT",
+      "month": "2026-04",
+      "prefix_bytes": 4194304,
+      "prefix_sha256": "58237e3d43f287f829aad728858759a2841d2469e10a2e1f7dd22d1df6d0284a",
+      "prefix_start": 0,
+      "published_archive_sha256": "a6dc976bda3e6f543929e9448420482f2fe827b09e16c1005ca9a6ef66e7336d",
+      "response_status": 206,
+      "retrieved_utc": "2026-10-25T07:05:03.463238+00:00",
+      "sampling": "sequential_prefix_smoke_only",
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-04.pgn.zst"
+    },
+    {
+      "archive_checksum_verified": false,
+      "archive_size_bytes": 29689176290,
+      "checksum_index_sha256": "2b740e83b74acca97045261c6ffbe1b38e4fd51a7f32719d0022837bfa334a01",
+      "checksum_index_url": "https://database.lichess.org/standard/sha256sums.txt",
+      "chronology_bias": true,
+      "content_range": "bytes 0-4194303/29689176290",
+      "etag": "\"6a20e71f-6e99ce0e2\"",
+      "last_modified": "Thu, 04 Jun 2026 02:46:55 GMT",
+      "month": "2026-05",
+      "prefix_bytes": 4194304,
+      "prefix_sha256": "d4e640dcacda76408ca0f7862da1080b42e54b5c69c6bf1a07ef8b12b4490cf0",
+      "prefix_start": 0,
+      "published_archive_sha256": "249b4c13e92442ba6694d7f0bdb5b4639047bf74caba1611722a132a012ab294",
+      "response_status": 206,
+      "retrieved_utc": "2026-10-25T07:05:07.763601+00:00",
+      "sampling": "sequential_prefix_smoke_only",
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-05.pgn.zst"
+    },
+    {
+      "archive_checksum_verified": false,
+      "archive_size_bytes": 28241946492,
+      "checksum_index_sha256": "2b740e83b74acca97045261c6ffbe1b38e4fd51a7f32719d0022837bfa334a01",
+      "checksum_index_url": "https://database.lichess.org/standard/sha256sums.txt",
+      "chronology_bias": true,
+      "content_range": "bytes 0-4194303/28241946492",
+      "etag": "\"6a4abce2-69359e77c\"",
+      "last_modified": "Sun, 05 Jul 2026 20:21:54 GMT",
+      "month": "2026-06",
+      "prefix_bytes": 4194304,
+      "prefix_sha256": "c43f0d0f8bee25836b68857e101c4a8e5a6711df7b02ffd36b98252466e51574",
+      "prefix_start": 0,
+      "published_archive_sha256": "8fd81071f56511e7546cb77e38db5cf32f7e8a437fb906e26959cc064d8b1f79",
+      "response_status": 206,
+      "retrieved_utc": "2026-10-25T07:05:11.131892+00:00",
+      "sampling": "sequential_prefix_smoke_only",
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-06.pgn.zst"
+    },
+    {
+      "archive_checksum_verified": false,
+      "archive_size_bytes": 29051046504,
+      "checksum_index_sha256": "2b740e83b74acca97045261c6ffbe1b38e4fd51a7f32719d0022837bfa334a01",
+      "checksum_index_url": "https://database.lichess.org/standard/sha256sums.txt",
+      "chronology_bias": true,
+      "content_range": "bytes 0-4194303/29051046504",
+      "etag": "\"6a6e60d0-6c393ca68\"",
+      "last_modified": "Sat, 01 Aug 2026 21:10:40 GMT",
+      "month": "2026-07",
+      "prefix_bytes": 4194304,
+      "prefix_sha256": "ccefea0ca9bd459ed6005ec2f2db19bac4d0da68f1020d271d19e979f54384b6",
+      "prefix_start": 0,
+      "published_archive_sha256": "68738b1c448f051dc8d42db645d5b01749988a3bc1c24981adfe44ea92060dc7",
+      "response_status": 206,
+      "retrieved_utc": "2026-10-25T07:05:13.634067+00:00",
+      "sampling": "sequential_prefix_smoke_only",
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-07.pgn.zst"
+    },
+    {
+      "archive_checksum_verified": false,
+      "archive_size_bytes": 30145862359,
+      "checksum_index_sha256": "2b740e83b74acca97045261c6ffbe1b38e4fd51a7f32719d0022837bfa334a01",
+      "checksum_index_url": "https://database.lichess.org/standard/sha256sums.txt",
+      "chronology_bias": true,
+      "content_range": "bytes 0-4194303/30145862359",
+      "etag": "\"6aa282bd-704d55ad7\"",
+      "last_modified": "Thu, 10 Sep 2026 10:13:17 GMT",
+      "month": "2026-08",
+      "prefix_bytes": 4194304,
+      "prefix_sha256": "83e32dd56b715a2f6ca448e8df41102ec32e028a56c96f3d0487048cff5ec273",
+      "prefix_start": 0,
+      "published_archive_sha256": "6bf6fa8a5dee7bb81d1874ac312160060daf12f18a29dc2740a3bf6f5e5e6248",
+      "response_status": 206,
+      "retrieved_utc": "2026-10-25T07:05:15.979829+00:00",
+      "sampling": "sequential_prefix_smoke_only",
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-08.pgn.zst"
+    },
+    {
+      "archive_checksum_verified": false,
+      "archive_size_bytes": 29224520887,
+      "checksum_index_sha256": "2b740e83b74acca97045261c6ffbe1b38e4fd51a7f32719d0022837bfa334a01",
+      "checksum_index_url": "https://database.lichess.org/standard/sha256sums.txt",
+      "chronology_bias": true,
+      "content_range": "bytes 0-4194303/29224520887",
+      "etag": "\"6ac08d73-6cdeaccb7\"",
+      "last_modified": "Sat, 03 Oct 2026 05:06:59 GMT",
+      "month": "2026-09",
+      "prefix_bytes": 4194304,
+      "prefix_sha256": "046857e9e9847fadb7b3b15b7f6ba52545c57d657dfb82c63ce18ed932733a53",
+      "prefix_start": 0,
+      "published_archive_sha256": "1de8eb64fed443f4be310c779e8d60a13bcfc6e3b104bcb39a018eb056edec89",
+      "response_status": 206,
+      "retrieved_utc": "2026-10-25T07:05:18.708308+00:00",
+      "sampling": "sequential_prefix_smoke_only",
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-09.pgn.zst"
+    }
+  ],
+  "stage": 100,
+  "versions": {
+    "chess": "1.11.2",
+    "flax": "0.12.0",
+    "jax": "0.7.2",
+    "jaxlib": "0.7.2",
+    "mctx": "0.0.6",
+    "optax": "0.2.6",
+    "pgx": "2.6.0",
+    "pyarrow": "20.0.0",
+    "zstandard": "0.23.0"
+  }
+}

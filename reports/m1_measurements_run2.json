@@ -1,0 +1,10 @@
+{
+  "elapsed_seconds": 63.679201249999096,
+  "accepted_games_per_second": 15.703714562531736,
+  "processed_games_per_second": 93.4685090761889,
+  "positions_per_second": 1181.7987431178883,
+  "peak_host_rss_bytes": 519389184,
+  "python": "3.11.15",
+  "output_bytes": 43766401,
+  "free_disk_bytes_before": 84133830656
+}

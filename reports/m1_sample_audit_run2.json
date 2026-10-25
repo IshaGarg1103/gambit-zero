@@ -1,0 +1,467 @@
+{
+  "status": "PASS",
+  "dataset_digest": "7ae6d8202b4079171ffd3ccab22611d598a06aec24b66ca49a3a2ed15ed6e428",
+  "all_rows_label_mask_metadata_checks": true,
+  "verified_games": 1000,
+  "stats": {
+    "positions": 75256,
+    "castling_moves": 1724,
+    "en_passant_moves": 41,
+    "repeated_positions": 339,
+    "value_masked_positions": 21661,
+    "promotion_q": 161,
+    "promotion_n": 1
+  },
+  "temporal_coverage": {
+    "2026-01": {
+      "first": "2026.01.01T00:00:00",
+      "last": "2026.01.01T00:00:34",
+      "distinct_utc_days": 1
+    },
+    "2026-02": {
+      "first": "2026.02.01T00:00:00",
+      "last": "2026.02.01T00:00:41",
+      "distinct_utc_days": 1
+    },
+    "2026-03": {
+      "first": "2026.03.01T00:00:00",
+      "last": "2026.03.01T00:00:26",
+      "distinct_utc_days": 1
+    },
+    "2026-04": {
+      "first": "2026.04.01T00:00:02",
+      "last": "2026.04.01T00:00:51",
+      "distinct_utc_days": 1
+    },
+    "2026-05": {
+      "first": "2026.05.01T00:00:01",
+      "last": "2026.05.01T00:01:01",
+      "distinct_utc_days": 1
+    },
+    "2026-06": {
+      "first": "2026.06.01T00:00:01",
+      "last": "2026.06.01T00:00:41",
+      "distinct_utc_days": 1
+    },
+    "2026-07": {
+      "first": "2026.07.01T00:00:01",
+      "last": "2026.07.01T00:00:53",
+      "distinct_utc_days": 1
+    },
+    "2026-08": {
+      "first": "2026.08.01T00:00:00",
+      "last": "2026.08.01T00:00:55",
+      "distinct_utc_days": 1
+    },
+    "2026-09": {
+      "first": "2026.09.01T00:00:02",
+      "last": "2026.09.01T00:00:46",
+      "distinct_utc_days": 1
+    }
+  },
+  "unique_position_overlap": {
+    "0": {
+      "validation": {
+        "unique": 10185,
+        "shared_with_train": 393
+      },
+      "test": {
+        "unique": 11174,
+        "shared_with_train": 371
+      }
+    },
+    "10": {
+      "validation": {
+        "unique": 9297,
+        "shared_with_train": 31
+      },
+      "test": {
+        "unique": 10327,
+        "shared_with_train": 45
+      }
+    }
+  },
+  "row_position_overlap": {
+    "validation_ply_ge_0": {
+      "rows": 10879,
+      "shared_rows": 992
+    },
+    "validation_ply_ge_10": {
+      "rows": 9382,
+      "shared_rows": 32
+    },
+    "test_ply_ge_0": {
+      "rows": 11877,
+      "shared_rows": 1010
+    },
+    "test_ply_ge_10": {
+      "rows": 10377,
+      "shared_rows": 48
+    }
+  },
+  "strict_disjoint_eval_rows": {
+    "validation": 9887,
+    "test": 10824
+  },
+  "strict_disjoint_eval_sha256": "3cc0d5715f8c3a5a37f8d8047cccb807f46ea9c0c20202915328cb3d8bc31b16",
+  "strict_disjoint_definition": "validation excludes train; test excludes train AND validation; does not collapse legitimate repeated human moves",
+  "top_openings": [
+    [
+      "A40",
+      51
+    ],
+    [
+      "B00",
+      49
+    ],
+    [
+      "D00",
+      42
+    ],
+    [
+      "B01",
+      31
+    ],
+    [
+      "A00",
+      29
+    ],
+    [
+      "C00",
+      22
+    ],
+    [
+      "D02",
+      21
+    ],
+    [
+      "B06",
+      20
+    ],
+    [
+      "B23",
+      20
+    ],
+    [
+      "A45",
+      19
+    ]
+  ],
+  "representative_records": [
+    {
+      "game_id": "mGJ1eas9",
+      "source_month": "2026-01",
+      "split": "train",
+      "ply": 12,
+      "human_move_uci": "e2e4",
+      "action": 2426,
+      "outcome_stm": 1,
+      "wdl_class": 0,
+      "value_weight": 1.0,
+      "policy_weight": 1.0,
+      "color": 0,
+      "fen": "rnbqk2r/pp2bppp/3p1n2/2pP4/8/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 2 7",
+      "repetition_count": 1,
+      "training_eligible": true,
+      "remaining_plies": 76,
+      "label_source": "human_game",
+      "game_metadata": {
+        "action_map_version": "pgx-2.6.0-chess-v2-uci-v1",
+        "actual_checkmate": false,
+        "archive_url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-01.pgn.zst",
+        "black_elo": 2109,
+        "eco": "E10",
+        "encoder_version": "pgx-v2-history8-ep-context8-v1",
+        "ending_semantics": "decisive_nonboard_unspecified",
+        "final_board_fen": "5k2/5b2/3p4/5N2/8/2b1KP1P/1P4P1/8 w - - 0 45",
+        "final_board_reason": "ongoing",
+        "game_id": "mGJ1eas9",
+        "label_source": "human_game",
+        "opening": "Indian Defense: Anti-Nimzo-Indian",
+        "outcome_white": 1,
+        "plies": 88,
+        "raw_pgn_sha256": "a766052154dc0f425ce2661ecd97137094a0725932752b290af0e04500d1b916",
+        "result": "1-0",
+        "rules_policy": "tinychess-auto-fide-pgx-v1",
+        "schema": "human_v3",
+        "source_month": "2026-01",
+        "source_ordinal": 3,
+        "split": "train",
+        "termination_header": "Normal",
+        "time_control": "180+2",
+        "trajectory_sha256": "8f48825e3a6f166642b9cf58273d4e6902880e7f1104cc5cc00dc95b2c6513d2",
+        "utc_date": "2026.01.01",
+        "utc_month_differs_from_source": false,
+        "utc_time": "00:00:08",
+        "value_weight": 1.0,
+        "white_elo": 2177
+      },
+      "position_hash": "dd6d553a06d1953e683c7a8290d2f5bfbffd4473d35bc067c13fc280174f5642",
+      "legal_action_indices": [
+        30,
+        89,
+        90,
+        673,
+        674,
+        1212,
+        1213,
+        1214,
+        1215,
+        1216,
+        1380,
+        1381,
+        1382,
+        1384,
+        1768,
+        1769,
+        1770,
+        1807,
+        1808,
+        1809,
+        2393,
+        2425,
+        2426,
+        3131,
+        3132,
+        3134,
+        3136,
+        3137,
+        3138,
+        3593,
+        3594,
+        4117,
+        4177,
+        4178
+      ],
+      "legal_mask_hex": "00000040000000000000000600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f0010000000000000000000000000000000000000070010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000070000008003000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000058070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000000000000600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "encoder": {
+        "planes_shape": [
+          8,
+          8,
+          120
+        ],
+        "planes_sha256": "6ae6dc0ca865937b1bc77e4e82c26e921bdc255ada6e379de3a1b1a305dd086d",
+        "context": [
+          0.0,
+          0.02734375,
+          0.013333333656191826,
+          0.0234375,
+          0.20000000298023224,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "game_id": "mGJ1eas9",
+      "source_month": "2026-01",
+      "split": "train",
+      "ply": 31,
+      "human_move_uci": "d7c5",
+      "action": 1893,
+      "outcome_stm": -1,
+      "wdl_class": 2,
+      "value_weight": 1.0,
+      "policy_weight": 1.0,
+      "color": 1,
+      "fen": "1rb2rk1/2qnbppp/3p1n2/3P4/1ppBP3/5N1P/1PB1NPP1/R2Q1RK1 b - - 1 16",
+      "repetition_count": 1,
+      "training_eligible": true,
+      "remaining_plies": 57,
+      "label_source": "human_game",
+      "game_metadata": {
+        "action_map_version": "pgx-2.6.0-chess-v2-uci-v1",
+        "actual_checkmate": false,
+        "archive_url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-01.pgn.zst",
+        "black_elo": 2109,
+        "eco": "E10",
+        "encoder_version": "pgx-v2-history8-ep-context8-v1",
+        "ending_semantics": "decisive_nonboard_unspecified",
+        "final_board_fen": "5k2/5b2/3p4/5N2/8/2b1KP1P/1P4P1/8 w - - 0 45",
+        "final_board_reason": "ongoing",
+        "game_id": "mGJ1eas9",
+        "label_source": "human_game",
+        "opening": "Indian Defense: Anti-Nimzo-Indian",
+        "outcome_white": 1,
+        "plies": 88,
+        "raw_pgn_sha256": "a766052154dc0f425ce2661ecd97137094a0725932752b290af0e04500d1b916",
+        "result": "1-0",
+        "rules_policy": "tinychess-auto-fide-pgx-v1",
+        "schema": "human_v3",
+        "source_month": "2026-01",
+        "source_ordinal": 3,
+        "split": "train",
+        "termination_header": "Normal",
+        "time_control": "180+2",
+        "trajectory_sha256": "8f48825e3a6f166642b9cf58273d4e6902880e7f1104cc5cc00dc95b2c6513d2",
+        "utc_date": "2026.01.01",
+        "utc_month_differs_from_source": false,
+        "utc_time": "00:00:08",
+        "value_weight": 1.0,
+        "white_elo": 2177
+      },
+      "position_hash": "685e9946622b680c7fa9d006640578807bf52ccd5e046ad32cd8298af5614c74",
+      "legal_action_indices": [
+        600,
+        601,
+        602,
+        613,
+        892,
+        1224,
+        1225,
+        1257,
+        1258,
+        1269,
+        1270,
+        1297,
+        1298,
+        1299,
+        1476,
+        1891,
+        1893,
+        1897,
+        2452,
+        2948,
+        2949,
+        3132,
+        3133,
+        3134,
+        3136,
+        3138,
+        3534,
+        3593,
+        3594,
+        4177,
+        4178
+      ],
+      "legal_mask_hex": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000720000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000300000006600000000e00000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000280200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000070050000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004000000000000000060000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "encoder": {
+        "planes_shape": [
+          8,
+          8,
+          120
+        ],
+        "planes_sha256": "594508e4dfc11b9d341f2fa3dfe72fdd5b9b51b13888649c897fa4eb72eaa71b",
+        "context": [
+          1.0,
+          0.0625,
+          0.006666666828095913,
+          0.060546875,
+          0.20000000298023224,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "game_id": "mGJ1eas9",
+      "source_month": "2026-01",
+      "split": "train",
+      "ply": 59,
+      "human_move_uci": "d7b5",
+      "action": 1881,
+      "outcome_stm": -1,
+      "wdl_class": 2,
+      "value_weight": 1.0,
+      "policy_weight": 1.0,
+      "color": 1,
+      "fen": "4rbk1/2qb1pp1/3p4/3P4/3BP2N/5Q1P/1P2pPP1/4R1K1 b - - 1 30",
+      "repetition_count": 1,
+      "training_eligible": true,
+      "remaining_plies": 29,
+      "label_source": "human_game",
+      "game_metadata": {
+        "action_map_version": "pgx-2.6.0-chess-v2-uci-v1",
+        "actual_checkmate": false,
+        "archive_url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-01.pgn.zst",
+        "black_elo": 2109,
+        "eco": "E10",
+        "encoder_version": "pgx-v2-history8-ep-context8-v1",
+        "ending_semantics": "decisive_nonboard_unspecified",
+        "final_board_fen": "5k2/5b2/3p4/5N2/8/2b1KP1P/1P4P1/8 w - - 0 45",
+        "final_board_reason": "ongoing",
+        "game_id": "mGJ1eas9",
+        "label_source": "human_game",
+        "opening": "Indian Defense: Anti-Nimzo-Indian",
+        "outcome_white": 1,
+        "plies": 88,
+        "raw_pgn_sha256": "a766052154dc0f425ce2661ecd97137094a0725932752b290af0e04500d1b916",
+        "result": "1-0",
+        "rules_policy": "tinychess-auto-fide-pgx-v1",
+        "schema": "human_v3",
+        "source_month": "2026-01",
+        "source_ordinal": 3,
+        "split": "train",
+        "termination_header": "Normal",
+        "time_control": "180+2",
+        "trajectory_sha256": "8f48825e3a6f166642b9cf58273d4e6902880e7f1104cc5cc00dc95b2c6513d2",
+        "utc_date": "2026.01.01",
+        "utc_month_differs_from_source": false,
+        "utc_time": "00:00:08",
+        "value_weight": 1.0,
+        "white_elo": 2177
+      },
+      "position_hash": "c25af2c13fedff0f885d202f627dcfd371d602c54b85a348b79516af92f8d0de",
+      "legal_action_indices": [
+        1256,
+        1257,
+        1258,
+        1259,
+        1260,
+        1261,
+        1262,
+        1269,
+        1270,
+        1284,
+        1297,
+        1298,
+        1299,
+        1868,
+        1869,
+        1870,
+        1871,
+        1872,
+        1880,
+        1881,
+        1882,
+        2352,
+        2353,
+        2354,
+        2355,
+        2362,
+        2363,
+        2364,
+        2365,
+        2977,
+        3009,
+        3010,
+        3534,
+        3548,
+        3593,
+        3594
+      ],
+      "legal_mask_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007f600010000e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f00107000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f3c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000006000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004000100000000000060000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "encoder": {
+        "planes_shape": [
+          8,
+          8,
+          120
+        ],
+        "planes_sha256": "04975a4a71fc3df0bb8b37c2d0fb8d8d6c33052bbf3ad17c2a4a786baab5c6db",
+        "context": [
+          1.0,
+          0.1171875,
+          0.006666666828095913,
+          0.115234375,
+          0.20000000298023224,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    }
+  ],
+  "frozen_eval_note": "No frozen puzzle/GPT match fixture manifest supplied; only configured fixtures can be excluded"
+}

@@ -1,0 +1,35 @@
+schema: human_v3
+seed: 20261025
+source:
+  url_template: https://database.lichess.org/standard/lichess_db_standard_rated_{month}.pgn.zst
+  checksum_url: https://database.lichess.org/standard/sha256sums.txt
+  compressed_prefix_bytes: 4194304
+  max_total_download_bytes: 41943040
+  cache: data/raw/m1_prefixes
+sampling:
+  method: sequential_prefix_smoke_only
+  chronology_bias: true
+  future_method: UTC-day-stratified bottom-k hash sampling during sequential decompression from a frame boundary
+months:
+  '2026-01': {split: train, smoke100: 10, smoke1000: 100}
+  '2026-02': {split: train, smoke100: 10, smoke1000: 100}
+  '2026-03': {split: train, smoke100: 10, smoke1000: 100}
+  '2026-04': {split: train, smoke100: 10, smoke1000: 100}
+  '2026-05': {split: train, smoke100: 10, smoke1000: 100}
+  '2026-06': {split: train, smoke100: 10, smoke1000: 100}
+  '2026-07': {split: train, smoke100: 10, smoke1000: 100}
+  '2026-08': {split: validation, smoke100: 15, smoke1000: 150}
+  '2026-09': {split: test, smoke100: 15, smoke1000: 150}
+filters:
+  min_rating: 1800
+  min_base_seconds: 180
+  max_plies: 512
+  reject_terminations: [Abandoned, Rules infraction, Aborted]
+  time_forfeit_value_weight: 0.0
+storage:
+  compression: zstd
+  output_budget_bytes: 1073741824
+  max_game_text_bytes: 1048576
+  max_line_chars: 65536
+  primary: materialized_position_parquet
+frozen_evaluation_fens: []

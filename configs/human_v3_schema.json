@@ -1,0 +1,33 @@
+{
+  "schema": "human_v3",
+  "label_source": "human_game",
+  "wdl_order": [
+    "win",
+    "draw",
+    "loss"
+  ],
+  "encoder": "pgx-v2-history8-ep-context8-v1",
+  "game_parquet_schema": "game_id: string\nmetadata: string\nactions: list<item: uint16>\n  child 0, item: uint16\n-- schema metadata --\nschema: 'human_v3'\nencoder: 'pgx-v2-history8-ep-context8-v1'\naction_map: 'pgx-2.6.0-chess-v2-uci-v1'\nrules: 'tinychess-auto-fide-pgx-v1'\nwdl_order: 'win,draw,loss'\nlegal_mask_bitorder: 'little'\nfeature_dtype: 'little_endian_float32'",
+  "position_parquet_schema": "game_id: string\nsource_month: string\nsplit: string\nply: uint16\nhuman_move_uci: string\naction: uint16\noutcome_stm: int8\nwdl_class: uint8\nvalue_weight: float\npolicy_weight: float\ncolor: uint8\nfen: string\nrepetition_count: uint8\nposition_hash: fixed_size_binary[32]\ntraining_eligible: bool\nremaining_plies: uint16\nlabel_source: string\nplanes: fixed_size_binary[30720]\ncontext: fixed_size_binary[32]\nlegal_mask: fixed_size_binary[584]\n-- schema metadata --\nschema: 'human_v3'\nencoder: 'pgx-v2-history8-ep-context8-v1'\naction_map: 'pgx-2.6.0-chess-v2-uci-v1'\nrules: 'tinychess-auto-fide-pgx-v1'\nwdl_order: 'win,draw,loss'\nlegal_mask_bitorder: 'little'\nfeature_dtype: 'little_endian_float32'",
+  "actions": "native Pgx uint16 index sequence in ply order",
+  "feature_bytes": {
+    "planes": 30720,
+    "context": 32,
+    "legal_mask": 584
+  },
+  "legal_mask": "4672 bits, little bit order, no padding",
+  "value_weight": "0 for time forfeit, 1 otherwise; independent of win/draw/loss label",
+  "policy_weight": 1.0,
+  "provenance": "Per-game JSON metadata joined on unique game_id",
+  "temporal_splits": {
+    "train": "source months 2026-01 through 2026-07",
+    "validation": "2026-08",
+    "test": "2026-09"
+  },
+  "horizon": "reject >512 plies and any replay truncation; never create a truncation draw",
+  "early_environment_end": "reject source continuations after genuine automatic board termination",
+  "full_legal_parity": "all accepted pre-move positions plus final board checked offline; mismatch aborts entire extraction",
+  "raw_annotations": "never use [%eval] as a label",
+  "storage_choice": "materialized_position_parquet primary for measured random access; retain compact_game_parquet for replay/provenance",
+  "storage_measurement_report": "reports/m1_storage_benchmark.json"
+}

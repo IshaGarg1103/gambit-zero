@@ -1,0 +1,47 @@
+{
+  "rules_policy": "tinychess-auto-fide-pgx-v1",
+  "devices": [
+    "TFRT_CPU_0"
+  ],
+  "mode": "independent resident initial-state steps with synchronized dispatch",
+  "memory_budget_bytes": 745095168,
+  "rows": [
+    {
+      "batch": 128,
+      "memory_budget_bytes": 745095168,
+      "status": "MEASURED",
+      "trace_seconds": 0.522115166999356,
+      "compile_seconds": 0.42392820900022343,
+      "warmup_seconds": 0.020195584000248346,
+      "repeats": 30,
+      "warm_seconds": 0.18006729099943186,
+      "steps_per_second": 21325.361084107804,
+      "compiled_buffer_bytes": 57263968,
+      "peak_device_bytes": null,
+      "device_memory_note": "CPU backend: device peak unavailable",
+      "peak_host_rss_bytes": 396558336
+    },
+    {
+      "batch": 1024,
+      "memory_budget_bytes": 745095168,
+      "status": "SKIPPED",
+      "reason": "conservative 1 MiB/state preflight exceeds 80% of memory budget",
+      "preflight_bytes": 1073741824
+    },
+    {
+      "batch": 4096,
+      "memory_budget_bytes": 745095168,
+      "status": "SKIPPED",
+      "reason": "conservative 1 MiB/state preflight exceeds 80% of memory budget",
+      "preflight_bytes": 4294967296
+    },
+    {
+      "batch": 8192,
+      "memory_budget_bytes": 745095168,
+      "status": "SKIPPED",
+      "reason": "conservative 1 MiB/state preflight exceeds 80% of memory budget",
+      "preflight_bytes": 8589934592
+    }
+  ],
+  "gpu_measured": false
+}

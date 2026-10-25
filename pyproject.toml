@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "tinychess"
 version = "0.4.0"
-description = "TinyChess research: M0 rules and systems gate"
+description = "Gambit Zero research: chess rules and bounded human-data pipeline"
 requires-python = ">=3.11,<3.14"
 dependencies = [
   "jax==0.7.2", "jaxlib==0.7.2", "flax==0.12.0", "optax==0.2.6",
@@ -13,6 +13,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+data = ["python-chess==1.999", "chess==1.11.2", "zstandard==0.23.0", "pyarrow==20.0.0", "pyyaml==6.0.3", "psutil==7.2.2"]
 test = ["python-chess==1.999", "chess==1.11.2", "pytest==8.4.1"]
 cuda = ["jax[cuda12]==0.7.2; sys_platform == 'linux'"]
 

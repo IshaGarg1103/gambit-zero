@@ -311,7 +311,7 @@ The 96 GB GPU may have enough *memory* for a 600M or 1B network; this does **not
 
 **Trunk:** non-causal board transformer written in **JAX/Flax**, initialized **from scratch**. Use Optax for optimization; document the selected Flax module style and pin compatible JAX/CUDA versions. Exact hidden size, number of layers, number of heads, and tokenizer/features will be chosen by a parameter-count calculator and validated with a profiler; don't label a configuration 25–50M, 100M or 600M until its actual parameter count is measured.
 
-**Policy head:** primary candidate is attention-style **from-square → to-square** logits with explicit treatment of promotions/underpromotions. Map its outputs into Pgx's **version-pinned action space** and mask invalid moves using **Pgx legal-action masks** before softmax. Test exact index-to-move round trips (castling orientation and promotions especially). Compare with the classical **8×8×73 action-plane head** as an ablation. The action mask is rule enforcement, not a source of move-quality labels.
+**Policy head (M1 contract):** the main head outputs **4,672 logits in Pgx native 8×8×73 action order**, pinned to our tested codec. Mask invalid moves with the corrected Pgx legal-action mask. Attention-style from-square → to-square policy is a **later ablation only**. Castling and all promotions retain the existing action semantics. The action mask enforces rules; it supplies no move-quality labels.
 
 **Value head:** output three **W/D/L logits** from the current-player perspective. Convert to a scalar when search needs a value:
 
@@ -739,3 +739,30 @@ a draw or an outcome-label source. Use
 it refuses ongoing/truncated states and missing decisive rewards. Future episode
 exporters must use this checked boundary before storing any final WDL labels.
 These conventions address the supplied review conditions without starting M1.
+
+## M1 local smoke status (25 October 2026)
+
+The local Dataset A pipeline reached the authorized 1,000-game stop gate:
+1,000 accepted games, 75,256 pre-move records, zero full legal/history/status/
+reward parity mismatches, and identical output hashes across two final runs.
+The 100-game gate and complete M0/data tests passed. No M1 branch, commit or push
+was created; no 50K extraction, M2 model or self-play/RL was started.
+
+See [M0 targeted hardening](reports/m0_followup.md),
+[the full M1 smoke report](reports/m1_smoke_test.md),
+[encoder contract](reports/encoder_contract.md) and
+[dataset configuration](configs/data_human.yaml).
+The sample spans all configured source months but only their first UTC minute;
+it is a correctness smoke, not a representative training/evaluation dataset.
+Materialized position Parquet was selected from measured access costs, while
+compact game-level actions are retained for replay/provenance. Raw prefixes and
+generated Parquet/indices remain ignored under `data/raw` and `data/processed`.
+
+```bash
+uv sync --locked --extra test --extra data
+.venv/bin/python -m pytest -q
+.venv/bin/python -m tinychess.data.build_human --stage 100 --output data/processed/new_smoke100
+```
+
+After reviewing the first gate, use the report's 1,000-game reproduction commands.
+Do not increase extraction beyond the smoke cap without review.
