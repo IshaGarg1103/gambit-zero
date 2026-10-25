@@ -1,1 +1,1 @@
-# tiny-chess
+# gambit-zero
