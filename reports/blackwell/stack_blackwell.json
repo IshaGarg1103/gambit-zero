@@ -1,0 +1,62 @@
+{
+  "python": "3.11.15",
+  "platform": "Linux-4.19.0-gvisor-x86_64-with-glibc2.41",
+  "machine": "x86_64",
+  "cpu": "",
+  "logical_cpu_count": 20,
+  "ram_bytes": 171798691840,
+  "free_disk_bytes": 9223372030920286208,
+  "devices": [
+    {
+      "platform": "gpu",
+      "kind": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+      "id": 0
+    }
+  ],
+  "device_memory": [
+    {
+      "num_allocs": 116,
+      "bytes_in_use": 277504,
+      "peak_bytes_in_use": 323584,
+      "largest_alloc_size": 98304,
+      "bytes_limit": 76481888256,
+      "bytes_reserved": 0,
+      "peak_bytes_reserved": 0,
+      "largest_free_block_bytes": 0,
+      "pool_bytes": 2097152,
+      "peak_pool_bytes": 2097152
+    }
+  ],
+  "packages": {
+    "jax": "0.7.2",
+    "jaxlib": "0.7.2",
+    "flax": "0.12.0",
+    "optax": "0.2.6",
+    "pgx": "2.6.0",
+    "mctx": "0.0.6",
+    "python-chess": "1.999",
+    "chess": "1.11.2",
+    "pytest": "8.4.1"
+  },
+  "pgx_chess_version": "v2",
+  "rules_policy": "tinychess-auto-fide-pgx-v1",
+  "action_codec": "pgx-2.6.0-chess-v2-uci-v1",
+  "api_signatures": {
+    "Env.init": "(key: Any) -> pgx.core.State",
+    "Env.step": "(state: pgx.core.State, action: Any, key: Optional[Any] = None) -> pgx.core.State",
+    "RootFnOutput": "(prior_logits: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number], value: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number], embedding: Any) -> None",
+    "RecurrentFnOutput": "(reward: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number], discount: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number], prior_logits: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number], value: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number]) -> None",
+    "muzero_policy": "(params: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, Iterable[ForwardRef('ArrayTree')], Mapping[Any, ForwardRef('ArrayTree')]], rng_key: jax.Array, root: mctx._src.base.RootFnOutput, recurrent_fn: Callable[[Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, Iterable[ForwardRef('ArrayTree')], Mapping[Any, ForwardRef('ArrayTree')]], jax.Array, Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number], Any], Tuple[mctx._src.base.RecurrentFnOutput, Any]], num_simulations: int, invalid_actions: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, NoneType] = None, max_depth: Optional[int] = None, loop_fn: Callable[[int, int, Callable[[Any, Any], Any], Tuple[jax.Array, mctx._src.tree.Tree]], Tuple[jax.Array, mctx._src.tree.Tree]] = <function fori_loop at 0x7fce08e700e0>, *, qtransform: Callable[[mctx._src.tree.Tree, Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number]], Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number]] = <function qtransform_by_parent_and_siblings at 0x7fce082f3f60>, dirichlet_fraction: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, float, int] = 0.25, dirichlet_alpha: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, float, int] = 0.3, pb_c_init: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, float, int] = 1.25, pb_c_base: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, float, int] = 19652, temperature: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, float, int] = 1.0) -> mctx._src.base.PolicyOutput[NoneType]",
+    "gumbel_muzero_policy": "(params: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, Iterable[ForwardRef('ArrayTree')], Mapping[Any, ForwardRef('ArrayTree')]], rng_key: jax.Array, root: mctx._src.base.RootFnOutput, recurrent_fn: Callable[[Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, Iterable[ForwardRef('ArrayTree')], Mapping[Any, ForwardRef('ArrayTree')]], jax.Array, Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number], Any], Tuple[mctx._src.base.RecurrentFnOutput, Any]], num_simulations: int, invalid_actions: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, NoneType] = None, max_depth: Optional[int] = None, loop_fn: Callable[[int, int, Callable[[Any, Any], Any], Tuple[jax.Array, mctx._src.tree.Tree]], Tuple[jax.Array, mctx._src.tree.Tree]] = <function fori_loop at 0x7fce08e700e0>, *, qtransform: Callable[[mctx._src.tree.Tree, Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number]], Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number]] = <function qtransform_completed_by_mix_value at 0x7fce08304040>, max_num_considered_actions: int = 16, gumbel_scale: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, float, int] = 1.0) -> mctx._src.base.PolicyOutput[mctx._src.action_selection.GumbelMuZeroExtraData]"
+  },
+  "source_sha256": {
+    "pgx.core": "d1ad233c86f0cc1a92842f5f2c9b6a7953bc0ad101f3951bcef626fcca42280a",
+    "pgx.chess": "66be1185e101d08520e7ae1671b9f2c328045634faa89689d640a4758b685ad9",
+    "pgx.experimental.chess": "aaf67a2bb6d7c9a9fba73c20d059031063308dbd25ef36a14e4d9fc11397cb6d",
+    "pgx._src.games.chess": "2770bf1ba2aae5d8cf6f2c8b4bab24f1e4f820d8aee2ed063b1891d7ae0f6323",
+    "mctx._src.policies": "d976279fea7c6493a3e54e755e275aea3c6a5ee5d28020d684562d6a22adcf5d"
+  },
+  "nvidia_smi": "Sat Oct 24 18:50:30 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 595.71.05              Driver Version: 595.71.05      CUDA Version: 13.2     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA RTX PRO 6000 Blac...    Off |   00000000:45:00.0 Off |                    0 |\n| N/A   29C    P0             78W /  600W |     595MiB /  97887MiB |      0%      Default |\n|                                         |                        |             Disabled |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|    0   N/A  N/A               1      C   python                                  586MiB |\n+-----------------------------------------------------------------------------------------+",
+  "nvcc": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2026 NVIDIA Corporation\nBuilt on Tue_Jun_09_02:43:40_PM_PDT_2026\nCuda compilation tools, release 13.3, V13.3.73\nBuild cuda_13.3.r13.3/compiler.38244171_0",
+  "compiler": "cc (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+}

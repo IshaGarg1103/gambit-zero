@@ -1,0 +1,48 @@
+{
+  "devices": [
+    "TFRT_CPU_0"
+  ],
+  "jax": "0.7.2",
+  "rules_policy": "tinychess-auto-fide-pgx-v1",
+  "mode": "resident_initial_position_independent_steps",
+  "includes": "step + legal mask + history + observation + host dispatch/synchronization",
+  "excludes": "init, action selection, network, search, trajectory resets",
+  "measurements": [
+    {
+      "batch": 1,
+      "trace_seconds": 0.4388047499960521,
+      "compile_seconds": 0.29975733299943386,
+      "warmup_seconds": 0.0012619170011021197,
+      "repeats": 200,
+      "elapsed_seconds": 0.03389966700342484,
+      "steps_per_second": 5899.762967577064
+    },
+    {
+      "batch": 8,
+      "trace_seconds": 0.5001354159976472,
+      "compile_seconds": 0.35454179200314684,
+      "warmup_seconds": 0.0026824579981621355,
+      "repeats": 200,
+      "elapsed_seconds": 0.11786087499785936,
+      "steps_per_second": 13575.327690627275
+    },
+    {
+      "batch": 32,
+      "trace_seconds": 0.41777975000150036,
+      "compile_seconds": 0.3858343749961932,
+      "warmup_seconds": 0.005879208001715597,
+      "repeats": 200,
+      "elapsed_seconds": 0.31608862500434043,
+      "steps_per_second": 20247.485969835572
+    },
+    {
+      "batch": 128,
+      "trace_seconds": 0.4732627080011298,
+      "compile_seconds": 0.6173207500032731,
+      "warmup_seconds": 0.03132341700256802,
+      "repeats": 200,
+      "elapsed_seconds": 1.29653345800034,
+      "steps_per_second": 19744.95902287258
+    }
+  ]
+}

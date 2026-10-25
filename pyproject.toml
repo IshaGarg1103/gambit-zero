@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tinychess"
+version = "0.4.0"
+description = "TinyChess research: M0 rules and systems gate"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "jax==0.7.2", "jaxlib==0.7.2", "flax==0.12.0", "optax==0.2.6",
+  "pgx==2.6.0", "mctx==0.0.6",
+]
+
+[project.optional-dependencies]
+test = ["python-chess==1.999", "chess==1.11.2", "pytest==8.4.1"]
+cuda = ["jax[cuda12]==0.7.2; sys_platform == 'linux'"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"

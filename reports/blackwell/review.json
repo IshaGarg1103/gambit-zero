@@ -1,0 +1,25 @@
+{
+  "review_date": "2026-10-25",
+  "archive_filename": "9842-83-zaeWcXbs.zip",
+  "archive_sha256": "98c6cbc6073b6fdc703665a8ec38a955503f208794a3f434a34364384f086553",
+  "evidence_sha256": {
+    "official_pgx_native_blackwell.before-import-fix.log": "961b8392558c7c87091131512b25a43122c5f0e56ff73a20f2ff7664311ea82e",
+    "official_pgx_native_blackwell.json": "c1cccadf1ed3c00e9fbbcb758c63abe06e2a9411649b5f80c0d5d9c98de8895e",
+    "official_pgx_native_blackwell.log": "1195163154b127057224c9b04512a2d68218fbf40ebf5fb8060cd6fb7e727450",
+    "official_pgx_wrapped_blackwell.json": "cd9e8c93c545e9fde8a9e36c07613b7cb205897762802b6f90aa9cf1013058d6",
+    "official_pgx_wrapped_blackwell.log": "88623d61eb8750de1b5da64fae60a37c813fbf49b306ccaa9be827e491f7d1c4",
+    "pgx_batching_blackwell.json": "75ffbf0369eed4c9f1b72709141684fc7f101de52ad5037d42b75853cb735aba",
+    "pgx_batching_blackwell.log": "e857a957649662f53db6c797429a4fcc134a7d9594f1dcd17f4e75c2b9ce4f6b",
+    "pytest_blackwell.txt": "e41f7b640eac2edfb73b89b506f4708a4dfe20043ec2b294975349fa7e7b0bc9",
+    "stack_blackwell.json": "8e6fb49bd000e09b8e4cc03950b76bb318c28808cb77bc5b67b1310b4fed95c7"
+  },
+  "gpu_validation": "passed",
+  "test_result": "69 passed in 324.12 seconds",
+  "core_versions_match_local": true,
+  "upstream_source_hashes_match_local": true,
+  "official_example_source_manifest_matches_local": true,
+  "official_unmodified_chess_cli": "expected unsupported chess_v0 baseline failure",
+  "official_bounded_runs": "native and wrapped passed",
+  "upstream_truncation_limitation": "confirmed: discount -1 instead of 0; do not reuse unchanged",
+  "overall_m0": "ready for policy review; no next milestone started"
+}

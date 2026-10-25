@@ -1,0 +1,51 @@
+{
+  "python": "3.11.15",
+  "platform": "macOS-26.6.1-arm64-arm-64bit",
+  "machine": "arm64",
+  "cpu": "arm",
+  "logical_cpu_count": 10,
+  "ram_bytes": 17179869184,
+  "free_disk_bytes": 81622622208,
+  "devices": [
+    {
+      "platform": "cpu",
+      "kind": "cpu",
+      "id": 0
+    }
+  ],
+  "device_memory": [
+    null
+  ],
+  "packages": {
+    "jax": "0.7.2",
+    "jaxlib": "0.7.2",
+    "flax": "0.12.0",
+    "optax": "0.2.6",
+    "pgx": "2.6.0",
+    "mctx": "0.0.6",
+    "python-chess": "1.999",
+    "chess": "1.11.2",
+    "pytest": "8.4.1"
+  },
+  "pgx_chess_version": "v2",
+  "rules_policy": "tinychess-auto-fide-pgx-v1",
+  "action_codec": "pgx-2.6.0-chess-v2-uci-v1",
+  "api_signatures": {
+    "Env.init": "(key: Any) -> pgx.core.State",
+    "Env.step": "(state: pgx.core.State, action: Any, key: Optional[Any] = None) -> pgx.core.State",
+    "RootFnOutput": "(prior_logits: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number], value: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number], embedding: Any) -> None",
+    "RecurrentFnOutput": "(reward: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number], discount: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number], prior_logits: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number], value: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number]) -> None",
+    "muzero_policy": "(params: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, Iterable[ForwardRef('ArrayTree')], Mapping[Any, ForwardRef('ArrayTree')]], rng_key: jax.Array, root: mctx._src.base.RootFnOutput, recurrent_fn: Callable[[Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, Iterable[ForwardRef('ArrayTree')], Mapping[Any, ForwardRef('ArrayTree')]], jax.Array, Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number], Any], Tuple[mctx._src.base.RecurrentFnOutput, Any]], num_simulations: int, invalid_actions: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, NoneType] = None, max_depth: Optional[int] = None, loop_fn: Callable[[int, int, Callable[[Any, Any], Any], Tuple[jax.Array, mctx._src.tree.Tree]], Tuple[jax.Array, mctx._src.tree.Tree]] = <function fori_loop at 0x10c2b8d60>, *, qtransform: Callable[[mctx._src.tree.Tree, Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number]], Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number]] = <function qtransform_by_parent_and_siblings at 0x10cbc9940>, dirichlet_fraction: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, float, int] = 0.25, dirichlet_alpha: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, float, int] = 0.3, pb_c_init: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, float, int] = 1.25, pb_c_base: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, float, int] = 19652, temperature: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, float, int] = 1.0) -> mctx._src.base.PolicyOutput[NoneType]",
+    "gumbel_muzero_policy": "(params: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, Iterable[ForwardRef('ArrayTree')], Mapping[Any, ForwardRef('ArrayTree')]], rng_key: jax.Array, root: mctx._src.base.RootFnOutput, recurrent_fn: Callable[[Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, Iterable[ForwardRef('ArrayTree')], Mapping[Any, ForwardRef('ArrayTree')]], jax.Array, Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number], Any], Tuple[mctx._src.base.RecurrentFnOutput, Any]], num_simulations: int, invalid_actions: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, NoneType] = None, max_depth: Optional[int] = None, loop_fn: Callable[[int, int, Callable[[Any, Any], Any], Tuple[jax.Array, mctx._src.tree.Tree]], Tuple[jax.Array, mctx._src.tree.Tree]] = <function fori_loop at 0x10c2b8d60>, *, qtransform: Callable[[mctx._src.tree.Tree, Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number]], Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number]] = <function qtransform_completed_by_mix_value at 0x10cbc99e0>, max_num_considered_actions: int = 16, gumbel_scale: Union[jax.Array, numpy.ndarray, numpy.bool, numpy.number, float, int] = 1.0) -> mctx._src.base.PolicyOutput[mctx._src.action_selection.GumbelMuZeroExtraData]"
+  },
+  "source_sha256": {
+    "pgx.core": "d1ad233c86f0cc1a92842f5f2c9b6a7953bc0ad101f3951bcef626fcca42280a",
+    "pgx.chess": "66be1185e101d08520e7ae1671b9f2c328045634faa89689d640a4758b685ad9",
+    "pgx.experimental.chess": "aaf67a2bb6d7c9a9fba73c20d059031063308dbd25ef36a14e4d9fc11397cb6d",
+    "pgx._src.games.chess": "2770bf1ba2aae5d8cf6f2c8b4bab24f1e4f820d8aee2ed063b1891d7ae0f6323",
+    "mctx._src.policies": "d976279fea7c6493a3e54e755e275aea3c6a5ee5d28020d684562d6a22adcf5d"
+  },
+  "nvidia_smi": "unavailable",
+  "nvcc": "unavailable",
+  "compiler": "Apple clang version 17.0.0 (clang-1700.0.13.5)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin"
+}

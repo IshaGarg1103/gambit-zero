@@ -1,0 +1,8 @@
+Unmodified official CLI return code: 1
+/Users/ishagarg/pytorch-practice/tiny-chess/benchmarks/official_pgx/.venv/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/Users/ishagarg/pytorch-practice/tiny-chess/benchmarks/official_pgx/.venv/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+env_id='chess' seed=0 max_num_iters=1 num_channels=8 num_layers=1 resnet_v2=True selfplay_batch_size=2 num_simulations=4 max_num_steps=4 training_batch_size=8 learning_rate=0.001 eval_interval=1
+{"status": "bounded_official_routines_passed", "backend": "wrapped", "parameter_count": 613042, "policy_loss": 8.230815887451172, "value_loss": 0.0, "valid_value_targets": 0}
+reports/official_pgx_wrapped_safepath_cpu.json
