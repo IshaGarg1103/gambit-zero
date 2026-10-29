@@ -105,3 +105,6 @@ htmlcov/
 !/reports/m1_blackwell_results_manifest.json
 !/reports/m1_blackwell_verification.json
 !/reports/m1_blackwell_verification_tests.txt
+
+# M2 Stage 0 final correctness/setup report; runtime evidence stays ignored.
+!/reports/m2_stage0.md
