@@ -1,0 +1,26 @@
+{
+  "benchmark_gate": "PASS",
+  "benchmark_sha256": "61fe794576415df0df1b92c23517144264f67be46974a7c684c615d4c141c297",
+  "dataset_modified": false,
+  "dataset_revision": "b7ddb96d8ce8cfe55298e01a7d928b0f763e1c4c",
+  "format": "m1-blackwell-followup-v1",
+  "m2_started": false,
+  "measured_batches": [
+    128,
+    1024,
+    4096,
+    8192
+  ],
+  "original_m1_acceptance": "Frozen original results retained; historical telemetry limits remain.",
+  "peak_device_memory_available": true,
+  "protected_sources_unchanged": true,
+  "regression": {
+    "passed": 264,
+    "seconds": 383.84,
+    "status": "PASS"
+  },
+  "scope": "Environment-only independent initial-position steps; no policy network, MCTS, replay, training or self-play.",
+  "skipped_batches": [],
+  "source_bundle_sha256": "fbc61324f5ae4660eb58f0ca64decf919798dc99470668c36ff2342e1beac0f6",
+  "supersedes_historical_gpu_deferral": true
+}

@@ -1,0 +1,26 @@
+{
+  "status": "COMPLETE",
+  "files": {
+    "reports/blackwell_followup/nvidia-smi.log": "bbb11ff5c30eaf6d23fa08361bc114c3ce6be135a00edde068947ddac585c4db",
+    "reports/blackwell_followup/uv-install.log": "0f092d9e15f7d5bb5385bef9b8ee2921c1a37242c7b4ba796dd6b9f607325663",
+    "reports/blackwell_followup/dependency-install.log": "792da84416e336eaffca6ea0080166a3dfdc5cec6e6a3b0c6ea71040e8bd7e8a",
+    "reports/blackwell_followup/stack.log": "c96930d96d39558d5e2190886bec5a1c523c3fe2bd16b49758d9866ae9e29a65",
+    "reports/blackwell_followup/stack.json": "475c36b9aa0185bfafa95e8dac34c36955fb86f0f0efe696d9092e714a5508aa",
+    "reports/blackwell_followup/host.log": "60355745888815cc9ebae107549be776caf77f9883639de27d4bbcb79407f885",
+    "reports/blackwell_followup/host.json": "e54f77352fbc8a6764d72c38f7a9a085816aa9d0277a81635b843962e64e5d1d",
+    "reports/blackwell_followup/batch-128.log": "bd11cf1394725e03e9fff793e9e4449e81ab2e657be6827e75783efbf5aae2ee",
+    "reports/blackwell_followup/batch-128.json": "41718b54928539315522d5c1bddb119547869f4005b712767ae18cf3f24150fd",
+    "reports/blackwell_followup/batch-1024.log": "bfbf6f99b86a5888a0e1dd26e5b207af195d05c246eed5db2c46b2bf901b5917",
+    "reports/blackwell_followup/batch-1024.json": "d6daec4e6cccd8d9bfdcf0294e57693c85e1edaad83bd41a5360b1ef5fa3de19",
+    "reports/blackwell_followup/batch-4096.log": "1c4f1aa53bf0273bb01766196f4d997b03ec73bfd0ac7d3e64a44ceaa797cc52",
+    "reports/blackwell_followup/batch-4096.json": "71ffc70a0d3d01645ceadf05de4204bd4d50e65522ba75a247fea8b8f2f34c64",
+    "reports/blackwell_followup/batch-8192.log": "8299f2db0f1133da651f319a3af2f9279f2ccf43fd0f01eddbc79c89b6a02407",
+    "reports/blackwell_followup/batch-8192.json": "c9b227ceeabacbdfb1533d1e4ab17c8a9faf96056999f8b403d43f46b56e36e1",
+    "reports/blackwell_followup/regression.log": "9c435258afa6b78df94a7d387c54113e948007e9ada43248f06a9dbdda5af022",
+    "reports/m0_large_batch_blackwell.json": "61fe794576415df0df1b92c23517144264f67be46974a7c684c615d4c141c297",
+    "reports/m1_blackwell_benchmark.md": "5d59a925d472e79e84284de42930666f8c6f6f788ed6856a023fa35f3fb43f3d",
+    "reports/m1_blackwell_acceptance.json": "4d37b5c54919da1320096d141e6c84e6d7748c84c829871c388815ab7a1d6c84",
+    "reports/m1_blackwell_tests.txt": "9c435258afa6b78df94a7d387c54113e948007e9ada43248f06a9dbdda5af022",
+    "BLACKWELL_BUNDLE.json": "ea958536a8edcbef9db5651f60caa4b86ffed6dc71e4e68c2bb4e2cacc1e6650"
+  }
+}

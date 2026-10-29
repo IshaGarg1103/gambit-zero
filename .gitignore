@@ -91,3 +91,17 @@ htmlcov/
 
 # Superseded checklist is recoverable from the evidence archive.
 /docs/m1_initial_checklist.md
+
+# M1 GPU follow-up: retain only final evidence, not worker logs/caches.
+.uv-python/
+!/reports/molab_m1_blackwell.md
+!/reports/m1_blackwell_benchmark.md
+!/reports/m1_blackwell_acceptance.json
+!/reports/m1_blackwell_tests.txt
+!/reports/m1_blackwell_local_tests.txt
+
+# Final verified Molab provenance; raw worker logs remain ignored.
+!/reports/m1_blackwell_source_manifest.json
+!/reports/m1_blackwell_results_manifest.json
+!/reports/m1_blackwell_verification.json
+!/reports/m1_blackwell_verification_tests.txt
