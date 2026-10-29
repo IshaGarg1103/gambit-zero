@@ -1,0 +1,221 @@
+{
+  "status": "PASS",
+  "max_depth": 8,
+  "prior": "uniform_legal",
+  "value": 0.0,
+  "gumbel_scale": 0.0,
+  "rows": [
+    {
+      "fixture": "mate_in_one",
+      "fen": "7k/8/5KQ1/8/8/8/8/8 w - - 0 1",
+      "algorithm": "puct",
+      "simulations": 64,
+      "winning_moves": [
+        "g6g7"
+      ],
+      "selected": "g6g7",
+      "found_mate": true,
+      "cold_seconds": 1.642593249998754,
+      "warm_seconds": 0.027470917000755435
+    },
+    {
+      "fixture": "mate_in_one",
+      "fen": "7k/8/5KQ1/8/8/8/8/8 w - - 0 1",
+      "algorithm": "puct",
+      "simulations": 128,
+      "winning_moves": [
+        "g6g7"
+      ],
+      "selected": "g6g7",
+      "found_mate": true,
+      "cold_seconds": 1.6510054999998829,
+      "warm_seconds": 0.05424154199863551
+    },
+    {
+      "fixture": "mate_in_one",
+      "fen": "7k/8/5KQ1/8/8/8/8/8 w - - 0 1",
+      "algorithm": "gumbel",
+      "simulations": 64,
+      "winning_moves": [
+        "g6g7"
+      ],
+      "selected": "g6g7",
+      "found_mate": true,
+      "cold_seconds": 1.4237344169996504,
+      "warm_seconds": 0.013559832999817445
+    },
+    {
+      "fixture": "mate_in_one",
+      "fen": "7k/8/5KQ1/8/8/8/8/8 w - - 0 1",
+      "algorithm": "gumbel",
+      "simulations": 128,
+      "winning_moves": [
+        "g6g7"
+      ],
+      "selected": "g6g7",
+      "found_mate": true,
+      "cold_seconds": 1.426587208001365,
+      "warm_seconds": 0.027564291998714907
+    },
+    {
+      "fixture": "mate_in_one",
+      "fen": "8/8/8/8/8/5kq1/8/7K b - - 0 1",
+      "algorithm": "puct",
+      "simulations": 64,
+      "winning_moves": [
+        "g3g2"
+      ],
+      "selected": "g3g2",
+      "found_mate": true,
+      "cold_seconds": 0.028260374998353655,
+      "warm_seconds": 0.026338124998801504
+    },
+    {
+      "fixture": "mate_in_one",
+      "fen": "8/8/8/8/8/5kq1/8/7K b - - 0 1",
+      "algorithm": "puct",
+      "simulations": 128,
+      "winning_moves": [
+        "g3g2"
+      ],
+      "selected": "g3g2",
+      "found_mate": true,
+      "cold_seconds": 0.05086933399979898,
+      "warm_seconds": 0.05031124999914027
+    },
+    {
+      "fixture": "mate_in_one",
+      "fen": "8/8/8/8/8/5kq1/8/7K b - - 0 1",
+      "algorithm": "gumbel",
+      "simulations": 64,
+      "winning_moves": [
+        "g3g2"
+      ],
+      "selected": "g3g2",
+      "found_mate": true,
+      "cold_seconds": 0.013646584000525763,
+      "warm_seconds": 0.013451083001200459
+    },
+    {
+      "fixture": "mate_in_one",
+      "fen": "8/8/8/8/8/5kq1/8/7K b - - 0 1",
+      "algorithm": "gumbel",
+      "simulations": 128,
+      "winning_moves": [
+        "g3g2"
+      ],
+      "selected": "g3g2",
+      "found_mate": true,
+      "cold_seconds": 0.027897166000911966,
+      "warm_seconds": 0.02759587500077032
+    },
+    {
+      "fixture": "mate_in_two",
+      "fen": "8/5Q2/8/8/8/1K6/8/3k4 w - - 0 1",
+      "algorithm": "puct",
+      "simulations": 64,
+      "winning_moves": [
+        "f7f2"
+      ],
+      "selected": "f7f5",
+      "found_mate": false,
+      "cold_seconds": 0.026359916999354027,
+      "warm_seconds": 0.024142500000380096
+    },
+    {
+      "fixture": "mate_in_two",
+      "fen": "8/5Q2/8/8/8/1K6/8/3k4 w - - 0 1",
+      "algorithm": "puct",
+      "simulations": 128,
+      "winning_moves": [
+        "f7f2"
+      ],
+      "selected": "f7e8",
+      "found_mate": false,
+      "cold_seconds": 0.0506193750006787,
+      "warm_seconds": 0.05554712500088499
+    },
+    {
+      "fixture": "mate_in_two",
+      "fen": "8/5Q2/8/8/8/1K6/8/3k4 w - - 0 1",
+      "algorithm": "gumbel",
+      "simulations": 64,
+      "winning_moves": [
+        "f7f2"
+      ],
+      "selected": "b3b2",
+      "found_mate": false,
+      "cold_seconds": 0.014452333000008366,
+      "warm_seconds": 0.013986416999614448
+    },
+    {
+      "fixture": "mate_in_two",
+      "fen": "8/5Q2/8/8/8/1K6/8/3k4 w - - 0 1",
+      "algorithm": "gumbel",
+      "simulations": 128,
+      "winning_moves": [
+        "f7f2"
+      ],
+      "selected": "b3b2",
+      "found_mate": false,
+      "cold_seconds": 0.03101608299948566,
+      "warm_seconds": 0.031448292000277434
+    },
+    {
+      "fixture": "mate_in_two",
+      "fen": "3K4/8/1k6/8/8/8/5q2/8 b - - 0 1",
+      "algorithm": "puct",
+      "simulations": 64,
+      "winning_moves": [
+        "f2f7"
+      ],
+      "selected": "f2f4",
+      "found_mate": false,
+      "cold_seconds": 0.025448291999055073,
+      "warm_seconds": 0.023707709000518662
+    },
+    {
+      "fixture": "mate_in_two",
+      "fen": "3K4/8/1k6/8/8/8/5q2/8 b - - 0 1",
+      "algorithm": "puct",
+      "simulations": 128,
+      "winning_moves": [
+        "f2f7"
+      ],
+      "selected": "f2e1",
+      "found_mate": false,
+      "cold_seconds": 0.051937666999947396,
+      "warm_seconds": 0.049150209000799805
+    },
+    {
+      "fixture": "mate_in_two",
+      "fen": "3K4/8/1k6/8/8/8/5q2/8 b - - 0 1",
+      "algorithm": "gumbel",
+      "simulations": 64,
+      "winning_moves": [
+        "f2f7"
+      ],
+      "selected": "b6b7",
+      "found_mate": false,
+      "cold_seconds": 0.0135288750007021,
+      "warm_seconds": 0.013344041000891593
+    },
+    {
+      "fixture": "mate_in_two",
+      "fen": "3K4/8/1k6/8/8/8/5q2/8 b - - 0 1",
+      "algorithm": "gumbel",
+      "simulations": 128,
+      "winning_moves": [
+        "f2f7"
+      ],
+      "selected": "b6b7",
+      "found_mate": false,
+      "cold_seconds": 0.029864083000575192,
+      "warm_seconds": 0.030077875000642962
+    }
+  ],
+  "devices": [
+    "TFRT_CPU_0"
+  ],
+  "mate_two_policy": "diagnostic only; finite-budget discovery is not guaranteed"
+}

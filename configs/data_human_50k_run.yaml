@@ -1,0 +1,75 @@
+# Original pre-exclusion pilot settings, made portable and disabled for checkout.
+# The immutable original runtime/config snapshot is backed up on Hugging Face.
+# The current accepted derivative and its revision are documented in README.md.
+schema: human_v3
+seed: 20261025
+execution_enabled: false
+resource_budget_verified: false
+require_external_power: true
+enforce_temporary_storage_caps: false
+source_manifest: reports/m1_sources_50k.json
+frozen_dataset_d_manifest: null
+frozen_dataset_d_sha256: null
+network_budget_bytes: 263446966206
+max_runtime_hours: 8
+cache: data/raw/m1_month_candidates
+destination:
+  mode: huggingface
+  config: configs/hf_dataset_run.yaml
+sampling:
+  algorithm: utc-day-rating-bottomk-sha256-v1
+  reserve_factor: 3
+  min_strong_fraction: 0.6
+  quota_shortfall: stop_without_redistribution
+  interrupted_month: restart_from_zero
+  verified_month: reuse_immutable_checkpoint
+months:
+  2026-01:
+    split: train
+    accepted_games: 5000
+  2026-02:
+    split: train
+    accepted_games: 5000
+  2026-03:
+    split: train
+    accepted_games: 5000
+  2026-04:
+    split: train
+    accepted_games: 5000
+  2026-05:
+    split: train
+    accepted_games: 5000
+  2026-06:
+    split: train
+    accepted_games: 5000
+  2026-07:
+    split: train
+    accepted_games: 5000
+  2026-08:
+    split: validation
+    accepted_games: 7500
+  2026-09:
+    split: test
+    accepted_games: 7500
+filters:
+  min_rating: 1800
+  min_base_seconds: 300
+  max_plies: 512
+  reject_terminations:
+  - Abandoned
+  - Rules infraction
+  - Aborted
+  time_forfeit_value_weight: 0.0
+storage:
+  candidate_cache_cap_bytes: 1073741824
+  candidate_payload_memory_cap_bytes: 134217728
+  max_compressed_frame_bytes: 8388608
+  max_decoded_frame_bytes: 67108864
+  final_build_count: 2
+  per_final_build_cap_bytes: 4294967296
+  other_temporary_cap_bytes: 134217728
+  metadata_cap_bytes: 134217728
+  free_disk_reserve_bytes: 21474836480
+dataset_d_policy: deferred
+session_months:
+- 2026-01

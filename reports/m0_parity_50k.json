@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "rules_policy": "tinychess-auto-fide-pgx-v1",
+  "seed": 20000,
+  "requested_random_positions": 50000,
+  "stats": {
+    "checked_positions": 50168,
+    "check_positions": 2770,
+    "threefold_positions": 12,
+    "100_halfmove_positions": 1071,
+    "150_halfmove_positions": 13,
+    "random_positions": 50000,
+    "completed_games": 131,
+    "truncated_games": 10
+  },
+  "unique_full_fens": 49874,
+  "trajectory_sha256": "ef15cd0b1e590b9fbceaf8eaccb9e94f308d08d0752538e5701ec40c17879372",
+  "elapsed_seconds": 23.418260000000373,
+  "mismatches": 0,
+  "devices": [
+    "TFRT_CPU_0"
+  ],
+  "limitations": "Sampled seeded games plus two constructed histories; not exhaustive legality or dead-position proof."
+}

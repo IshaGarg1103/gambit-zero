@@ -1,0 +1,46 @@
+{
+  "repo": "ishagarg1103/gambit-zero",
+  "revision": "d409fce8bd444c2d456ef4c343dbc9b5e25981eb",
+  "receipt": {
+    "bytes": 1093,
+    "path_in_repo": "audits/audit-c53fb1b3fa5fe85871cf47a0ed0338b7f89f3a35f98f6256cbb92e117069d5ec.json",
+    "revision": "b7ca7f9b993c9d6c7b9460220e30324a8d4dbe8d",
+    "sha256": "c53fb1b3fa5fe85871cf47a0ed0338b7f89f3a35f98f6256cbb92e117069d5ec",
+    "verification": "full cache-free streamed read-back at immutable revision"
+  },
+  "audit": {
+    "all_plies": {
+      "all_three_shared": 10405,
+      "test_rows": 569626,
+      "test_unique": 504064,
+      "train_rows": 2655000,
+      "train_test_shared": 23178,
+      "train_test_shared_percent_of_test": 4.59822562214322,
+      "train_unique": 2286117,
+      "train_validation_shared": 23589,
+      "train_validation_shared_percent_of_validation": 4.687630410676884,
+      "validation_rows": 569124,
+      "validation_unique": 503218
+    },
+    "dataset_d_status": "not_checked_deferred",
+    "equivalence": "SHA256(pieces, side to move, castling, legally capturable EP); clocks/history excluded",
+    "games_by_split": {
+      "test": 7500,
+      "train": 35000,
+      "validation": 7500
+    },
+    "ply_ge_10": {
+      "all_three_shared": 4054,
+      "test_rows": 494778,
+      "test_unique": 485844,
+      "train_rows": 2305654,
+      "train_test_shared": 12143,
+      "train_test_shared_percent_of_test": 2.499361935106742,
+      "train_unique": 2234036,
+      "train_validation_shared": 12665,
+      "train_validation_shared_percent_of_validation": 2.60992492730746,
+      "validation_rows": 494238,
+      "validation_unique": 485263
+    }
+  }
+}

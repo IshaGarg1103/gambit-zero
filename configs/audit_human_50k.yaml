@@ -1,0 +1,22 @@
+# Read-only replay of the original published pilot after local runtime cleanup.
+# This configuration cannot launch extraction or uploads.
+schema: human_v3
+dataset_d_policy: deferred
+source_manifest: reports/m1_sources_50k.json
+frozen_evaluation_fens: []
+months:
+  '2026-01': {split: train, accepted_games: 5000}
+  '2026-02': {split: train, accepted_games: 5000}
+  '2026-03': {split: train, accepted_games: 5000}
+  '2026-04': {split: train, accepted_games: 5000}
+  '2026-05': {split: train, accepted_games: 5000}
+  '2026-06': {split: train, accepted_games: 5000}
+  '2026-07': {split: train, accepted_games: 5000}
+  '2026-08': {split: validation, accepted_games: 7500}
+  '2026-09': {split: test, accepted_games: 7500}
+filters:
+  min_rating: 1800
+  min_base_seconds: 300
+  max_plies: 512
+  reject_terminations: [Abandoned, Rules infraction, Aborted]
+  time_forfeit_value_weight: 0.0

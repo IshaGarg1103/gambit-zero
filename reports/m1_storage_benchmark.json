@@ -1,0 +1,29 @@
+{
+  "games": 1000,
+  "positions": 75256,
+  "compact_game_bytes": 356717,
+  "materialized_position_bytes": 41310315,
+  "compact_bytes_per_position": 4.740047305198257,
+  "materialized_bytes_per_position": 548.9305171680663,
+  "game_metadata_and_actions_decode_seconds": 0.02055695899980492,
+  "sequential_replay_seconds": 13.639945708000596,
+  "replay_encoded_positions_per_second": 5517.324013676837,
+  "sequential_materialized_decode_seconds": 1.6685755830003473,
+  "materialized_positions_per_second": 45101.94249916957,
+  "random_minibatch_size": 64,
+  "random_seed": 20261025,
+  "distinct_games_in_minibatch": 61,
+  "random_replay_steps": 2784,
+  "random_materialized_seconds": 0.17505645800156344,
+  "random_compact_replay_seconds": 0.9087474580010166,
+  "random_access_includes": "warm filesystem; materialized row-group read+feature decode vs game replay+encode+equality check; small game/index tables preloaded",
+  "feature_stream_sha256": "cbd7f8a8cf9f4a0b52e673ade79000c4ac21d4a21c01f69c7da65981858b280e",
+  "all_features_equal": true,
+  "selected_primary": "materialized_position_parquet",
+  "archive_representation": "compact_game_parquet retained alongside materialized prototype",
+  "peak_host_rss_bytes": 1079164928,
+  "devices": [
+    "TFRT_CPU_0"
+  ],
+  "limitation": "CPU measurements on 1000 games; no GPU dataloader, network forward, cold disk or scaling extrapolation validation"
+}

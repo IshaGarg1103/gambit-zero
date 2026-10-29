@@ -2,6 +2,14 @@
 
 **Research and implementation plan — version 0.4 (24 October 2026)**  
 **Status:** Proposed experiment; no results or trained checkpoints are claimed.  
+**M1 Dataset A:** The completed CPU data pipeline contains **50,000 games and
+3,793,600 retained positions**, published on
+[Hugging Face](https://huggingface.co/datasets/ishagarg1103/gambit-zero) at immutable
+revision `b7ddb96d8ce8cfe55298e01a7d928b0f763e1c4c`.
+CPU correctness/publication checks pass; the separate large-batch Blackwell
+benchmark and final review retain the documented conditional M1 disposition.
+See [the final M1 report](reports/m1_50k_pilot.md). No M2 training has started.
+
 **Hardware:** 1 × NVIDIA RTX PRO 6000 Blackwell (96 GB VRAM), with CPU, RAM, local disk, and actual throughput to be measured.  
 **Main research model:** ~100M-parameter chess-specific policy–value transformer trained from scratch.  
 **Scaling ladder:** ~25–50M lower-capacity comparison; ~600M **gated scaling arm**; ~1B exploratory extension only after evidence at 600M.  
@@ -311,7 +319,7 @@ The 96 GB GPU may have enough *memory* for a 600M or 1B network; this does **not
 
 **Trunk:** non-causal board transformer written in **JAX/Flax**, initialized **from scratch**. Use Optax for optimization; document the selected Flax module style and pin compatible JAX/CUDA versions. Exact hidden size, number of layers, number of heads, and tokenizer/features will be chosen by a parameter-count calculator and validated with a profiler; don't label a configuration 25–50M, 100M or 600M until its actual parameter count is measured.
 
-**Policy head:** primary candidate is attention-style **from-square → to-square** logits with explicit treatment of promotions/underpromotions. Map its outputs into Pgx's **version-pinned action space** and mask invalid moves using **Pgx legal-action masks** before softmax. Test exact index-to-move round trips (castling orientation and promotions especially). Compare with the classical **8×8×73 action-plane head** as an ablation. The action mask is rule enforcement, not a source of move-quality labels.
+**Policy head (M1 contract):** the main head outputs **4,672 logits in Pgx native 8×8×73 action order**, pinned to our tested codec. Mask invalid moves with the corrected Pgx legal-action mask. Attention-style from-square → to-square policy is a **later ablation only**. Castling and all promotions retain the existing action semantics. The action mask enforces rules; it supplies no move-quality labels.
 
 **Value head:** output three **W/D/L logits** from the current-player perspective. Convert to a scalar when search needs a value:
 
@@ -692,7 +700,7 @@ python -m tinychess.eval.engine_anchors --checkpoint checkpoints/latest
 
 **Original pre-implementation plan status: v0.4 methodology specified; Pgx/mctx compatibility, chess correctness, compilation performance, benchmarks and trained checkpoints remain unverified/pending. All time boxes are planning estimates, not measured durations.**
 
-## M0 implementation status
+## M0 implementation status (historical milestone)
 
 The M0 adapter, action codec, differential tests, dummy mctx integration and
 batching benchmark are implemented. Native Pgx requires explicit corrections;
@@ -712,7 +720,7 @@ uv sync --locked --extra test
 Molab CUDA setup and every individual test command are in the M0 report.
 
 
-## GitHub handoff
+## M0 GitHub handoff (historical milestone)
 
 Repository: [IshaGarg1103/gambit-zero](https://github.com/IshaGarg1103/gambit-zero).
 The M0 implementation is prepared on `pgx-mctx-infrastructure`. Final checks and
@@ -739,3 +747,139 @@ a draw or an outcome-label source. Use
 it refuses ongoing/truncated states and missing decisive rewards. Future episode
 exporters must use this checked boundary before storing any final WDL labels.
 These conventions address the supplied review conditions without starting M1.
+
+## M1 local smoke status (25 October 2026)
+
+The local Dataset A pipeline reached the authorized 1,000-game stop gate:
+1,000 accepted games, 75,256 pre-move records, zero full legal/history/status/
+reward parity mismatches, and identical output hashes across two final runs.
+The 100-game gate and complete M0/data tests passed. No M1 branch, commit or push
+was created; no 50K extraction, M2 model or self-play/RL was started.
+
+See [M0 targeted hardening](reports/m0_followup.md),
+[the full M1 smoke report](reports/m1_smoke_test.md),
+[encoder contract](reports/encoder_contract.md) and
+[dataset configuration](configs/data_human.yaml).
+The sample spans all configured source months but only their first UTC minute;
+it is a correctness smoke, not a representative training/evaluation dataset.
+Materialized position Parquet was selected from measured access costs, while
+compact game-level actions are retained for replay/provenance. Raw prefixes and
+generated Parquet/indices remain ignored under `data/raw` and `data/processed`.
+
+```bash
+uv sync --locked --extra test --extra data
+.venv/bin/python -m pytest -q
+.venv/bin/python -m tinychess.data.build_human --stage 100 --output data/processed/new_smoke100
+```
+
+After reviewing the first gate, use the report's 1,000-game reproduction commands.
+Do not increase extraction beyond the smoke cap without review.
+
+## Incremental Hugging Face storage (M1 preparation)
+
+The new destination is the **public** dataset repository
+`ishagarg1103/gambit-zero`, following the owner's updated visibility preference.
+No full archive scan is enabled. See
+[HF integration and storage report](reports/m1_evidence_archive.md#reports-m1-hf-upload-md),
+[dataset card preview](reports/m1_evidence_archive.md#reports-m1-hf-dataset-card-md), and
+[HF configuration](configs/hf_dataset.yaml).
+
+The pipeline validates a complete month's sampled games and source checksum,
+then creates bounded Parquet shards, uploads each, streams it back to verify its
+SHA256/size at an immutable revision, and removes its local copy only after
+verification. Failures retain sealed local shards and stop further generation.
+A second feature build uses verified cloud selection inputs and compares shard
+hashes without keeping a second local dataset. The canonical encoder, rules,
+4672-action codec and exact chronological game quotas remain unchanged.
+
+Conservative new local planning budget: **2.5 GiB additional temporary/metadata
+space**, with **20 GiB kept free**. No full compressed/decompressed monthly archive
+or complete 50K feature dataset is retained on the Mac. Detailed component caps,
+recovery behavior, tests and the live-upload authentication status are in the
+report. A real HF upload must not be inferred from offline transport tests.
+
+```bash
+uv sync --locked --extra test --extra data
+.venv/bin/python -m pytest -q
+.venv/bin/python scripts/check_hf_upload.py --output reports/m1_hf_offline_smoke.json
+.venv/bin/python scripts/scan_m1_archives.py --output reports/m1_hf_storage_plan.json
+```
+
+For the small **synthetic-only** live upload, authenticate in your own terminal:
+
+```bash
+.venv/bin/hf auth login
+.venv/bin/hf auth whoami
+HF_HUB_DISABLE_XET=1 .venv/bin/python scripts/check_hf_upload.py --upload --output reports/m1_hf_live_smoke.json
+```
+
+Follow the CLI browser/token flow. If asked for a token, enter it only at the
+credential prompt. Do not put it in source, a command argument, a notebook, a
+report, or this chat. Git credential storage is not needed
+by this SDK workflow. The live smoke command does not scan Lichess or start M2.
+The authenticated live Hub smoke passed; its actual revision, byte counts and
+checksums are in the HF report. Real Dataset D, resource allowances and full 50K
+validation remain pending. No Git branch/commit/push/merge is performed by the agent.
+
+<!-- m1-current-status:start -->
+## Completed M1 Dataset A milestone — 29 October 2026
+
+The dated M0/1K/preparation notes above are historical. The real 50K Dataset A
+is generated, cloud-verified and independently reproduced: 35K/7.5K/7.5K games,
+3,793,600 retained positions after 150 exact evaluation-overlap exclusions,
+and zero recorded parity mismatches in the original full replay.
+The train/validation/test position counts are 2,654,850 / 569,124 / 569,626.
+
+Published dataset: [ishagarg1103/gambit-zero](https://huggingface.co/datasets/ishagarg1103/gambit-zero).
+Immutable revision: `b7ddb96d8ce8cfe55298e01a7d928b0f763e1c4c`.
+Use that revision for reproduction; data artifacts remain on Hugging Face.
+The full diagnostic index is published;
+Dataset D is frozen and its exclusions are verified.
+
+See [the current M1 acceptance report](reports/m1_50k_pilot.md),
+[machine-readable acceptance](reports/m1_final_acceptance.json), and
+[Dataset D protocol](reports/m1_dataset_d_protocol.md).
+The separate large-batch Blackwell benchmark is pending. No M2, model training,
+self-play or larger extraction has started. The source handoff is prepared for
+the user to commit/push to `m1/human-dataset`; `main` remains unchanged. CPU dataset checks PASS; overall M1
+acceptance retains the documented GPU deferral and historical telemetry limits.
+
+From the repository root, reproduce the offline regression and final publication
+checks without rescanning the monthly Lichess archives:
+
+```bash
+uv sync --locked --extra test --extra data
+.venv/bin/python -m pytest -q
+.venv/bin/python scripts/verify_m1_dataset_d_publication.py
+```
+
+The last command authenticates through the local Hugging Face login and reads
+the pinned publication; it does not generate training data. Archive-run templates
+are portable and disabled by default. New extraction needs a separate resource
+review. Raw PGNs, Parquet shards, caches, environments, credentials and checkpoints
+are excluded from the GitHub source handoff.
+<!-- m1-current-status:end -->
+
+## Recovering archived M1 execution evidence
+
+Intermediate reports and execution snapshots are preserved in a checksum-verified
+[immutable evidence archive](reports/m1_evidence_archive.md). Essential final
+results remain in this repository. The evidence branch is separate from the
+published dataset; the dataset revision above remains unchanged.
+
+```bash
+.venv/bin/python scripts/fetch_m1_evidence.py --verify
+TINYCHESS_EVIDENCE_OFFLINE=1 .venv/bin/python scripts/report_m1_pilot.py
+```
+
+The first command verifies all 199 original PR files, including their original
+source versions. It caches only the 632 KB archive under ignored
+`data/processed/m1_evidence/`. The second regenerates the final report without
+rescanning archives or downloading dataset shards. New local execution results
+take precedence over historical archive inputs; remove or relocate stale local
+snapshots when reproducing the frozen acceptance report. Original files can be
+exported with the command below:
+
+```bash
+.venv/bin/python scripts/fetch_m1_evidence.py --path reports/m1_50k_diagnostics.json --output data/processed/recovered/m1_50k_diagnostics.json
+```

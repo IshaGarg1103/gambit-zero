@@ -1,0 +1,13 @@
+repo_id: ishagarg1103/gambit-zero
+# User explicitly changed the initial private preference to public.
+private: false
+run_id: human-v3-pilot-20261025
+spool: data/processed/m1_hf_spool
+audit: data/processed/m1_hf_audit
+max_shard_bytes: 33554432
+max_games_per_shard: 128
+spool_cap_bytes: 268435456
+audit_cap_bytes: 1073741824
+metadata_allowance_bytes: 134217728
+free_disk_reserve_bytes: 21474836480
+full_scan_enabled: false
