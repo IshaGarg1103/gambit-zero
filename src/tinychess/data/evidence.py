@@ -88,6 +88,11 @@ class EvidenceStore:
             if local.stat().st_size > 8*2**20:
                 raise EvidenceError('Local evidence exceeds its read bound')
             return local.read_bytes()
+        return self.read_archived_bytes(key)
+
+    def read_archived_bytes(self, path):
+        """Recover the original bytes even when a modified local file exists."""
+        key = self.key(path)
         if self.manifest is None or key not in self.manifest['files']:
             raise FileNotFoundError(key)
         expected = self.manifest['files'][key]

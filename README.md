@@ -700,7 +700,7 @@ python -m tinychess.eval.engine_anchors --checkpoint checkpoints/latest
 
 **Original pre-implementation plan status: v0.4 methodology specified; Pgx/mctx compatibility, chess correctness, compilation performance, benchmarks and trained checkpoints remain unverified/pending. All time boxes are planning estimates, not measured durations.**
 
-## M0 implementation status
+## M0 implementation status (historical milestone)
 
 The M0 adapter, action codec, differential tests, dummy mctx integration and
 batching benchmark are implemented. Native Pgx requires explicit corrections;
@@ -720,7 +720,7 @@ uv sync --locked --extra test
 Molab CUDA setup and every individual test command are in the M0 report.
 
 
-## GitHub handoff
+## M0 GitHub handoff (historical milestone)
 
 Repository: [IshaGarg1103/gambit-zero](https://github.com/IshaGarg1103/gambit-zero).
 The M0 implementation is prepared on `pgx-mctx-infrastructure`. Final checks and
@@ -780,8 +780,8 @@ Do not increase extraction beyond the smoke cap without review.
 The new destination is the **public** dataset repository
 `ishagarg1103/gambit-zero`, following the owner's updated visibility preference.
 No full archive scan is enabled. See
-[HF integration and storage report](reports/m1_hf_upload.md),
-[dataset card preview](reports/m1_hf_dataset_card.md), and
+[HF integration and storage report](reports/m1_evidence_archive.md#reports-m1-hf-upload-md),
+[dataset card preview](reports/m1_evidence_archive.md#reports-m1-hf-dataset-card-md), and
 [HF configuration](configs/hf_dataset.yaml).
 
 The pipeline validates a complete month's sampled games and source checksum,
@@ -859,3 +859,27 @@ are portable and disabled by default. New extraction needs a separate resource
 review. Raw PGNs, Parquet shards, caches, environments, credentials and checkpoints
 are excluded from the GitHub source handoff.
 <!-- m1-current-status:end -->
+
+## Recovering archived M1 execution evidence
+
+Intermediate reports and execution snapshots are preserved in a checksum-verified
+[immutable evidence archive](reports/m1_evidence_archive.md). Essential final
+results remain in this repository. The evidence branch is separate from the
+published dataset; the dataset revision above remains unchanged.
+
+```bash
+.venv/bin/python scripts/fetch_m1_evidence.py --verify
+TINYCHESS_EVIDENCE_OFFLINE=1 .venv/bin/python scripts/report_m1_pilot.py
+```
+
+The first command verifies all 199 original PR files, including their original
+source versions. It caches only the 632 KB archive under ignored
+`data/processed/m1_evidence/`. The second regenerates the final report without
+rescanning archives or downloading dataset shards. New local execution results
+take precedence over historical archive inputs; remove or relocate stale local
+snapshots when reproducing the frozen acceptance report. Original files can be
+exported with the command below:
+
+```bash
+.venv/bin/python scripts/fetch_m1_evidence.py --path reports/m1_50k_diagnostics.json --output data/processed/recovered/m1_50k_diagnostics.json
+```

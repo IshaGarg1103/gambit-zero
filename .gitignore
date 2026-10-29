@@ -28,6 +28,12 @@ credentials.json
 
 # Generated datasets, model weights and local worker state stay outside Git.
 *.parquet
+*.pgn
+*.zip
+*.sqlite
+*.sqlite3
+*.sqlite-wal
+*.sqlite-shm
 *.pgn.zst
 *.csv.zst
 *.jsonl.zst
@@ -37,5 +43,51 @@ credentials.json
 /reports/*.plist
 /reports/*.lock
 /reports/m1_january_job.json
-# Historical draft is preserved as docs/m1_initial_checklist.md.
+# Historical draft is preserved in the immutable PR evidence archive.
 /Untitled
+
+# Generated execution evidence is archived, not added to source control.
+/reports/*
+!/reports/encoder_contract.md
+!/reports/m0_followup.md
+!/reports/m0_followup_tests.txt
+!/reports/m0_large_batch_cpu_final.json
+!/reports/m0_parity_10k.json
+!/reports/m0_parity_50k.json
+!/reports/m0_tactics.json
+!/reports/m1_50k_pilot.md
+!/reports/m1_archive_connection_recovery.md
+!/reports/m1_checklist_status.md
+!/reports/m1_closeout_tests.txt
+!/reports/m1_dataset_d_freeze.json
+!/reports/m1_dataset_d_protocol.md
+!/reports/m1_dataset_d_publication_verification.json
+!/reports/m1_evidence_archive.json
+!/reports/m1_evidence_archive.md
+!/reports/m1_final_acceptance.json
+!/reports/m1_final_split_audit.json
+!/reports/m1_smoke_test.md
+!/reports/m1_sources.json
+!/reports/m1_sources_50k.json
+!/reports/m1_storage_benchmark.json
+!/reports/m1_validation_summary.json
+!/reports/pgx_legal_buffer.patch
+!/reports/pgx_m1_pin.json
+!/reports/pgx_wrapper_diff.md
+!/reports/pr2_cleanup.md
+!/reports/pr2_cleanup_tests.txt
+!/reports/pr2_file_audit.tsv
+!/reports/blackwell/
+!/reports/m0_large_batch_blackwell.json
+
+# Disposable worker/editor state
+*.tmp
+*.partial
+*.log
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Superseded checklist is recoverable from the evidence archive.
+/docs/m1_initial_checklist.md

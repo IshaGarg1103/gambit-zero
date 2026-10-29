@@ -20,7 +20,7 @@ def main():
     store = EvidenceStore(ROOT, offline=args.offline)
     archive = store.archive()
     if args.path:
-        payload = store.read_bytes(args.path)
+        payload = store.read_archived_bytes(args.path)
         if args.output:
             output = args.output.resolve()
             if not output.is_relative_to(ROOT/'data/processed'):
@@ -34,6 +34,13 @@ def main():
         # locally, so verification is independent of the current source tree.
         import zipfile
         with zipfile.ZipFile(archive) as bundle:
+            original = json.loads(bundle.read('ARCHIVE_MANIFEST.json'))
+            original_files = {entry['path']: dict(bytes=entry['bytes'], sha256=entry['sha256'])
+                              for entry in original['files']}
+            if original_files != store.manifest['files']:
+                raise ValueError('External recovery index differs from the sealed original index')
+            if set(bundle.namelist()) != set(original_files) | {'ARCHIVE_MANIFEST.json'}:
+                raise ValueError('Unexpected or missing archive entries')
             for path, expected in store.manifest['files'].items():
                 info = bundle.getinfo(path)
                 if info.file_size != expected['bytes'] or info.file_size > 8*2**20:

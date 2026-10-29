@@ -7,10 +7,11 @@ import time
 
 from tinychess.data.archive_scan import DaySampler
 from tinychess.data.sources import game_blocks,open_text
+from tinychess.data.evidence import read_json_evidence
 
 
 def main():
-    frozen=json.loads(Path('reports/m1_50k_preflight.json').read_text())
+    frozen=read_json_evidence('reports/m1_50k_preflight.json')
     sizes={s['month']:s['archive_size_bytes'] for s in frozen['sources']}
     rows=[]
     for path in sorted(Path('data/raw/m1_prefixes').glob('*.pgn.zst.prefix')):

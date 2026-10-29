@@ -27,11 +27,12 @@ The first command can fetch the small public archive. Subsequent report generati
 and archived-input readers use that verified cache. Set `TINYCHESS_EVIDENCE_OFFLINE=1`
 to forbid network fallback. A missing or corrupted archive fails explicitly.
 
-## Files moved out of Git tracking
+## Files scheduled for removal from Git tracking
 
 These exact original filenames are resolved by the evidence reader. Per-file
 SHA256 hashes and byte sizes are in the linked index. The full classification
-of all original PR files is in `pr2_file_audit.tsv`.
+of all original PR files is in [pr2_file_audit.tsv](pr2_file_audit.tsv).
+These are local deletions pending the user's staging, commit and push.
 
 | Original path | Archive entry |
 |---|---|

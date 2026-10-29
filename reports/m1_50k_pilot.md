@@ -40,9 +40,9 @@ benchmark remains pending when no GPU session is available.
 Total: **35,000 train / 7,500 validation / 7,500 test games**;
 **2,655,000 / 569,124 / 569,626 position rows**, respectively.
 All 273 calendar days are represented.
-Exact accepted/strong counts per day: [coverage](m1_50k_coverage.json).
+Exact accepted/strong counts per day: [coverage](m1_evidence_archive.md#reports-m1-50k-coverage-json).
 Header and full-validation rejection counts per month:
-[rejections](m1_50k_rejections.json). Header rejection is the first failed filter,
+[rejections](m1_evidence_archive.md#reports-m1-50k-rejections-json). Header rejection is the first failed filter,
 not all possible reasons for rejecting the same game. Eligible but unselected
 candidates are not mislabeled as correctness failures.
 
@@ -151,7 +151,7 @@ and test may overlap each other; repeated unseen boards remain observations.
 Index rows identify source path, zero-based row offset, game, ply and board hash;
 they contain no feature tensors or invented labels. The original chronological
 dataset is unchanged. Receipts and distributions:
-[diagnostics](m1_50k_diagnostics.json).
+[diagnostics](m1_evidence_archive.md#reports-m1-50k-diagnostics-json).
 Published revision: `73960d7712d6fba5360a643bf09c8a46a60944e8`.
 The first-run raw summary's legacy `peak_working_disk_bytes` field denotes
 index size at completion, not a continuously sampled high-water measurement;
@@ -195,7 +195,7 @@ exact overlap set; openings contribute only their exact final roots, never
 entire related opening families. Puzzle repetition history is unknown.
 The suite is evaluation only and provides no Dataset A strategic targets.
 
-Physical exclusions and revised catalog: [verified results](m1_dataset_d_exclusions.json).
+Physical exclusions and revised catalog: [verified results](m1_evidence_archive.md#reports-m1-dataset-d-exclusions-json).
 Original matching rows: {'test': 24, 'train': 150, 'validation': 36}.
 Original matching unique boards: {'test': 6, 'train': 14, 'validation': 13}.
 Every exact matching **training** row was physically removed; held-out matches

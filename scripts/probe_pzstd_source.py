@@ -15,7 +15,8 @@ from tinychess.data.archive_scan import PZSTD_MAGIC
 
 
 def main(month,output):
-    frozen = json.loads(Path('reports/m1_50k_preflight.json').read_text())
+    from tinychess.data.evidence import read_json_evidence
+    frozen = read_json_evidence('reports/m1_50k_preflight.json')
     source = next(s for s in frozen['sources'] if s['month']==month)
     prefix_path = Path('data/raw/m1_prefixes')/f'{month}.pgn.zst.prefix'
     prefix = prefix_path.read_bytes()
