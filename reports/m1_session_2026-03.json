@@ -1,0 +1,741 @@
+{
+  "status": "MONTH_COMPLETE",
+  "started_utc": "2026-10-26T12:51:59.329503+00:00",
+  "dataset_d_status": "not_checked_deferred",
+  "full_target_games": 50000,
+  "phase": "One-month session finished; no next-month scan started",
+  "cleanup_completed": false,
+  "external_power_required": true,
+  "temporary_storage_caps_enforced": false,
+  "power": {
+    "required": true,
+    "external_connected": true,
+    "charging": false,
+    "percent": 100,
+    "remaining_minutes": 65535
+  },
+  "power_confirmed": true,
+  "updated_utc": "2026-10-26T14:29:34.660899+00:00",
+  "elapsed_seconds": 5855.293022916987,
+  "months": {
+    "2026-01": {
+      "split": "train",
+      "target_games": 5000,
+      "validated_games": 5000,
+      "cloud_reproduced_games": 5000,
+      "positions": 380274,
+      "source_verified": true,
+      "source_scan_measurements": {
+        "compressed_bytes": 30661381578,
+        "compressed_bytes_per_second": 5479278.924845711,
+        "elapsed_seconds": 5595.8789465829905,
+        "eligible_occurrences": 5795955,
+        "source_game_blocks": 94604722,
+        "source_games_per_second": 16906.1416272717
+      },
+      "header_rejections": {
+        "excluded_termination": 9266,
+        "invalid_result": 41065,
+        "invalid_time_control": 37463,
+        "not_rated": 529403,
+        "rating_below_minimum": 62203071,
+        "time_control_below_minimum": 25988499
+      },
+      "validation_rejections": {},
+      "coverage": {
+        "2026-01-01": {
+          "accepted": 162,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 98
+        },
+        "2026-01-02": {
+          "accepted": 162,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 98
+        },
+        "2026-01-03": {
+          "accepted": 162,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 98
+        },
+        "2026-01-04": {
+          "accepted": 162,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 98
+        },
+        "2026-01-05": {
+          "accepted": 162,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 98
+        },
+        "2026-01-06": {
+          "accepted": 162,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 98
+        },
+        "2026-01-07": {
+          "accepted": 162,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 98
+        },
+        "2026-01-08": {
+          "accepted": 162,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 98
+        },
+        "2026-01-09": {
+          "accepted": 162,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 98
+        },
+        "2026-01-10": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-11": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-12": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-13": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-14": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-15": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-16": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-17": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-18": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-19": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-20": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-21": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-22": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-23": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-24": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-25": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-26": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-27": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-28": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-29": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-30": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-01-31": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        }
+      },
+      "strong_games": 3016,
+      "parity_states": 385274,
+      "parity_mismatches": 0,
+      "source": {
+        "algorithm": "utc-day-rating-bottomk-sha256-v1",
+        "archive_size_bytes": 30661381578,
+        "month": "2026-01",
+        "published_sha256": "53388f5c5be7eb2c3ce4d5071d7453a35ada6cea4f965bc6118cf1edb05e40e5",
+        "quota": 5000,
+        "seed": 20261025,
+        "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-01.pgn.zst"
+      },
+      "shard_digest": "4928abcb463b75e88f146cbd678c155af3a4e08dca709d264e268b48bd04d19c",
+      "artifact_bytes": 208925958,
+      "manifest_receipt": {
+        "bytes": 46329,
+        "local_name": "human-v3-pilot-20261025-2026-01.complete.json",
+        "path_in_repo": "data/human-v3-pilot-20261025/manifests/2026-01.json",
+        "revision": "ade0cf0f5fc3eb5873b91ce279cbacc37c725bf1",
+        "sha256": "e8c5c28a97f50d98fa5a4ca0a55c75714c24d1aac54ffdeca6d9a168672b59ee",
+        "status": "verified",
+        "verification": "full cache-free streamed read-back at immutable revision",
+        "verified_utc": "2026-10-26T10:56:26.555557+00:00"
+      },
+      "scanner_status": {
+        "checkpoint_sha256": "31c859431f7614bb59a15e4eb8ed2230162c7717fd334cae6d8dc4f9d2a64e4e",
+        "status": "VERIFIED_CANDIDATES"
+      },
+      "construction_measurements": {
+        "accepted_games": 5000,
+        "accepted_games_per_second_including_upload": 4.430303061138889,
+        "candidate_validation_attempts": 5000,
+        "elapsed_seconds": 1128.5909634169948,
+        "parse_replay_parity_encode_seconds": 604.3983111240959,
+        "positions_per_second_including_upload": 336.94581325430596,
+        "pure_parser_seconds": null,
+        "pure_pgx_kernel_seconds": null,
+        "training_positions": 380274,
+        "upload_verify_seconds": 479.3674267030292,
+        "validation_elapsed_seconds": 372.0921003330004
+      }
+    },
+    "2026-02": {
+      "split": "train",
+      "target_games": 5000,
+      "validated_games": 5000,
+      "cloud_reproduced_games": 5000,
+      "positions": 381007,
+      "source_verified": true,
+      "source_scan_measurements": {
+        "compressed_bytes": 27755967701,
+        "compressed_bytes_per_second": 5790617.498293271,
+        "elapsed_seconds": 4793.2656075419945,
+        "eligible_occurrences": 5163488,
+        "source_game_blocks": 84600043,
+        "source_games_per_second": 17649.77156009997
+      },
+      "header_rejections": {
+        "excluded_termination": 7900,
+        "invalid_result": 46,
+        "invalid_time_control": 32092,
+        "not_rated": 465201,
+        "rating_below_minimum": 56017011,
+        "time_control_below_minimum": 22914305
+      },
+      "validation_rejections": {},
+      "coverage": {
+        "2026-02-01": {
+          "accepted": 179,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 108
+        },
+        "2026-02-02": {
+          "accepted": 179,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 108
+        },
+        "2026-02-03": {
+          "accepted": 179,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 108
+        },
+        "2026-02-04": {
+          "accepted": 179,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 108
+        },
+        "2026-02-05": {
+          "accepted": 179,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 108
+        },
+        "2026-02-06": {
+          "accepted": 179,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 108
+        },
+        "2026-02-07": {
+          "accepted": 179,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 108
+        },
+        "2026-02-08": {
+          "accepted": 179,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 108
+        },
+        "2026-02-09": {
+          "accepted": 179,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 108
+        },
+        "2026-02-10": {
+          "accepted": 179,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 108
+        },
+        "2026-02-11": {
+          "accepted": 179,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 108
+        },
+        "2026-02-12": {
+          "accepted": 179,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 108
+        },
+        "2026-02-13": {
+          "accepted": 179,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 108
+        },
+        "2026-02-14": {
+          "accepted": 179,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 108
+        },
+        "2026-02-15": {
+          "accepted": 179,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 108
+        },
+        "2026-02-16": {
+          "accepted": 179,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 108
+        },
+        "2026-02-17": {
+          "accepted": 178,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 107
+        },
+        "2026-02-18": {
+          "accepted": 178,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 107
+        },
+        "2026-02-19": {
+          "accepted": 178,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 107
+        },
+        "2026-02-20": {
+          "accepted": 178,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 107
+        },
+        "2026-02-21": {
+          "accepted": 178,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 107
+        },
+        "2026-02-22": {
+          "accepted": 178,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 107
+        },
+        "2026-02-23": {
+          "accepted": 178,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 107
+        },
+        "2026-02-24": {
+          "accepted": 178,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 107
+        },
+        "2026-02-25": {
+          "accepted": 178,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 107
+        },
+        "2026-02-26": {
+          "accepted": 178,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 107
+        },
+        "2026-02-27": {
+          "accepted": 178,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 107
+        },
+        "2026-02-28": {
+          "accepted": 178,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 107
+        }
+      },
+      "strong_games": 3012,
+      "parity_states": 386007,
+      "parity_mismatches": 0,
+      "source": {
+        "algorithm": "utc-day-rating-bottomk-sha256-v1",
+        "archive_size_bytes": 27755967701,
+        "month": "2026-02",
+        "published_sha256": "feeffa53b5056b2776f8e2e6c638a83eaaa1d1ffbaa88f711299db6c2b156c01",
+        "quota": 5000,
+        "seed": 20261025,
+        "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-02.pgn.zst"
+      },
+      "shard_digest": "a9f42f05787a9ddf33f4fcfdd827e5d0abb9a94c2523e5f18e3d957691c782b8",
+      "artifact_bytes": 209392167,
+      "manifest_receipt": {
+        "bytes": 45965,
+        "local_name": "human-v3-pilot-20261025-2026-02.complete.json",
+        "path_in_repo": "data/human-v3-pilot-20261025/manifests/2026-02.json",
+        "revision": "b601fa3870ff8a92f562195920fcfdc7aa29fefb",
+        "sha256": "873f5fd76c5c941bf938160bd1f7ac015ed0c5f023b81ae9476e3c79caad48ca",
+        "status": "verified",
+        "verification": "full cache-free streamed read-back at immutable revision",
+        "verified_utc": "2026-10-26T12:41:18.340341+00:00"
+      },
+      "scanner_status": {
+        "checkpoint_sha256": "f07bbb75ed84c4a3b5799e41ecd7be8d170f3ecb5bbd5d92e803ee6e04a9b42f",
+        "status": "VERIFIED_CANDIDATES"
+      },
+      "construction_measurements": {
+        "accepted_games": 5000,
+        "accepted_games_per_second_including_upload": 4.739853768367645,
+        "candidate_validation_attempts": 5000,
+        "elapsed_seconds": 1054.8848644590034,
+        "parse_replay_parity_encode_seconds": 483.97352531518845,
+        "positions_per_second_including_upload": 361.18349294489025,
+        "pure_parser_seconds": null,
+        "pure_pgx_kernel_seconds": null,
+        "training_positions": 381007,
+        "upload_verify_seconds": 522.9282415039925,
+        "validation_elapsed_seconds": 253.54234566699597
+      }
+    },
+    "2026-03": {
+      "split": "train",
+      "target_games": 5000,
+      "validated_games": 5000,
+      "cloud_reproduced_games": 5000,
+      "positions": 380484,
+      "source_verified": true,
+      "source_scan_measurements": {
+        "compressed_bytes": 29351713061,
+        "compressed_bytes_per_second": 6729392.338552658,
+        "elapsed_seconds": 4361.718203416996,
+        "eligible_occurrences": 5459967,
+        "source_game_blocks": 90074196,
+        "source_games_per_second": 20651.081018813948
+      },
+      "header_rejections": {
+        "excluded_termination": 8482,
+        "invalid_result": 31632,
+        "invalid_time_control": 34682,
+        "not_rated": 506106,
+        "rating_below_minimum": 59750693,
+        "time_control_below_minimum": 24282634
+      },
+      "validation_rejections": {},
+      "coverage": {
+        "2026-03-01": {
+          "accepted": 162,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 98
+        },
+        "2026-03-02": {
+          "accepted": 162,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 98
+        },
+        "2026-03-03": {
+          "accepted": 162,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 98
+        },
+        "2026-03-04": {
+          "accepted": 162,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 98
+        },
+        "2026-03-05": {
+          "accepted": 162,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 98
+        },
+        "2026-03-06": {
+          "accepted": 162,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 98
+        },
+        "2026-03-07": {
+          "accepted": 162,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 98
+        },
+        "2026-03-08": {
+          "accepted": 162,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 98
+        },
+        "2026-03-09": {
+          "accepted": 162,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 98
+        },
+        "2026-03-10": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-11": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-12": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-13": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-14": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-15": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-16": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-17": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-18": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-19": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-20": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-21": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-22": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-23": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-24": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-25": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-26": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-27": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-28": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-29": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-30": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        },
+        "2026-03-31": {
+          "accepted": 161,
+          "extra_strong_due_to_regular_shortage": 0,
+          "strong": 97
+        }
+      },
+      "strong_games": 3016,
+      "parity_states": 385484,
+      "parity_mismatches": 0,
+      "source": {
+        "algorithm": "utc-day-rating-bottomk-sha256-v1",
+        "archive_size_bytes": 29351713061,
+        "month": "2026-03",
+        "published_sha256": "d3adc2bcc58e85f4398ece2f7f8ea422c5ec5269a7d2921257bc31c5b914180f",
+        "quota": 5000,
+        "seed": 20261025,
+        "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-03.pgn.zst"
+      },
+      "shard_digest": "38c352f0173a8b5076331e4beba9a68a0fc3d26a7930b71509f160e152ae9a7e",
+      "artifact_bytes": 209125323,
+      "manifest_receipt": {
+        "bytes": 46329,
+        "local_name": "human-v3-pilot-20261025-2026-03.complete.json",
+        "path_in_repo": "data/human-v3-pilot-20261025/manifests/2026-03.json",
+        "revision": "322e2f871a7a9df41cff36ecbd2dde3b43a24a7e",
+        "sha256": "bc4484bc25b4593d520c82b68d4b37199c996a9f9a330f1368b3e7a9b9a69e6b",
+        "status": "verified",
+        "verification": "full cache-free streamed read-back at immutable revision",
+        "verified_utc": "2026-10-26T14:20:55.161882+00:00"
+      },
+      "scanner_status": {
+        "checkpoint_sha256": "552ca251519df64a7abb629b8908417187267353bdd6d86a4dc9487d298eaa78",
+        "status": "VERIFIED_CANDIDATES"
+      },
+      "construction_measurements": {
+        "accepted_games": 5000,
+        "accepted_games_per_second_including_upload": 5.145175193712518,
+        "candidate_validation_attempts": 5000,
+        "elapsed_seconds": 971.7842078749964,
+        "parse_replay_parity_encode_seconds": 481.93899096135283,
+        "positions_per_second_including_upload": 391.53136768090275,
+        "pure_parser_seconds": null,
+        "pure_pgx_kernel_seconds": null,
+        "training_positions": 380484,
+        "upload_verify_seconds": 443.76856070995564,
+        "validation_elapsed_seconds": 253.96993987499445
+      }
+    },
+    "2026-04": {
+      "split": "train",
+      "target_games": 5000,
+      "validated_games": 0,
+      "cloud_reproduced_games": 0,
+      "positions": 0,
+      "source_verified": false
+    },
+    "2026-05": {
+      "split": "train",
+      "target_games": 5000,
+      "validated_games": 0,
+      "cloud_reproduced_games": 0,
+      "positions": 0,
+      "source_verified": false
+    },
+    "2026-06": {
+      "split": "train",
+      "target_games": 5000,
+      "validated_games": 0,
+      "cloud_reproduced_games": 0,
+      "positions": 0,
+      "source_verified": false
+    },
+    "2026-07": {
+      "split": "train",
+      "target_games": 5000,
+      "validated_games": 0,
+      "cloud_reproduced_games": 0,
+      "positions": 0,
+      "source_verified": false
+    },
+    "2026-08": {
+      "split": "validation",
+      "target_games": 7500,
+      "validated_games": 0,
+      "cloud_reproduced_games": 0,
+      "positions": 0,
+      "source_verified": false
+    },
+    "2026-09": {
+      "split": "test",
+      "target_games": 7500,
+      "validated_games": 0,
+      "cloud_reproduced_games": 0,
+      "positions": 0,
+      "source_verified": false
+    }
+  },
+  "cloud_reproduced_games": 15000,
+  "training_positions": 1141765,
+  "free_disk_bytes": 79061917696,
+  "peak_process_rss_bytes": 780288000,
+  "cpu_user_seconds": 3635.093969,
+  "cpu_system_seconds": 262.012376,
+  "repo_url": "https://huggingface.co/datasets/ishagarg1103/gambit-zero",
+  "archive_payload_allowance_bytes": 263446966206,
+  "hub_payload_allowance_bytes": 17179869184,
+  "max_runtime_hours": 8,
+  "storage_budget_bytes": 2684354560,
+  "free_disk_reserve_bytes": 21474836480,
+  "session_months": [
+    "2026-03"
+  ],
+  "finished_utc": "2026-10-26T14:29:34.661008+00:00",
+  "final_revision": "74cd47d07e12ee4562515554456bc5b6433e8410"
+}

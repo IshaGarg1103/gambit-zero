@@ -1,0 +1,14 @@
+{
+  "status": "RUNNING",
+  "started_utc": "2026-10-25T17:13:43.072406+00:00",
+  "updated_utc": "2026-10-25T17:13:43.073199+00:00",
+  "external_power_required": false,
+  "temporary_storage_caps_enforced": false,
+  "power": {
+    "monitoring_enabled": false,
+    "required": false
+  },
+  "error": null,
+  "compressed_bytes": 32500126,
+  "game_blocks": 100000
+}

@@ -1,0 +1,190 @@
+{
+  "status": "PASS_SYNTHETIC_FIXTURE_ONLY",
+  "source_game_blocks": 868,
+  "selected_games": 310,
+  "days_covered": 31,
+  "coverage": {
+    "2026-01-01": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-02": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-03": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-04": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-05": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-06": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-07": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-08": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-09": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-10": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-11": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-12": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-13": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-14": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-15": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-16": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-17": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-18": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-19": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-20": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-21": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-22": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-23": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-24": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-25": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-26": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-27": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-28": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-29": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-30": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    },
+    "2026-01-31": {
+      "accepted": 10,
+      "strong": 6,
+      "extra_strong_due_to_regular_shortage": 0
+    }
+  },
+  "selected_strong_games": 186,
+  "replayed_premove_positions": 620,
+  "parity_states_including_final": 930,
+  "full_compressed_fixture_verified": true,
+  "fixture_compressed_bytes": 15376,
+  "fixture_decoded_bytes": 176080,
+  "selection_digest": "4b87366ec6d5aafd2269cb9483dded812201bcaad5f70c9d57e2a3160cd670ef",
+  "selected_ids_sha256": "811d03faf36f67743958d85f11a150b0f608193b6965687705bea7bd9205686e",
+  "checkpoint_reuse_identical": true,
+  "fixture_transport_opens": 1,
+  "real_network_bytes": 0,
+  "candidate_cache_bytes": 449182,
+  "raw_archive_files_written": 0,
+  "decoded_archive_files_written": 0,
+  "full_real_archives_verified": 0,
+  "rejections": {},
+  "wdl_class_counts": {
+    "1": 184,
+    "0": 218,
+    "2": 218
+  },
+  "value_weight_counts": {
+    "1.0": 498,
+    "0.0": 122
+  },
+  "elapsed_seconds": 5.116441667001709,
+  "temporary_fixture_cache_removed_on_exit": true
+}

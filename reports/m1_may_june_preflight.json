@@ -1,0 +1,78 @@
+{
+  "status": "APPROVED_READY_NOT_STARTED",
+  "checked_utc": "2026-10-27T05:45:50.763118+00:00",
+  "months": [
+    "2026-05",
+    "2026-06"
+  ],
+  "source_bytes": {
+    "2026-05": 29689176290,
+    "2026-06": 28241946492
+  },
+  "additional_allowance_bytes": 57931122782,
+  "proposed_total_allowance_bytes": 328332444346,
+  "previous_reserved_attempt_bytes": 270401321564,
+  "free_disk_bytes": 84592496640,
+  "available_memory_bytes": 4728586240,
+  "notes": [
+    "One pass each for May and June, sequentially. No automatic retries.",
+    "Transfer reservation is not measured historical usage. Whole archives are streamed, not stored.",
+    "Charger required, output-cap waiver retained, 20 GiB free-space reserve and 8-hour per-month runtime limit remain."
+  ],
+  "approved_utc": "2026-10-27T05:46:36.501620+00:00",
+  "approval": "User approved May and June additional transfer allowance and requested commands",
+  "resource_preflights": {
+    "2026-05": {
+      "mode": "PLAN_ONLY_NO_NETWORK",
+      "total_archive_payload_bytes": 263446966206,
+      "session_months": [
+        "2026-05"
+      ],
+      "session_archive_payload_bytes": 29689176290,
+      "free_disk_bytes": 84023848960,
+      "available_memory_bytes": 4822663168,
+      "peak_additional_disk_budget_bytes": 2684354560,
+      "free_disk_reserve_bytes": 21474836480,
+      "minimum_free_disk_required_bytes": 24159191040,
+      "storage_gate_passed": true,
+      "memory_planning_gate_passed": true,
+      "minimum_available_memory_for_planning_bytes": 2147483648,
+      "full_archive_cache_bytes": 0,
+      "decompressed_archive_disk_bytes": 0,
+      "network_budget_allocated": true,
+      "runtime_budget_allocated": true,
+      "persistent_host_confirmed": false,
+      "dataset_d_frozen": false,
+      "execution_enabled": true,
+      "destination": "huggingface",
+      "complete_local_dataset_required": false,
+      "note": "Conservative component caps, not measured 50K output. HF mode uploads/verifies/removes each shard and reproduces from cloud selection without a second local dataset."
+    },
+    "2026-06": {
+      "mode": "PLAN_ONLY_NO_NETWORK",
+      "total_archive_payload_bytes": 263446966206,
+      "session_months": [
+        "2026-06"
+      ],
+      "session_archive_payload_bytes": 28241946492,
+      "free_disk_bytes": 84023799808,
+      "available_memory_bytes": 4823465984,
+      "peak_additional_disk_budget_bytes": 2684354560,
+      "free_disk_reserve_bytes": 21474836480,
+      "minimum_free_disk_required_bytes": 24159191040,
+      "storage_gate_passed": true,
+      "memory_planning_gate_passed": true,
+      "minimum_available_memory_for_planning_bytes": 2147483648,
+      "full_archive_cache_bytes": 0,
+      "decompressed_archive_disk_bytes": 0,
+      "network_budget_allocated": true,
+      "runtime_budget_allocated": true,
+      "persistent_host_confirmed": false,
+      "dataset_d_frozen": false,
+      "execution_enabled": true,
+      "destination": "huggingface",
+      "complete_local_dataset_required": false,
+      "note": "Conservative component caps, not measured 50K output. HF mode uploads/verifies/removes each shard and reproduces from cloud selection without a second local dataset."
+    }
+  }
+}

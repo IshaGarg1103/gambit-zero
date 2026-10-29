@@ -1,0 +1,28 @@
+{
+  "status": "LOCAL_AND_LIVE_HF_SMOKE_VERIFIED",
+  "core_snapshot_files_checked": 16,
+  "core_snapshot_mismatches": [],
+  "hf_authenticated": true,
+  "full_archive_scan_started": false,
+  "sha256": {
+    "src/tinychess/data/hf_upload.py": "74621a8b4e302a413c28afd0a8d5d361caf7c2cb404be1ce054622f782030978",
+    "src/tinychess/data/hf_shards.py": "e7f8394f448a1c02d4c0dae17f64efc8f2960c18ac00f3c2aae384cc88a365e3",
+    "src/tinychess/data/hf_audit.py": "1b3ff38be5b3a4483967e1164070ccf04deb0f8ad7bf00dcc211b115be24bea2",
+    "src/tinychess/data/hf_month.py": "c00757dd1a49148378a8441884a80700c6744959fc097d16844880acaee3300d",
+    "src/tinychess/data/hf_destination.py": "e3573c21cbb2f6043f67a8dffdfbb4cbc15432fecdb35ecb53f9986f0aa0a676",
+    "src/tinychess/data/hf_card.py": "829d111ec85c75cce3a0c0a12400fcad39feb7e9fb153794ca982804eb752122",
+    "scripts/check_hf_upload.py": "f793e869e400285013b080d0cef39cf1a3bc48be46bb672bd24e2f38c0d887cb",
+    "scripts/scan_m1_archives.py": "f17dfe8eeb9e6555619a393dee7b27a18aef3c9681fc802b83f16791097d5cab",
+    "tests/test_hf_upload.py": "8f63a7de9429d3762b0f868f5d853b8ea995e28c02b400b912a22601873fd235",
+    "tests/test_archive_scan.py": "0b48c93635c42e0ed0a88faf8d609941adf32c20ed24959b06caf2ac39863c77",
+    "configs/hf_dataset.yaml": "17856d1d740482819aedb711eb4102faa544ff7bda99733aa2411065efcb355a",
+    "configs/data_human_50k_stream.yaml": "95e81180ac07eb176fca7abc60fcc6d231b2f71ee594d7b38fc8033f3e7a9b11",
+    "pyproject.toml": "e14bb13a769affe75eb01aaa569fc8326661b767ccaf255275b8e6398db12c85",
+    "uv.lock": "9485b50f546896a0cd857b8a80566b4fb048fd881ddfe713266a12bd8de5cb08",
+    "requirements-lock.txt": "afa520b63a4993eeab3a0dd484dc9c880d161fd5557a081def29ee4e7314c83f",
+    "requirements-cuda-lock.txt": "ac1f9819a153b55eb6a8e5ab08b0f0c5b1dfb2f7718fee1b9a4f28e7a7d1a02f",
+    "README.md": "cf3202adc522ec371fd773b494759bac12cdf1782554f9c852475085bdf91531",
+    ".gitignore": "3354ab2832125293eca3e6c15b4dd7f3d878b49d8c4f7d7c7bd6dab7bbacbb95"
+  },
+  "live_hf_revision": "0f1fbee6e8c820d60bc77c322bf0efb9fd95baa6"
+}

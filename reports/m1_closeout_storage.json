@@ -1,0 +1,10 @@
+{
+  "background_upload_retry_scheduled": false,
+  "checked_utc": "2026-10-29T07:05:30.037307+00:00",
+  "free_disk_bytes": 84911005696,
+  "managed_data_bytes": 0,
+  "managed_data_files": [],
+  "temporary_audit_directories": [],
+  "unverified_shard_retained_for_recovery": false,
+  "verified_dataset_revision": "b7ddb96d8ce8cfe55298e01a7d928b0f763e1c4c"
+}

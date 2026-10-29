@@ -1,0 +1,103 @@
+{
+  "2026-01": {
+    "full_validation": {},
+    "header": {
+      "excluded_termination": 9266,
+      "invalid_result": 41065,
+      "invalid_time_control": 37463,
+      "not_rated": 529403,
+      "rating_below_minimum": 62203071,
+      "time_control_below_minimum": 25988499
+    }
+  },
+  "2026-02": {
+    "full_validation": {},
+    "header": {
+      "excluded_termination": 7900,
+      "invalid_result": 46,
+      "invalid_time_control": 32092,
+      "not_rated": 465201,
+      "rating_below_minimum": 56017011,
+      "time_control_below_minimum": 22914305
+    }
+  },
+  "2026-03": {
+    "full_validation": {},
+    "header": {
+      "excluded_termination": 8482,
+      "invalid_result": 31632,
+      "invalid_time_control": 34682,
+      "not_rated": 506106,
+      "rating_below_minimum": 59750693,
+      "time_control_below_minimum": 24282634
+    }
+  },
+  "2026-04": {
+    "full_validation": {},
+    "header": {
+      "excluded_termination": 8474,
+      "invalid_result": 30887,
+      "invalid_time_control": 32651,
+      "not_rated": 480540,
+      "rating_below_minimum": 59660328,
+      "time_control_below_minimum": 24274029
+    }
+  },
+  "2026-05": {
+    "full_validation": {},
+    "header": {
+      "excluded_termination": 8981,
+      "invalid_result": 1257,
+      "invalid_time_control": 33674,
+      "not_rated": 468713,
+      "rating_below_minimum": 60525030,
+      "time_control_below_minimum": 24329038
+    }
+  },
+  "2026-06": {
+    "full_validation": {},
+    "header": {
+      "excluded_termination": 8629,
+      "invalid_result": 319,
+      "invalid_time_control": 31996,
+      "not_rated": 412055,
+      "rating_below_minimum": 57542968,
+      "time_control_below_minimum": 23182150
+    }
+  },
+  "2026-07": {
+    "full_validation": {},
+    "header": {
+      "excluded_termination": 7991,
+      "invalid_result": 35059,
+      "invalid_time_control": 33011,
+      "not_rated": 430315,
+      "rating_below_minimum": 59132326,
+      "time_control_below_minimum": 24095048
+    }
+  },
+  "2026-08": {
+    "full_validation": {},
+    "header": {
+      "excluded_termination": 8664,
+      "invalid_result": 537,
+      "invalid_time_control": 34600,
+      "not_rated": 450539,
+      "rating_below_minimum": 60800996,
+      "time_control_below_minimum": 24872446
+    }
+  },
+  "2026-09": {
+    "full_validation": {
+      "empty_game": 1
+    },
+    "header": {
+      "excluded_termination": 8178,
+      "invalid_result": 14563,
+      "invalid_time_control": 34859,
+      "not_rated": 421322,
+      "rating_below_minimum": 59662635,
+      "time_control_below_minimum": 23948790
+    }
+  }
+}

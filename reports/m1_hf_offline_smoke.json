@@ -1,0 +1,42 @@
+{
+  "status": "PASS_OFFLINE_TRANSPORT_ONLY",
+  "repo_url": null,
+  "configured_repo_url": "https://huggingface.co/datasets/ishagarg1103/gambit-zero",
+  "visibility": "public",
+  "revision": null,
+  "offline_fixture_revision": "000000000000000000000000000000000000000c",
+  "verified_artifact_bytes": 262679,
+  "verified_artifacts": 12,
+  "parquet_bytes": 225516,
+  "synthetic_counts": {
+    "train": {
+      "games": 31,
+      "positions": 38
+    },
+    "validation": {
+      "games": 0,
+      "positions": 0
+    },
+    "test": {
+      "games": 0,
+      "positions": 0
+    }
+  },
+  "real_50k_counts": {
+    "train": 0,
+    "validation": 0,
+    "test": 0
+  },
+  "parity_states": 100,
+  "parity_mismatches": 0,
+  "frozen_fixture_excluded_rows": 31,
+  "second_feature_build": "REPRODUCTION_PASS",
+  "shard_digest": "5bd014bc99e53f5246f0d9de6d87f29fccd3d1582cdaed07c873041c51b840cc",
+  "verification": "in-memory Hub double; NOT an actual Hugging Face upload",
+  "remaining_local_parquet_files": 0,
+  "remaining_local_bytes": 87111,
+  "full_archive_scans_started": 0,
+  "real_source_checksums_verified": 0,
+  "tokens_logged": false,
+  "offline_temporary_files_removed": true
+}

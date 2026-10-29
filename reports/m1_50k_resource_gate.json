@@ -1,0 +1,29 @@
+{
+  "status": "BLOCKED_EXTERNAL_POWER",
+  "dataset_d_status": "not_checked_deferred",
+  "correctness_tests": "168 passed in 48.71s",
+  "full_archive_scans_started": 0,
+  "resource_check": {
+    "disk_free_bytes": 81790930944,
+    "memory_available_bytes": 4006854656,
+    "battery_percent": 37,
+    "remaining_minutes": 195,
+    "external_connected": false,
+    "charging": false,
+    "source": "AppleSmartBattery via ioreg; pmset first line was inconsistent"
+  },
+  "network_estimated_hours": [
+    17.82,
+    37.72
+  ],
+  "storage_budget_gib": 2.5,
+  "required_free_gib": 22.5,
+  "cleanup_policy": "After all real 50K artifacts/recovery records pass remote verification, remove generated local dataset/cache directories. Retain small reports/manifests and project source/environment.",
+  "session_months": [
+    "2026-01"
+  ],
+  "session_target_games": 5000,
+  "session_archive_bytes": 30661381578,
+  "session_runtime_limit_hours": 8,
+  "session_tests": "45 passed in 6.25s"
+}

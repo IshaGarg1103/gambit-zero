@@ -1,0 +1,31 @@
+{
+  "agent_git_commands_allowed": false,
+  "cpu_dataset_checks": "PASS",
+  "dataset_d_exclusions_complete": true,
+  "diagnostic_index_complete": true,
+  "github_commit_push_executor": "user",
+  "github_repository": "IshaGarg1103/gambit-zero",
+  "github_target_branch": "m1/human-dataset",
+  "gpu_large_batch_benchmark": "PENDING; explicitly permitted deferral",
+  "historical_unavailable_metrics": [
+    "total failed-attempt/retransmission traffic",
+    "fine rejected-game rating histogram",
+    "historical exact peak working disk",
+    "separate parser and Pgx kernel timings"
+  ],
+  "local_branch": "m1/human-dataset",
+  "m2_authorized": false,
+  "m2_started": false,
+  "merge_to_main_authorized": false,
+  "original_revision": "d409fce8bd444c2d456ef4c343dbc9b5e25981eb",
+  "publication_verification_complete": true,
+  "recommendation": "CONDITIONAL_PASS",
+  "regression": {
+    "passed": 241,
+    "seconds": 51.11,
+    "status": "PASS"
+  },
+  "revised_revision": "b7ddb96d8ce8cfe55298e01a7d928b0f763e1c4c",
+  "source_commit_identity": "Git history after the user commits this prepared work",
+  "source_head_at_report_generation": "4f956b343bd0925cc596834990fa4237b496e234"
+}

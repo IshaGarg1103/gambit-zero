@@ -1,0 +1,29 @@
+# Frozen before inspecting overlap or model performance. Evaluation only.
+version: dataset-d-v1-20261029
+seed: 20261029
+puzzles:
+  url: https://database.lichess.org/lichess_db_puzzle.csv.zst
+  compressed_bytes: 307234795
+  etag: '"6abf70a1-125007eb"'
+  last_modified: Fri, 02 Oct 2026 08:51:45 GMT
+  # Set only after consuming the complete compressed stream; never a claimed
+  # publisher checksum. A changed remote snapshot must stop reproduction.
+  expected_computed_sha256: 76335bfa7d7c4a7f93c1366d81549e53951ebb79dd43d34904cab8f22d962f8d
+  per_rating_band: 200
+  rating_band_starts: [0, 1000, 1500, 2000, 2500]
+  min_popularity: 0
+  min_plays: 100
+  max_rating_deviation: 100
+openings:
+  repository: lichess-org/chess-openings
+  revision: e76b8b4ec5c8aeeba41dac6caf4a60b938f652db
+  quotas: {a: 7, b: 7, c: 6, d: 6, e: 6}
+  min_plies: 8
+  max_plies: 24
+  colors: paired
+selection: sha256-canonical-seed-kind-id-bottomk-v1
+overlap:
+  puzzle_positions: root_and_all_solution_pre_move_boards
+  opening_positions: exact_final_board_only
+  equivalence: pieces_side-to-move_castling_legally-capturable-EP
+  history: unknown_for_puzzle_FENs_never_fabricated

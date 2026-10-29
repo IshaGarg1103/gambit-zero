@@ -1,0 +1,38 @@
+{
+  "cause_recorded": "External power disconnected; job stopped to preserve recovery state",
+  "launcher_issue": "launchctl submit created keepalive service; failed worker was repeatedly respawned",
+  "actual_archive_attempts": 2,
+  "reserved_bytes_not_actual_transfer": 61322763156,
+  "current_started_utc": "2026-10-25T15:30:23.301266+00:00",
+  "current_compressed_bytes": 2796675559,
+  "fixes": [
+    "launchctl disable for this service; current PID 31007 unchanged",
+    "Disarmed execution resource flag on disk; current process already holds its validated config in memory and continues. Future processes cannot begin another archive scan.",
+    "New disarmed worker processes exit before touching progress files; active worker remains unchanged"
+  ],
+  "config_amendments": [
+    {
+      "path": "configs/data_human_50k_run.yaml",
+      "before_sha256": "e84e86e30885d966bbafa8ce71f60cefd038c9783af1fd0c06b338fdb4ba89e8",
+      "after_sha256": "7eec6aa4fa879d2b37c0fe4132e6b120af63f778cdf6b8944eaf2b9315221873"
+    },
+    {
+      "path": "data/processed/m1_50k_runtime/configs/data_human_50k_run.yaml",
+      "before_sha256": "e84e86e30885d966bbafa8ce71f60cefd038c9783af1fd0c06b338fdb4ba89e8",
+      "after_sha256": "7eec6aa4fa879d2b37c0fe4132e6b120af63f778cdf6b8944eaf2b9315221873"
+    }
+  ],
+  "current_scan_interrupted_by_fix": false,
+  "startup_guard_amendments": [
+    {
+      "path": "scripts/run_dataset_a_pilot.py",
+      "before_sha256": "cf90a32b8c84f7a1be7f5d648abb725f2f0213195c52df9db97f2173c085d29b",
+      "after_sha256": "afe4db92a102b99289f1a8966e010fff03e2e1429dfe4883ee9d6be4bfe1282b"
+    },
+    {
+      "path": "data/processed/m1_50k_runtime/scripts/run_dataset_a_pilot.py",
+      "before_sha256": "cf90a32b8c84f7a1be7f5d648abb725f2f0213195c52df9db97f2173c085d29b",
+      "after_sha256": "afe4db92a102b99289f1a8966e010fff03e2e1429dfe4883ee9d6be4bfe1282b"
+    }
+  ]
+}

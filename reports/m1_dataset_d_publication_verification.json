@@ -1,0 +1,43 @@
+{
+  "card_and_catalog_same_atomic_revision": true,
+  "counts": {
+    "test": {
+      "games": 7500,
+      "positions": 569626
+    },
+    "train": {
+      "games": 35000,
+      "positions": 2654850
+    },
+    "validation": {
+      "games": 7500,
+      "positions": 569124
+    }
+  },
+  "download_cache_used": false,
+  "elapsed_seconds": 16.312014667000767,
+  "file_metadata_only_for_large_tensors": true,
+  "finished_utc": "2026-10-29T06:57:30.395803+00:00",
+  "full_read_payload_bytes": 2314636,
+  "lfs_objects_checked": 796,
+  "original_revision_preserved": "d409fce8bd444c2d456ef4c343dbc9b5e25981eb",
+  "primary_object_bytes": 2043334039,
+  "regular_objects_read_back": 0,
+  "repo": "ishagarg1103/gambit-zero",
+  "revision": "b7ddb96d8ce8cfe55298e01a7d928b0f763e1c4c",
+  "started_utc": "2026-10-29T06:57:14.485021+00:00",
+  "status": "PASS",
+  "train_dataset_d_shared_unique": 0,
+  "unique_primary_objects": 796,
+  "verified_months": [
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09"
+  ]
+}

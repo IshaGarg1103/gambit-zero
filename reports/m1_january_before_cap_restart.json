@@ -1,0 +1,124 @@
+{
+  "archive_payload_allowance_bytes": 263446966206,
+  "cleanup_completed": false,
+  "cloud_reproduced_games": 0,
+  "cpu_system_seconds": 6.461774,
+  "cpu_user_seconds": 79.8525,
+  "dataset_d_status": "not_checked_deferred",
+  "elapsed_seconds": 333.31230883300304,
+  "error": {
+    "message": "Worker termination requested; recovery data retained",
+    "type": "ScanError"
+  },
+  "external_power_required": false,
+  "finished_utc": "2026-10-25T17:13:33.561373+00:00",
+  "free_disk_bytes": 81780465664,
+  "free_disk_reserve_bytes": 21474836480,
+  "full_target_games": 50000,
+  "hub_payload_allowance_bytes": 17179869184,
+  "max_runtime_hours": 8,
+  "months": {
+    "2026-01": {
+      "cloud_reproduced_games": 0,
+      "positions": 0,
+      "scanner_status": {
+        "compressed_bytes": 831821782,
+        "error": "ScanError",
+        "full_archive_checksum_verified": false,
+        "identity": {
+          "algorithm": "utc-day-rating-bottomk-sha256-v1",
+          "archive_size_bytes": 30661381578,
+          "month": "2026-01",
+          "published_sha256": "53388f5c5be7eb2c3ce4d5071d7453a35ada6cea4f965bc6118cf1edb05e40e5",
+          "quota": 5000,
+          "seed": 20261025,
+          "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-01.pgn.zst"
+        },
+        "message": "Worker termination requested; recovery data retained",
+        "restart_policy": "restart_current_month_at_zero",
+        "status": "INCOMPLETE"
+      },
+      "source_verified": false,
+      "split": "train",
+      "target_games": 5000,
+      "validated_games": 0
+    },
+    "2026-02": {
+      "cloud_reproduced_games": 0,
+      "positions": 0,
+      "source_verified": false,
+      "split": "train",
+      "target_games": 5000,
+      "validated_games": 0
+    },
+    "2026-03": {
+      "cloud_reproduced_games": 0,
+      "positions": 0,
+      "source_verified": false,
+      "split": "train",
+      "target_games": 5000,
+      "validated_games": 0
+    },
+    "2026-04": {
+      "cloud_reproduced_games": 0,
+      "positions": 0,
+      "source_verified": false,
+      "split": "train",
+      "target_games": 5000,
+      "validated_games": 0
+    },
+    "2026-05": {
+      "cloud_reproduced_games": 0,
+      "positions": 0,
+      "source_verified": false,
+      "split": "train",
+      "target_games": 5000,
+      "validated_games": 0
+    },
+    "2026-06": {
+      "cloud_reproduced_games": 0,
+      "positions": 0,
+      "source_verified": false,
+      "split": "train",
+      "target_games": 5000,
+      "validated_games": 0
+    },
+    "2026-07": {
+      "cloud_reproduced_games": 0,
+      "positions": 0,
+      "source_verified": false,
+      "split": "train",
+      "target_games": 5000,
+      "validated_games": 0
+    },
+    "2026-08": {
+      "cloud_reproduced_games": 0,
+      "positions": 0,
+      "source_verified": false,
+      "split": "validation",
+      "target_games": 7500,
+      "validated_games": 0
+    },
+    "2026-09": {
+      "cloud_reproduced_games": 0,
+      "positions": 0,
+      "source_verified": false,
+      "split": "test",
+      "target_games": 7500,
+      "validated_games": 0
+    }
+  },
+  "peak_process_rss_bytes": 398327808,
+  "phase": "stopped safely; local recovery data retained",
+  "power": {
+    "monitoring_enabled": false,
+    "required": false
+  },
+  "power_confirmed": false,
+  "repo_url": "https://huggingface.co/datasets/ishagarg1103/gambit-zero",
+  "started_utc": "2026-10-25T17:08:00.250619+00:00",
+  "status": "STOPPED",
+  "storage_budget_bytes": 2684354560,
+  "training_positions": 0,
+  "updated_utc": "2026-10-25T17:13:33.561614+00:00"
+}

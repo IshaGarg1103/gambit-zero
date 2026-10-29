@@ -1,0 +1,34 @@
+{
+  "attempts": [
+    {
+      "month": "2026-01",
+      "reserved_payload_bytes": 30661381578
+    },
+    {
+      "month": "2026-01",
+      "reserved_payload_bytes": 30661381578
+    },
+    {
+      "month": "2026-01",
+      "reconstructed_from_report": "m1_january_battery_restart.json",
+      "reserved_payload_bytes": 30661381578,
+      "started_utc": "2026-10-25T17:08:00.250619+00:00"
+    },
+    {
+      "month": "2026-01",
+      "reconstructed_from_report": "m1_january_cap_restart.json",
+      "reserved_payload_bytes": 30661381578,
+      "started_utc": "2026-10-25T17:13:43.072406+00:00"
+    },
+    {
+      "month": "2026-01",
+      "reserved_payload_bytes": 30661381578
+    },
+    {
+      "month": "2026-01",
+      "reserved_payload_bytes": 30661381578
+    }
+  ],
+  "reconstruction_note": "Conservative whole-attempt reservations restored after explicit cleanup; not measured transfer bytes.",
+  "reserved_attempt_payload_bytes": 183968289468
+}

@@ -1,0 +1,30 @@
+{
+  "mode": "PLAN_ONLY_NO_NETWORK",
+  "total_archive_payload_bytes": 263446966206,
+  "session_months": [
+    "2026-01"
+  ],
+  "session_archive_payload_bytes": 30661381578,
+  "free_disk_bytes": 81977454592,
+  "available_memory_bytes": 3877175296,
+  "peak_additional_disk_budget_bytes": 2684354560,
+  "free_disk_reserve_bytes": 21474836480,
+  "minimum_free_disk_required_bytes": 24159191040,
+  "storage_gate_passed": true,
+  "memory_planning_gate_passed": true,
+  "minimum_available_memory_for_planning_bytes": 2147483648,
+  "full_archive_cache_bytes": 0,
+  "decompressed_archive_disk_bytes": 0,
+  "network_budget_allocated": true,
+  "runtime_budget_allocated": true,
+  "persistent_host_confirmed": false,
+  "dataset_d_frozen": false,
+  "execution_enabled": true,
+  "destination": "huggingface",
+  "complete_local_dataset_required": false,
+  "note": "Conservative component caps, not measured 50K output. HF mode uploads/verifies/removes each shard and reproduces from cloud selection without a second local dataset.",
+  "prior_attempts_reserved_bytes": 122645526312,
+  "hf_credentials_present": true,
+  "external_power_required": true,
+  "temporary_storage_caps_enforced": false
+}

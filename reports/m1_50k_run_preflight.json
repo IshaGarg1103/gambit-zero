@@ -1,0 +1,395 @@
+{
+  "cached_prefix_scan": [
+    {
+      "archive_wide_frame_structure_verified": false,
+      "complete_first_frame_seen": true,
+      "compressed_bytes": 4194304,
+      "compressed_bytes_per_second": 32635154.01646329,
+      "elapsed_seconds": 0.12852104199919268,
+      "first_frame_decompressed_bytes": 0,
+      "first_frame_end_compressed_offset": 12,
+      "framed_blocks_including_partial_tail": 13000,
+      "header_eligible_candidates_including_possible_partial_tail": 739,
+      "header_strong_candidates": 222,
+      "path": "data/raw/m1_prefixes/2026-01.pgn.zst.prefix",
+      "representative_of_full_month": false
+    },
+    {
+      "archive_wide_frame_structure_verified": false,
+      "complete_first_frame_seen": true,
+      "compressed_bytes": 4194304,
+      "compressed_bytes_per_second": 34104595.88214216,
+      "elapsed_seconds": 0.12298354199811001,
+      "first_frame_decompressed_bytes": 0,
+      "first_frame_end_compressed_offset": 12,
+      "framed_blocks_including_partial_tail": 12722,
+      "header_eligible_candidates_including_possible_partial_tail": 754,
+      "header_strong_candidates": 231,
+      "path": "data/raw/m1_prefixes/2026-02.pgn.zst.prefix",
+      "representative_of_full_month": false
+    },
+    {
+      "archive_wide_frame_structure_verified": false,
+      "complete_first_frame_seen": true,
+      "compressed_bytes": 4194304,
+      "compressed_bytes_per_second": 32974962.975950744,
+      "elapsed_seconds": 0.12719662499875994,
+      "first_frame_decompressed_bytes": 0,
+      "first_frame_end_compressed_offset": 12,
+      "framed_blocks_including_partial_tail": 12763,
+      "header_eligible_candidates_including_possible_partial_tail": 709,
+      "header_strong_candidates": 220,
+      "path": "data/raw/m1_prefixes/2026-03.pgn.zst.prefix",
+      "representative_of_full_month": false
+    },
+    {
+      "archive_wide_frame_structure_verified": false,
+      "complete_first_frame_seen": true,
+      "compressed_bytes": 4194304,
+      "compressed_bytes_per_second": 34089004.31149421,
+      "elapsed_seconds": 0.12303979200078174,
+      "first_frame_decompressed_bytes": 0,
+      "first_frame_end_compressed_offset": 12,
+      "framed_blocks_including_partial_tail": 12757,
+      "header_eligible_candidates_including_possible_partial_tail": 785,
+      "header_strong_candidates": 214,
+      "path": "data/raw/m1_prefixes/2026-04.pgn.zst.prefix",
+      "representative_of_full_month": false
+    },
+    {
+      "archive_wide_frame_structure_verified": false,
+      "complete_first_frame_seen": true,
+      "compressed_bytes": 4194304,
+      "compressed_bytes_per_second": 32905793.008888755,
+      "elapsed_seconds": 0.12746399999741698,
+      "first_frame_decompressed_bytes": 0,
+      "first_frame_end_compressed_offset": 12,
+      "framed_blocks_including_partial_tail": 12854,
+      "header_eligible_candidates_including_possible_partial_tail": 775,
+      "header_strong_candidates": 218,
+      "path": "data/raw/m1_prefixes/2026-05.pgn.zst.prefix",
+      "representative_of_full_month": false
+    },
+    {
+      "archive_wide_frame_structure_verified": false,
+      "complete_first_frame_seen": true,
+      "compressed_bytes": 4194304,
+      "compressed_bytes_per_second": 33082673.08102469,
+      "elapsed_seconds": 0.12678250000317348,
+      "first_frame_decompressed_bytes": 0,
+      "first_frame_end_compressed_offset": 12,
+      "framed_blocks_including_partial_tail": 12570,
+      "header_eligible_candidates_including_possible_partial_tail": 711,
+      "header_strong_candidates": 205,
+      "path": "data/raw/m1_prefixes/2026-06.pgn.zst.prefix",
+      "representative_of_full_month": false
+    },
+    {
+      "archive_wide_frame_structure_verified": false,
+      "complete_first_frame_seen": true,
+      "compressed_bytes": 4194304,
+      "compressed_bytes_per_second": 32289708.690388713,
+      "elapsed_seconds": 0.12989599999855272,
+      "first_frame_decompressed_bytes": 0,
+      "first_frame_end_compressed_offset": 12,
+      "framed_blocks_including_partial_tail": 12794,
+      "header_eligible_candidates_including_possible_partial_tail": 758,
+      "header_strong_candidates": 203,
+      "path": "data/raw/m1_prefixes/2026-07.pgn.zst.prefix",
+      "representative_of_full_month": false
+    },
+    {
+      "archive_wide_frame_structure_verified": false,
+      "complete_first_frame_seen": true,
+      "compressed_bytes": 4194304,
+      "compressed_bytes_per_second": 32091508.494019203,
+      "elapsed_seconds": 0.1306982499991136,
+      "first_frame_decompressed_bytes": 0,
+      "first_frame_end_compressed_offset": 12,
+      "framed_blocks_including_partial_tail": 12711,
+      "header_eligible_candidates_including_possible_partial_tail": 666,
+      "header_strong_candidates": 188,
+      "path": "data/raw/m1_prefixes/2026-08.pgn.zst.prefix",
+      "representative_of_full_month": false
+    },
+    {
+      "archive_wide_frame_structure_verified": false,
+      "complete_first_frame_seen": true,
+      "compressed_bytes": 4194304,
+      "compressed_bytes_per_second": 28252636.487578787,
+      "elapsed_seconds": 0.14845708299981197,
+      "first_frame_decompressed_bytes": 0,
+      "first_frame_end_compressed_offset": 12,
+      "framed_blocks_including_partial_tail": 12698,
+      "header_eligible_candidates_including_possible_partial_tail": 698,
+      "header_strong_candidates": 181,
+      "path": "data/raw/m1_prefixes/2026-09.pgn.zst.prefix",
+      "representative_of_full_month": false
+    }
+  ],
+  "checksum_index": {
+    "bytes": 17820,
+    "sha256": "2b740e83b74acca97045261c6ffbe1b38e4fd51a7f32719d0022837bfa334a01",
+    "url": "https://database.lichess.org/standard/sha256sums.txt"
+  },
+  "commit": "4f956b343bd0925cc596834990fa4237b496e234",
+  "disk": {
+    "free": 81925865472,
+    "total": 245107195904,
+    "used": 163181330432
+  },
+  "elapsed_seconds": 12.77261237499988,
+  "full_archive_scans_started": 0,
+  "git_head": "ref: refs/heads/human-dataset",
+  "memory": {
+    "active": 4163715072,
+    "available": 4218896384,
+    "free": 69664768,
+    "inactive": 4105306112,
+    "percent": 75.4,
+    "total": 17179869184,
+    "used": 6158532608,
+    "wired": 1994817536
+  },
+  "network_archive_payload_measured_bytes": 25165824,
+  "network_estimated_seconds_range": [
+    64150.598828161,
+    135806.2369638332
+  ],
+  "network_http_overhead_measured": false,
+  "network_probe_payload_cap_bytes": 26214400,
+  "platform": "macOS-26.6.1-arm64-arm-64bit",
+  "probes": [
+    {
+      "body_bytes_per_second": 2267235.062418237,
+      "body_seconds": 3.699928665999323,
+      "bytes": 8388608,
+      "content_range": "bytes 0-8388607/30661381578",
+      "end_to_end_bytes_per_second": 1939873.838608451,
+      "full_archive_verified": false,
+      "header_seconds": 0.6243760839970491,
+      "prefix_sha256": "a233aea9e46afad2fd41089782ac2e805810fb1a5219dd318074efdb75b92ba8",
+      "request_and_read_seconds": 4.324305583999376,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-01.pgn.zst"
+    },
+    {
+      "body_bytes_per_second": 5810904.04165664,
+      "body_seconds": 1.4435977499997534,
+      "bytes": 8388608,
+      "content_range": "bytes 0-8388607/29689176290",
+      "end_to_end_bytes_per_second": 4056534.9460307728,
+      "full_archive_verified": false,
+      "header_seconds": 0.6243255420013156,
+      "prefix_sha256": "b092fc9296429bd128f9ebda6da662c057e181117242108dc8b595b1cf721818",
+      "request_and_read_seconds": 2.067924082999525,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-05.pgn.zst"
+    },
+    {
+      "body_bytes_per_second": 5902797.198782992,
+      "body_seconds": 1.4211242089986627,
+      "bytes": 8388608,
+      "content_range": "bytes 0-8388607/29224520887",
+      "end_to_end_bytes_per_second": 4106695.3546558535,
+      "full_archive_verified": false,
+      "header_seconds": 0.6215404169997782,
+      "prefix_sha256": "e21f1f2895d3c91d11aa9e58b1377aa69365aa80dedd801307f0f0b03f16a818",
+      "request_and_read_seconds": 2.0426657919997524,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-09.pgn.zst"
+    }
+  ],
+  "quota": {
+    "authoritative_usable_quota_confirmed": false,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "Disk quotas for user ishagarg (uid 501): none\n"
+  },
+  "retrieved_utc": "2026-10-25T13:27:54.356172+00:00",
+  "scan_estimated_seconds_range_prefix_only": [
+    7724.676378409928,
+    9324.686080954743
+  ],
+  "sources": [
+    {
+      "archive_size_bytes": 30661381578,
+      "full_archive_checksum_verified": false,
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Connection": "close",
+        "Content-Length": "30661381578",
+        "Content-Type": "application/octet-stream",
+        "Date": "Sun, 25 Oct 2026 13:27:56 GMT",
+        "ETag": "\"697fa8ce-7238f8dca\"",
+        "Last-Modified": "Sun, 01 Feb 2026 19:26:06 GMT",
+        "Server": "nginx",
+        "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+        "X-Frame-Options": "DENY"
+      },
+      "month": "2026-01",
+      "published_sha256": "53388f5c5be7eb2c3ce4d5071d7453a35ada6cea4f965bc6118cf1edb05e40e5",
+      "status": 200,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-01.pgn.zst"
+    },
+    {
+      "archive_size_bytes": 27755967701,
+      "full_archive_checksum_verified": false,
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Connection": "close",
+        "Content-Length": "27755967701",
+        "Content-Type": "application/octet-stream",
+        "Date": "Sun, 25 Oct 2026 13:27:56 GMT",
+        "ETag": "\"69abaf96-6766274d5\"",
+        "Last-Modified": "Sat, 07 Mar 2026 04:54:46 GMT",
+        "Server": "nginx",
+        "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+        "X-Frame-Options": "DENY"
+      },
+      "month": "2026-02",
+      "published_sha256": "feeffa53b5056b2776f8e2e6c638a83eaaa1d1ffbaa88f711299db6c2b156c01",
+      "status": 200,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-02.pgn.zst"
+    },
+    {
+      "archive_size_bytes": 29351713061,
+      "full_archive_checksum_verified": false,
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Connection": "close",
+        "Content-Length": "29351713061",
+        "Content-Type": "application/octet-stream",
+        "Date": "Sun, 25 Oct 2026 13:27:56 GMT",
+        "ETag": "\"69cdcc33-6d57f9925\"",
+        "Last-Modified": "Thu, 02 Apr 2026 01:53:55 GMT",
+        "Server": "nginx",
+        "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+        "X-Frame-Options": "DENY"
+      },
+      "month": "2026-03",
+      "published_sha256": "d3adc2bcc58e85f4398ece2f7f8ea422c5ec5269a7d2921257bc31c5b914180f",
+      "status": 200,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-03.pgn.zst"
+    },
+    {
+      "archive_size_bytes": 29325351334,
+      "full_archive_checksum_verified": false,
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Connection": "close",
+        "Content-Length": "29325351334",
+        "Content-Type": "application/octet-stream",
+        "Date": "Sun, 25 Oct 2026 13:27:56 GMT",
+        "ETag": "\"69f576b6-6d3ed59a6\"",
+        "Last-Modified": "Sat, 02 May 2026 03:59:50 GMT",
+        "Server": "nginx",
+        "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+        "X-Frame-Options": "DENY"
+      },
+      "month": "2026-04",
+      "published_sha256": "a6dc976bda3e6f543929e9448420482f2fe827b09e16c1005ca9a6ef66e7336d",
+      "status": 200,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-04.pgn.zst"
+    },
+    {
+      "archive_size_bytes": 29689176290,
+      "full_archive_checksum_verified": false,
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Connection": "close",
+        "Content-Length": "29689176290",
+        "Content-Type": "application/octet-stream",
+        "Date": "Sun, 25 Oct 2026 13:27:57 GMT",
+        "ETag": "\"6a20e71f-6e99ce0e2\"",
+        "Last-Modified": "Thu, 04 Jun 2026 02:46:55 GMT",
+        "Server": "nginx",
+        "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+        "X-Frame-Options": "DENY"
+      },
+      "month": "2026-05",
+      "published_sha256": "249b4c13e92442ba6694d7f0bdb5b4639047bf74caba1611722a132a012ab294",
+      "status": 200,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-05.pgn.zst"
+    },
+    {
+      "archive_size_bytes": 28241946492,
+      "full_archive_checksum_verified": false,
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Connection": "close",
+        "Content-Length": "28241946492",
+        "Content-Type": "application/octet-stream",
+        "Date": "Sun, 25 Oct 2026 13:27:56 GMT",
+        "ETag": "\"6a4abce2-69359e77c\"",
+        "Last-Modified": "Sun, 05 Jul 2026 20:21:54 GMT",
+        "Server": "nginx",
+        "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+        "X-Frame-Options": "DENY"
+      },
+      "month": "2026-06",
+      "published_sha256": "8fd81071f56511e7546cb77e38db5cf32f7e8a437fb906e26959cc064d8b1f79",
+      "status": 200,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-06.pgn.zst"
+    },
+    {
+      "archive_size_bytes": 29051046504,
+      "full_archive_checksum_verified": false,
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Connection": "close",
+        "Content-Length": "29051046504",
+        "Content-Type": "application/octet-stream",
+        "Date": "Sun, 25 Oct 2026 13:27:57 GMT",
+        "ETag": "\"6a6e60d0-6c393ca68\"",
+        "Last-Modified": "Sat, 01 Aug 2026 21:10:40 GMT",
+        "Server": "nginx",
+        "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+        "X-Frame-Options": "DENY"
+      },
+      "month": "2026-07",
+      "published_sha256": "68738b1c448f051dc8d42db645d5b01749988a3bc1c24981adfe44ea92060dc7",
+      "status": 200,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-07.pgn.zst"
+    },
+    {
+      "archive_size_bytes": 30145862359,
+      "full_archive_checksum_verified": false,
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Connection": "close",
+        "Content-Length": "30145862359",
+        "Content-Type": "application/octet-stream",
+        "Date": "Sun, 25 Oct 2026 13:27:57 GMT",
+        "ETag": "\"6aa282bd-704d55ad7\"",
+        "Last-Modified": "Thu, 10 Sep 2026 10:13:17 GMT",
+        "Server": "nginx",
+        "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+        "X-Frame-Options": "DENY"
+      },
+      "month": "2026-08",
+      "published_sha256": "6bf6fa8a5dee7bb81d1874ac312160060daf12f18a29dc2740a3bf6f5e5e6248",
+      "status": 200,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-08.pgn.zst"
+    },
+    {
+      "archive_size_bytes": 29224520887,
+      "full_archive_checksum_verified": false,
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Connection": "close",
+        "Content-Length": "29224520887",
+        "Content-Type": "application/octet-stream",
+        "Date": "Sun, 25 Oct 2026 13:27:57 GMT",
+        "ETag": "\"6ac08d73-6cdeaccb7\"",
+        "Last-Modified": "Sat, 03 Oct 2026 05:06:59 GMT",
+        "Server": "nginx",
+        "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+        "X-Frame-Options": "DENY"
+      },
+      "month": "2026-09",
+      "published_sha256": "1de8eb64fed443f4be310c779e8d60a13bcfc6e3b104bcb39a018eb056edec89",
+      "status": 200,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-09.pgn.zst"
+    }
+  ],
+  "status": "MEASURED_RESOURCE_GATE_NOT_CONFIRMED",
+  "total_source_bytes": 263446966206
+}

@@ -1,0 +1,31 @@
+{
+  "dataset_d_status": "not_checked_deferred",
+  "elapsed_seconds": 10.322615291996044,
+  "games_checked": 1,
+  "live_generation_modified": false,
+  "mismatches": 0,
+  "months": {
+    "2026-01": {
+      "days": {},
+      "games": 1,
+      "mismatches": 0,
+      "parity_states": 73,
+      "rows": 72,
+      "shard_pairs_checked": 0,
+      "status": "RUNNING",
+      "strong_games": 1,
+      "time_forfeit_games": 0,
+      "time_forfeit_rows": 0,
+      "wdl_rows": {}
+    }
+  },
+  "parity_states_checked": 73,
+  "peak_rss_bytes": 557416448,
+  "position_rows_checked": 72,
+  "repo": "ishagarg1103/gambit-zero",
+  "revision": "74cd47d07e12ee4562515554456bc5b6433e8410",
+  "source_archives_redownloaded": false,
+  "started_utc": "2026-10-26T15:46:50.435177+00:00",
+  "status": "PARTIAL_DIAGNOSTIC",
+  "updated_utc": "2026-10-26T15:47:00.757888+00:00"
+}

@@ -1,0 +1,17 @@
+{
+  "status": "RUNNING",
+  "external_power_required": false,
+  "session_months": [
+    "2026-01"
+  ],
+  "keep_alive": false,
+  "config": "/Users/ishagarg/pytorch-practice/tiny-chess/data/processed/m1_50k_runtime/configs/data_human_january_battery.yaml",
+  "plist": "/Users/ishagarg/pytorch-practice/tiny-chess/reports/m1_january_battery.launchd.plist",
+  "previous_attempt_scan_bytes": 20652851697,
+  "previous_attempt_checksum_verified": false,
+  "restart_from_byte_zero": true,
+  "tests": "4 passed",
+  "preflight": "m1_january_battery_restart_preflight.json",
+  "started_utc": "2026-10-25T17:08:00.250619+00:00",
+  "launcher_pid": 39466
+}

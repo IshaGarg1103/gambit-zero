@@ -1,0 +1,18 @@
+{
+  "base_commit": "4f956b343bd0925cc596834990fa4237b496e234",
+  "base_branch": "ref: refs/heads/human-dataset",
+  "accepted_snapshot_files_checked": 41,
+  "accepted_snapshot_mismatches": [],
+  "full_scan_started": false,
+  "sha256": {
+    "src/tinychess/data/archive_scan.py": "cb915aeda655324f7f5755f8f92e7fc432c219cb66e6349a4727e128910fe44c",
+    "configs/data_human_50k_stream.yaml": "9038174fb94dba0dda9c9f0f338b3ff0e9c5ecb08a10fee845a64908f7248122",
+    "scripts/scan_m1_archives.py": "37f2dddae1a5ed3fa9c05ec8e1224dd58bfa24cac028254b46906ae9552053fd",
+    "scripts/preflight_m1_50k.py": "58c3c1002e565b0b6cff5b0fcf0ef1cc094cfbc9f9d755a3366cfe9c521d974b",
+    "scripts/probe_pzstd_source.py": "8bdb6a5b981864244cde5e420d93c022cde0c41520d862664d299fe74579fe5e",
+    "scripts/check_streaming_fixture.py": "ce23015a87bf56f127e92ceea1a177fa5051e18956be5d651afa092d55b943da",
+    "benchmarks/bench_archive_headers.py": "1821f07b019086cb4faf17a45b878d0ad50c773db52445775358604001c43ac9",
+    "tests/test_archive_scan.py": "cf1393fc1dcb171037b65d6cdf7dd0ca27fe22172d05fccd4c9ef1642d9b02e0",
+    "tests/test_m1_preflight.py": "21632c10b7269593dd6f93b1d6850cfb5808248a5826bafcc4e697de3cc71e3b"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "status": "APPROVED_WAIT_FOR_AUGUST_NO_SCAN_STARTED",
+  "checked_utc": "2026-10-27T15:15:57.232555+00:00",
+  "target": {
+    "split": "test",
+    "accepted_games": 7500
+  },
+  "additional_allowance_bytes": 29224520887,
+  "proposed_total_allowance_bytes": 416753874096,
+  "free_disk_bytes": 83196002304,
+  "available_memory_bytes": 4992057344,
+  "wait_for": "August MONTH_COMPLETE with 7,500 cloud-reproduced games; no simultaneous extraction workers",
+  "approved_utc": "2026-10-27T15:23:45.270769+00:00",
+  "approval": "User explicitly approved the additional September allowance and requested a waiting command",
+  "resource_preflight": {
+    "mode": "PLAN_ONLY_NO_NETWORK",
+    "total_archive_payload_bytes": 263446966206,
+    "session_months": [
+      "2026-09"
+    ],
+    "session_archive_payload_bytes": 29224520887,
+    "free_disk_bytes": 83280089088,
+    "available_memory_bytes": 5264998400,
+    "peak_additional_disk_budget_bytes": 2684354560,
+    "free_disk_reserve_bytes": 21474836480,
+    "minimum_free_disk_required_bytes": 24159191040,
+    "storage_gate_passed": true,
+    "memory_planning_gate_passed": true,
+    "minimum_available_memory_for_planning_bytes": 2147483648,
+    "full_archive_cache_bytes": 0,
+    "decompressed_archive_disk_bytes": 0,
+    "network_budget_allocated": true,
+    "runtime_budget_allocated": true,
+    "persistent_host_confirmed": false,
+    "dataset_d_frozen": false,
+    "execution_enabled": true,
+    "destination": "huggingface",
+    "complete_local_dataset_required": false,
+    "note": "Conservative component caps, not measured 50K output. HF mode uploads/verifies/removes each shard and reproduces from cloud selection without a second local dataset."
+  }
+}

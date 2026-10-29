@@ -1,0 +1,12 @@
+{
+  "error_type": "UploadError",
+  "http_status": 429,
+  "observed_utc": "2026-10-29T05:43:30.759089+00:00",
+  "resolved": true,
+  "resolved_by_revision": "b7ddb96d8ce8cfe55298e01a7d928b0f763e1c4c",
+  "resolved_utc": "2026-10-29T06:57:10.359906+00:00",
+  "resume_not_before_ist": "2026-10-29T12:12:21.759089+05:30",
+  "resume_not_before_utc": "2026-10-29T06:42:21.759089+00:00",
+  "retry_after_seconds": 3471,
+  "status": "STOPPED"
+}
