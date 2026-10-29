@@ -3,13 +3,16 @@ import argparse
 from datetime import datetime, timezone
 import json
 from pathlib import Path
+import sys
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT/'src'))
+from tinychess.data.evidence import read_json_evidence
 
 
 def display(months):
-    run = json.loads((ROOT / 'reports/m1_50k_run_status.json').read_text())
+    run = read_json_evidence('reports/m1_50k_run_status.json', root=ROOT)
     print('\033[2J\033[H', end='')
     print('Worker:', run['status'])
     print('Updated (UTC):', run['updated_utc'])

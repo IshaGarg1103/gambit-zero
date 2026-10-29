@@ -7,7 +7,7 @@ execution_enabled: false
 resource_budget_verified: false
 require_external_power: true
 enforce_temporary_storage_caps: false
-source_manifest: reports/m1_50k_run_preflight.json
+source_manifest: reports/m1_sources_50k.json
 frozen_dataset_d_manifest: null
 frozen_dataset_d_sha256: null
 network_budget_bytes: 263446966206

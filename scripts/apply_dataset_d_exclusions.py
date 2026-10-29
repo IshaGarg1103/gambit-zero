@@ -31,6 +31,7 @@ import yaml
 
 from tinychess.data.archive_scan import DiskGuard, canonical
 from tinychess.data.eval_filter import position_keys, prefetched, verify_retained_rows, write_filter
+from tinychess.data.evidence import evidence_exists, read_json_evidence
 from tinychess.data.hf_audit import AuditIndex, BANDS
 from tinychess.data.hf_batch import publish_batch
 from tinychess.data.hf_root import publish_root_atomic
@@ -47,23 +48,23 @@ def require(condition, message):
 
 def run(args):
     diagnostic = Path('reports/m1_dataset_d_upload_diagnostic.json')
-    if args.execute and diagnostic.exists():
-        previous = json.loads(diagnostic.read_text())
+    if args.execute and evidence_exists(diagnostic):
+        previous = read_json_evidence(diagnostic)
         resume = previous.get('resume_not_before_utc')
         if resume and datetime.now(timezone.utc) < datetime.fromisoformat(resume):
             raise SystemExit('Stopped before network access: Hub retry window ends '+resume)
-    status = json.loads(Path('reports/m1_50k_run_status.json').read_text())
-    freeze = json.loads(Path('reports/m1_dataset_d_freeze.json').read_text())
-    diagnostics = json.loads(Path('reports/m1_50k_diagnostics.json').read_text())
+    status = read_json_evidence('reports/m1_50k_run_status.json')
+    freeze = read_json_evidence('reports/m1_dataset_d_freeze.json')
+    diagnostics = read_json_evidence('reports/m1_50k_diagnostics.json')
     require(diagnostics['status'] == 'PASS' and diagnostics.get('temporary_cleanup_completed'),
             'Finish the original diagnostic upload before publishing the revised catalog')
     # A completed run must not reread gigabytes or create fresh receipt commits.
     # Rechecking the immutable remote inventory is a separate read-only command.
     completed_path = Path(args.output)
     verification_path = Path('reports/m1_dataset_d_publication_verification.json')
-    if args.execute and completed_path.exists() and verification_path.exists():
-        completed = json.loads(completed_path.read_text())
-        verification = json.loads(verification_path.read_text())
+    if args.execute and evidence_exists(completed_path) and evidence_exists(verification_path):
+        completed = read_json_evidence(completed_path)
+        verification = read_json_evidence(verification_path)
         if (completed.get('status') == 'PASS' and completed.get('temporary_cleanup_completed')
                 and completed.get('parent_revision') == PIN
                 and completed['frozen_receipt']['sha256'] == freeze['frozen_receipt']['sha256']

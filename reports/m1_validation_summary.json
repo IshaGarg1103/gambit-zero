@@ -1,0 +1,133 @@
+{
+  "counts": {
+    "test": {
+      "games": 7500,
+      "positions": 569626
+    },
+    "train": {
+      "games": 35000,
+      "positions": 2654850
+    },
+    "validation": {
+      "games": 7500,
+      "positions": 569124
+    }
+  },
+  "dataset_d_source_game_ids_shared": {
+    "test": [],
+    "train": [],
+    "validation": []
+  },
+  "dataset_d_training_rows_excluded": 150,
+  "dataset_revision": "b7ddb96d8ce8cfe55298e01a7d928b0f763e1c4c",
+  "detailed_evidence_archive_sha256": "dc6c38ef0208dde0ccdfb2b8f13c2afaa1a966043e7041859bfb5c77817b034f",
+  "diagnostic_index_counts": {
+    "test": 484240,
+    "validation": 482926
+  },
+  "diagnostic_index_summary_receipt": {
+    "bytes": 165283,
+    "local_name": "diagnostics.json",
+    "path_in_repo": "diagnostics/d409fce8bd444c2d456ef4c343dbc9b5e25981eb/summary-9a30ee86b2675bb74247026925cfcef57f3fbee45ad291e7acb17a22792ae2a7.json",
+    "revision": "73960d7712d6fba5360a643bf09c8a46a60944e8",
+    "sha256": "9a30ee86b2675bb74247026925cfcef57f3fbee45ad291e7acb17a22792ae2a7",
+    "status": "deleted",
+    "verification": "full cache-free streamed read-back at immutable revision",
+    "verified_utc": "2026-10-29T05:40:02.607008+00:00"
+  },
+  "format": "tinychess-m1-validation-summary-v1",
+  "frozen_dataset_d_receipt": {
+    "bytes": 1585247,
+    "local_name": "frozen.json",
+    "path_in_repo": "evaluation/dataset-d-v1-20261029/6fbdf6b0a297a35a21e5f8c54afe9543dc394217e7060d90fb7e7808e4d58a0d.json",
+    "revision": "ea5ec406fe739e04281c6178bef8744c1c9924f9",
+    "sha256": "6fbdf6b0a297a35a21e5f8c54afe9543dc394217e7060d90fb7e7808e4d58a0d",
+    "status": "deleted",
+    "verification": "full cache-free streamed read-back at immutable revision",
+    "verified_utc": "2026-10-29T05:06:58.374176+00:00"
+  },
+  "original_second_build_shard_digests": {
+    "2026-01": "4928abcb463b75e88f146cbd678c155af3a4e08dca709d264e268b48bd04d19c",
+    "2026-02": "a9f42f05787a9ddf33f4fcfdd827e5d0abb9a94c2523e5f18e3d957691c782b8",
+    "2026-03": "38c352f0173a8b5076331e4beba9a68a0fc3d26a7930b71509f160e152ae9a7e",
+    "2026-04": "967a44304c3d139c317f15a074997f7575c6f1f1e6d6787adab42fb54cfee457",
+    "2026-05": "246436d0fcfe3717d6954abd4b43c354b4c9a7a12da0ddcffc699045b6d8db9a",
+    "2026-06": "c681621e09f46c7f73ac209a5138d83e46dbc589c88a22ea8143ea3396738bfe",
+    "2026-07": "2540a4ae8dc929df9438bb239121ffeeab491f33314acee7923c3dce13891f5b",
+    "2026-08": "ac9b5d2b2cb0c259a35da5f182e4d233e5aa7a910d1886fcf3824cb42c153629",
+    "2026-09": "d08368c27aa3ba1902561efa8f29eed95aa95711d70cc0c081ef81c24784f14f"
+  },
+  "original_states_checked": 3843750,
+  "parent_dataset_revision": "d409fce8bd444c2d456ef4c343dbc9b5e25981eb",
+  "parity_mismatches": 0,
+  "postfilter_overlap": {
+    "all_plies": {
+      "all_three_shared": 10399,
+      "dataset_d_unique": 4178,
+      "test_dataset_d_shared_unique": 6,
+      "test_rows": 569626,
+      "test_unique": 504064,
+      "train_dataset_d_shared_unique": 0,
+      "train_rows": 2654850,
+      "train_test_shared": 23172,
+      "train_test_shared_percent_of_test": 4.59703529710513,
+      "train_unique": 2286103,
+      "train_validation_shared": 23577,
+      "train_validation_shared_percent_of_validation": 4.685245758299584,
+      "validation_dataset_d_shared_unique": 13,
+      "validation_rows": 569124,
+      "validation_unique": 503218
+    },
+    "equivalence": "SHA256(pieces, side to move, castling, legally capturable EP); clocks/history excluded",
+    "games_by_split": {
+      "test": 7500,
+      "train": 35000,
+      "validation": 7500
+    },
+    "ply_ge_10": {
+      "all_three_shared": 4051,
+      "dataset_d_unique": 4178,
+      "test_dataset_d_shared_unique": 3,
+      "test_rows": 494778,
+      "test_unique": 485844,
+      "train_dataset_d_shared_unique": 0,
+      "train_rows": 2305591,
+      "train_test_shared": 12140,
+      "train_test_shared_percent_of_test": 2.4987444529519762,
+      "train_unique": 2234027,
+      "train_validation_shared": 12658,
+      "train_validation_shared_percent_of_validation": 2.6084824105691142,
+      "validation_dataset_d_shared_unique": 8,
+      "validation_rows": 494238,
+      "validation_unique": 485263
+    }
+  },
+  "protected_semantics": {
+    "configs/human_v3_schema.json": "aacc48040cf4fbc7572ae1115acd13a4479a693c553be7dcdc5977e3562e0b4e",
+    "src/tinychess/chess/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/tinychess/chess/_pgx_legal.py": "d9e82b06c808cd18ea113faf6578af7cfffd2be069df95ef442a5d38443d26cd",
+    "src/tinychess/chess/action_codec.py": "e496df09cb2da47260ca116fc5c3f90a220c14e0d68442943f357b8b61a98ee2",
+    "src/tinychess/chess/adjudication.py": "e91dbff3ea1e83adb1659fe0defd5ce56c510eee8f6fc3afc286f4c57b3c8221",
+    "src/tinychess/chess/pgx_env.py": "4b9a0e9c9340e16dd56b1cf35a47a02a0e2546b935443f2bd205adba4d1ebd23",
+    "src/tinychess/chess/state_features.py": "114f5e9c632c8857facce6f7f1ff09fa12dd60db89603deafd93dbab78973e23"
+  },
+  "publication_verification": {
+    "lfs_objects_checked": 796,
+    "revision": "b7ddb96d8ce8cfe55298e01a7d928b0f763e1c4c",
+    "status": "PASS",
+    "unique_primary_objects": 796
+  },
+  "revised_month_shard_digests": {
+    "2026-01": "bb7430941799ee37e6f78c7874b2b53a2b06af7602a91c4fc1ce38a23db9df2b",
+    "2026-02": "b4001e0be3d37308237caf810e836f0fcc630dd7887400b67c4a5d883d39ca0f",
+    "2026-03": "40d02a132237633b917eff0bbc1e80e8a952b0971841b49a19472a014604db12",
+    "2026-04": "0052678c0c13809312f14f6dfd89a2b97353f30df9c9b9ebae3fef5ae78ce68e",
+    "2026-05": "abe9c07cdb029dd26403b4bff00d9791fc534580bece7a828ba56d37eded1c93",
+    "2026-06": "e62a0d62c72ec1728c7f8be481a84f49201e205bba358d9ab32602f8ad3eeb5a",
+    "2026-07": "57d5b673133083c1a9968dacc9a8dc93e1ec624cc3751b0eb64ec24318699210",
+    "2026-08": "ac9b5d2b2cb0c259a35da5f182e4d233e5aa7a910d1886fcf3824cb42c153629",
+    "2026-09": "d08368c27aa3ba1902561efa8f29eed95aa95711d70cc0c081ef81c24784f14f"
+  },
+  "total_games": 50000,
+  "total_retained_positions": 3793600
+}

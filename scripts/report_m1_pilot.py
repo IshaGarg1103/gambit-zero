@@ -1,15 +1,18 @@
 """Render the acceptance report from saved measured evidence, never promises."""
 import json
 import re
+import sys
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT/'src'))
+from tinychess.data.evidence import EvidenceStore, rewrite_archived_links
+EVIDENCE = EvidenceStore(ROOT)
 
 
 def read(name):
-    path = ROOT / 'reports' / name
-    return json.loads(path.read_text()) if path.exists() else None
+    return EVIDENCE.read_json('reports/'+name, required=False)
 
 
 def git_identity():
@@ -34,7 +37,12 @@ def render():
     exclusions = read('m1_dataset_d_exclusions.json')
     upload_block = read('m1_dataset_d_upload_diagnostic.json')
     publication = read('m1_dataset_d_publication_verification.json')
-    branch, commit = git_identity()
+    captured_acceptance = read('m1_final_acceptance.json')
+    if EVIDENCE.manifest and captured_acceptance:
+        branch = captured_acceptance['local_branch']
+        commit = captured_acceptance['source_head_at_report_generation']
+    else:
+        branch, commit = git_identity()
     months = status['months']
     scan_seconds = sum(m['source_scan_measurements']['elapsed_seconds'] for m in months.values())
     construction_seconds = sum(m['construction_measurements']['elapsed_seconds'] for m in months.values())
@@ -54,8 +62,11 @@ def render():
     coverage = {month: data['coverage'] for month, data in months.items()}
     rejection = {month: dict(header=data['header_rejections'], full_validation=data['validation_rejections'])
                  for month, data in months.items()}
-    for filename, data in [('m1_50k_coverage.json', coverage), ('m1_50k_rejections.json', rejection)]:
-        (ROOT / 'reports' / filename).write_text(json.dumps(data, sort_keys=True, indent=2)+'\n')
+    # Frozen coverage/rejection tables live in the verified archive. Do not
+    # recreate removed generated reports in the tracked source directory.
+    if EVIDENCE.manifest is None:
+        for filename, data in [('m1_50k_coverage.json', coverage), ('m1_50k_rejections.json', rejection)]:
+            (ROOT / 'reports' / filename).write_text(json.dumps(data, sort_keys=True, indent=2)+'\n')
     text = f'''# M1 — Dataset A 50K pilot acceptance report
 
 Assessment date: 29 October 2026. **{disposition}; M2 is not authorized.**
@@ -447,6 +458,7 @@ disposition and the documented historical telemetry limitations before declaring
 every M1 checklist item closed. No unavailable measurement is represented as done.
 No M2 training, Dataset B/self-play, larger extraction or automatic merge is authorized.
 '''
+    text = rewrite_archived_links(text, 'reports/m1_50k_pilot.md', root=ROOT)
     (ROOT / 'reports/m1_50k_pilot.md').write_text(text)
     checklist = ROOT/'reports/m1_checklist_status.md'
     existing = checklist.read_text()
@@ -477,7 +489,7 @@ Recommendation: CONDITIONAL PASS for M1 review. CPU Dataset A checks are
 accepted only with the complete receipts above. GPU deferral and unavailable
 historical telemetry must be acknowledged; no 100% checklist claim is made.
 '''
-    checklist.write_text(current+'\n---\n'+historical)
+    checklist.write_text(current if EVIDENCE.manifest else current+'\n---\n'+historical)
     tests = (ROOT/'reports/m1_closeout_tests.txt').read_text()
     passed = re.search(r'(\d+) passed in ([\d.]+)s', tests)
     tests_pass = bool(passed and not re.search(r'\d+ (?:failed|errors?)', tests))
@@ -499,6 +511,13 @@ historical telemetry must be acknowledged; no 100% checklist claim is made.
         github_commit_push_executor='user', agent_git_commands_allowed=False,
         source_commit_identity='Git history after the user commits this prepared work',
         merge_to_main_authorized=False)
+    if EVIDENCE.manifest and captured_acceptance:
+        result_keys = ['cpu_dataset_checks','original_revision','revised_revision',
+                       'dataset_d_exclusions_complete','diagnostic_index_complete',
+                       'publication_verification_complete','regression']
+        if any(acceptance[key] != captured_acceptance[key] for key in result_keys):
+            raise ValueError('Frozen validation results changed; publish a new evidence version explicitly')
+        acceptance = captured_acceptance
     if rate_blocked:
         acceptance['upload_blocker'] = upload_block
     (ROOT/'reports/m1_final_acceptance.json').write_text(json.dumps(acceptance, sort_keys=True, indent=2)+'\n')

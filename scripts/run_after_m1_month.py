@@ -10,6 +10,8 @@ import time
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT/'src'))
+from tinychess.data.evidence import read_json_evidence
 
 
 def predecessor_ready(state, month, expected):
@@ -43,7 +45,7 @@ def main():
             raise RuntimeError('Another waiting month launcher is already active') from None
         print(f'Waiting for {args.after}: MONTH_COMPLETE and {expected:,} verified games.', flush=True)
         while True:
-            state = json.loads((ROOT / 'reports/m1_50k_run_status.json').read_text())
+            state = read_json_evidence('reports/m1_50k_run_status.json', root=ROOT)
             if (state.get('status') in ['MONTH_COMPLETE', 'COMPLETE']
                     and state.get('months', {}).get(target, {}).get('cloud_reproduced_games') == target_games):
                 print(f'{target} already verified; no duplicate run started.', flush=True)
@@ -58,7 +60,7 @@ def main():
                                  str(config_path), '--project', str(ROOT)], cwd=ROOT)
         if result.returncode:
             return result.returncode
-        state = json.loads((ROOT / 'reports/m1_50k_run_status.json').read_text())
+        state = read_json_evidence('reports/m1_50k_run_status.json', root=ROOT)
         if (state.get('status') not in ['MONTH_COMPLETE', 'COMPLETE']
                 or state.get('months', {}).get(target, {}).get('cloud_reproduced_games') != target_games):
             raise RuntimeError('Worker exited without verified target-month completion')

@@ -24,6 +24,7 @@ import pyarrow.parquet as pq
 
 from tinychess.data.archive_scan import DiskGuard, canonical
 from tinychess.data.closeout import CloseoutIndex, payload_sha
+from tinychess.data.evidence import read_json_evidence
 from tinychess.data.hf_upload import HubTransport, VerifiedUploader
 from tinychess.data.storage import GAME_SCHEMA, POSITION_SCHEMA
 
@@ -53,8 +54,8 @@ def parquet(payload, schema):
 
 def run(args):
     project = Path(__file__).resolve().parents[1]
-    status = json.loads((project / 'reports/m1_50k_run_status.json').read_text())
-    expected = json.loads((project / 'reports/m1_final_split_audit.json').read_text())['audit']
+    status = read_json_evidence('reports/m1_50k_run_status.json', root=project)
+    expected = read_json_evidence('reports/m1_final_split_audit.json', root=project)['audit']
     require(status['status'] == 'COMPLETE' and status['final_revision'] == PIN,
             'Only the completed, pinned 50K pilot is supported')
     spool = project / 'data/processed/m1_closeout_spool'

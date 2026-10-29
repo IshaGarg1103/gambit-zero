@@ -2,7 +2,7 @@
 # This configuration cannot launch extraction or uploads.
 schema: human_v3
 dataset_d_policy: deferred
-source_manifest: reports/m1_50k_run_preflight.json
+source_manifest: reports/m1_sources_50k.json
 frozen_evaluation_fens: []
 months:
   '2026-01': {split: train, accepted_games: 5000}

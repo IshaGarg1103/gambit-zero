@@ -3,15 +3,17 @@ import argparse
 import json
 from pathlib import Path
 import sqlite3
+import sys
 import time
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT/'src'))
+from tinychess.data.evidence import read_json_evidence
 
 
 def read(name):
-    path = ROOT/'reports'/name
-    return json.loads(path.read_text()) if path.exists() else {}
+    return read_json_evidence('reports/'+name, root=ROOT, required=False) or {}
 
 
 def snapshot():

@@ -21,6 +21,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
 import yaml
 
 from tinychess.data.hf_upload import HubTransport
+from tinychess.data.evidence import read_json_evidence
 from tinychess.data.publication import check_card_paths, check_object
 
 
@@ -31,10 +32,10 @@ def require(condition, message):
 
 def run():
     started = time.monotonic()
-    source = json.loads(Path('reports/m1_dataset_d_exclusions.json').read_text())
+    source = read_json_evidence('reports/m1_dataset_d_exclusions.json')
     require(source['status'] == 'PASS' and source['temporary_cleanup_completed'],
             'Exclusion publication must finish before the final revision check')
-    original = json.loads(Path('reports/m1_50k_run_status.json').read_text())
+    original = read_json_evidence('reports/m1_50k_run_status.json')
     repo, revision = 'ishagarg1103/gambit-zero', source['final_revision']
     remote = HubTransport(repo, private=False)
     remote.deadline = time.monotonic()+1800

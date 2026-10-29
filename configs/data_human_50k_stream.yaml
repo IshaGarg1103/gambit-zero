@@ -4,7 +4,7 @@ seed: 20261025
 execution_enabled: false
 resource_budget_verified: false
 require_external_power: true
-source_manifest: reports/m1_50k_preflight.json
+source_manifest: reports/m1_sources_50k.json
 frozen_dataset_d_manifest: null
 frozen_dataset_d_sha256: null
 network_budget_bytes: null

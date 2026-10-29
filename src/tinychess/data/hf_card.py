@@ -168,7 +168,7 @@ recover complete repetition history; trajectories preserve it.
     card_path=root/'README.md';card_path.write_text(card)
     schema_path=root/'schema.json';schema_path.write_bytes(Path('configs/human_v3_schema.json').read_bytes())
     encoder_path=root/'encoder_contract.md';encoder_path.write_bytes(Path('reports/encoder_contract.md').read_bytes())
-    sources=json.loads(Path('reports/m1_50k_preflight.json').read_text())
+    sources=json.loads(Path('reports/m1_sources_50k.json').read_text())
     provenance=dict(source_archive_url_template='https://database.lichess.org/standard/lichess_db_standard_rated_{month}.pgn.zst',
         checksum_index=sources['checksum_index'],sources=[{k:v for k,v in s.items() if k in ['month','url','archive_size_bytes','published_sha256','full_archive_checksum_verified']} for s in sources['sources']],
         note='Preflight provenance only. Consult completed real-month manifests for actual full-file verification. Smoke fixtures are not archive samples.')

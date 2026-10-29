@@ -1,0 +1,101 @@
+{
+  "checksum_index": {
+    "bytes": 17820,
+    "sha256": "2b740e83b74acca97045261c6ffbe1b38e4fd51a7f32719d0022837bfa334a01",
+    "url": "https://database.lichess.org/standard/sha256sums.txt"
+  },
+  "completed_scan_evidence": "Archived reports/m1_50k_run_status.json; full streams verified there, not by the original preflight.",
+  "format": "tinychess-frozen-source-manifest-v1",
+  "sources": [
+    {
+      "algorithm": "utc-day-rating-bottomk-sha256-v1",
+      "archive_size_bytes": 30661381578,
+      "full_archive_checksum_verified": false,
+      "month": "2026-01",
+      "published_sha256": "53388f5c5be7eb2c3ce4d5071d7453a35ada6cea4f965bc6118cf1edb05e40e5",
+      "quota": 5000,
+      "seed": 20261025,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-01.pgn.zst"
+    },
+    {
+      "algorithm": "utc-day-rating-bottomk-sha256-v1",
+      "archive_size_bytes": 27755967701,
+      "full_archive_checksum_verified": false,
+      "month": "2026-02",
+      "published_sha256": "feeffa53b5056b2776f8e2e6c638a83eaaa1d1ffbaa88f711299db6c2b156c01",
+      "quota": 5000,
+      "seed": 20261025,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-02.pgn.zst"
+    },
+    {
+      "algorithm": "utc-day-rating-bottomk-sha256-v1",
+      "archive_size_bytes": 29351713061,
+      "full_archive_checksum_verified": false,
+      "month": "2026-03",
+      "published_sha256": "d3adc2bcc58e85f4398ece2f7f8ea422c5ec5269a7d2921257bc31c5b914180f",
+      "quota": 5000,
+      "seed": 20261025,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-03.pgn.zst"
+    },
+    {
+      "algorithm": "utc-day-rating-bottomk-sha256-v1",
+      "archive_size_bytes": 29325351334,
+      "full_archive_checksum_verified": false,
+      "month": "2026-04",
+      "published_sha256": "a6dc976bda3e6f543929e9448420482f2fe827b09e16c1005ca9a6ef66e7336d",
+      "quota": 5000,
+      "seed": 20261025,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-04.pgn.zst"
+    },
+    {
+      "algorithm": "utc-day-rating-bottomk-sha256-v1",
+      "archive_size_bytes": 29689176290,
+      "full_archive_checksum_verified": false,
+      "month": "2026-05",
+      "published_sha256": "249b4c13e92442ba6694d7f0bdb5b4639047bf74caba1611722a132a012ab294",
+      "quota": 5000,
+      "seed": 20261025,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-05.pgn.zst"
+    },
+    {
+      "algorithm": "utc-day-rating-bottomk-sha256-v1",
+      "archive_size_bytes": 28241946492,
+      "full_archive_checksum_verified": false,
+      "month": "2026-06",
+      "published_sha256": "8fd81071f56511e7546cb77e38db5cf32f7e8a437fb906e26959cc064d8b1f79",
+      "quota": 5000,
+      "seed": 20261025,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-06.pgn.zst"
+    },
+    {
+      "algorithm": "utc-day-rating-bottomk-sha256-v1",
+      "archive_size_bytes": 29051046504,
+      "full_archive_checksum_verified": false,
+      "month": "2026-07",
+      "published_sha256": "68738b1c448f051dc8d42db645d5b01749988a3bc1c24981adfe44ea92060dc7",
+      "quota": 5000,
+      "seed": 20261025,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-07.pgn.zst"
+    },
+    {
+      "algorithm": "utc-day-rating-bottomk-sha256-v1",
+      "archive_size_bytes": 30145862359,
+      "full_archive_checksum_verified": false,
+      "month": "2026-08",
+      "published_sha256": "6bf6fa8a5dee7bb81d1874ac312160060daf12f18a29dc2740a3bf6f5e5e6248",
+      "quota": 7500,
+      "seed": 20261025,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-08.pgn.zst"
+    },
+    {
+      "algorithm": "utc-day-rating-bottomk-sha256-v1",
+      "archive_size_bytes": 29224520887,
+      "full_archive_checksum_verified": false,
+      "month": "2026-09",
+      "published_sha256": "1de8eb64fed443f4be310c779e8d60a13bcfc6e3b104bcb39a018eb056edec89",
+      "quota": 7500,
+      "seed": 20261025,
+      "url": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-09.pgn.zst"
+    }
+  ]
+}
