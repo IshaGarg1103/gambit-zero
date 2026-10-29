@@ -355,3 +355,18 @@ their verified receipts above are complete. Review the separate GPU pending
 disposition and the documented historical telemetry limitations before declaring
 every M1 checklist item closed. No unavailable measurement is represented as done.
 No M2 training, Dataset B/self-play, larger extraction or automatic merge is authorized.
+
+<!-- m1-blackwell-followup:start -->
+## Blackwell follow-up — verified 29 October 2026
+
+The later Molab environment benchmark gate is **PASS**. See the
+[measured benchmark](m1_blackwell_benchmark.md) and
+[supplemental acceptance](m1_blackwell_acceptance.json).
+Measured batches: [128, 1024, 4096, 8192]; skipped: [].
+CUDA regression: 264 passed in 383.84 seconds.
+This supersedes the historical GPU-pending statements above.
+The original CPU dataset findings and telemetry limitations remain unchanged.
+These are independent initial-position environment-step rates, not model,
+training, MCTS or self-play throughput. Dataset revisions and protected chess
+implementation are unchanged; M2 remains unauthorized.
+<!-- m1-blackwell-followup:end -->

@@ -34,7 +34,12 @@ def verify():
         assert (ROOT/acceptance).read_bytes() == bundle.read(acceptance), 'Acceptance results changed'
         pilot = 'reports/m1_50k_pilot.md'
         expected = rewrite_archived_links(bundle.read(pilot).decode(), pilot, root=ROOT)
-        assert (ROOT/pilot).read_text() == expected, 'Scientific report changed beyond relocated links'
+        current = (ROOT/pilot).read_text()
+        # A later measured GPU supplement is separate from the frozen CPU
+        # findings. Validate the original body independently of that appendix.
+        current = re.sub(r'\n<!-- m1-blackwell-followup:start -->.*?<!-- m1-blackwell-followup:end -->\n?',
+                         '', current, flags=re.S)
+        assert current == expected, 'Scientific report changed beyond relocated links'
         canonical = json.loads((ROOT/'reports/m1_sources_50k.json').read_text())
         frozen = json.loads(bundle.read('reports/m1_50k_run_preflight.json'))
         identity = ['month', 'url', 'archive_size_bytes', 'published_sha256',

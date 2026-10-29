@@ -6,8 +6,9 @@
 3,793,600 retained positions**, published on
 [Hugging Face](https://huggingface.co/datasets/ishagarg1103/gambit-zero) at immutable
 revision `b7ddb96d8ce8cfe55298e01a7d928b0f763e1c4c`.
-CPU correctness/publication checks pass; the separate large-batch Blackwell
-benchmark and final review retain the documented conditional M1 disposition.
+CPU correctness/publication checks pass. The [Blackwell follow-up](reports/m1_blackwell_benchmark.md)
+also passed: all four batches measured and 264 CUDA tests passed. Historical
+telemetry limitations remain documented; no training performance is claimed.
 See [the final M1 report](reports/m1_50k_pilot.md). No M2 training has started.
 
 **Hardware:** 1 × NVIDIA RTX PRO 6000 Blackwell (96 GB VRAM), with CPU, RAM, local disk, and actual throughput to be measured.  
@@ -839,10 +840,10 @@ Dataset D is frozen and its exclusions are verified.
 See [the current M1 acceptance report](reports/m1_50k_pilot.md),
 [machine-readable acceptance](reports/m1_final_acceptance.json), and
 [Dataset D protocol](reports/m1_dataset_d_protocol.md).
-The separate large-batch Blackwell benchmark is pending. No M2, model training,
+The Blackwell environment benchmark follow-up has passed; see the supplement below. No M2, model training,
 self-play or larger extraction has started. The source handoff is prepared for
 the user to commit/push to `m1/human-dataset`; `main` remains unchanged. CPU dataset checks PASS; overall M1
-acceptance retains the documented GPU deferral and historical telemetry limits.
+acceptance retains historical telemetry limits; the GPU supplement records the completed benchmark.
 
 From the repository root, reproduce the offline regression and final publication
 checks without rescanning the monthly Lichess archives:
@@ -883,3 +884,29 @@ exported with the command below:
 ```bash
 .venv/bin/python scripts/fetch_m1_evidence.py --path reports/m1_50k_diagnostics.json --output data/processed/recovered/m1_50k_diagnostics.json
 ```
+
+## M1 Blackwell benchmark follow-up
+
+The Molab follow-up passed on `m1/blackwell-benchmark`: all four batches were
+measured with 30 repeats, and the CUDA suite passed 264 tests. See the
+[measured report](reports/m1_blackwell_benchmark.md) and
+[execution protocol](reports/molab_m1_blackwell.md).
+The runner collects actual GPU/software metadata, safely benchmarks batches
+128/1024/4096/8192 with 30 synchronized repeats, runs the regression suite and
+exports a checksummed results ZIP. These are environment-only measurements;
+no dataset changes, model training or self-play are included.
+
+<!-- m1-blackwell-followup:start -->
+## Blackwell follow-up — verified 29 October 2026
+
+The later Molab environment benchmark gate is **PASS**. See the
+[measured benchmark](reports/m1_blackwell_benchmark.md) and
+[supplemental acceptance](reports/m1_blackwell_acceptance.json).
+Measured batches: [128, 1024, 4096, 8192]; skipped: [].
+CUDA regression: 264 passed in 383.84 seconds.
+This supersedes the historical GPU-pending statements above.
+The original CPU dataset findings and telemetry limitations remain unchanged.
+These are independent initial-position environment-step rates, not model,
+training, MCTS or self-play throughput. Dataset revisions and protected chess
+implementation are unchanged; M2 remains unauthorized.
+<!-- m1-blackwell-followup:end -->

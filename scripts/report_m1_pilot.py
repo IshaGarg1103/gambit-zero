@@ -570,6 +570,11 @@ are excluded from the GitHub source handoff.
     else:
         body += '\n'+note
     readme.write_text(body)
+    if (ROOT/'reports/m0_large_batch_blackwell.json').is_file():
+        # Preserve the frozen CPU acceptance, and reattach later measured GPU
+        # evidence so regenerating historical results cannot erase its update.
+        import runpy
+        runpy.run_path(str(ROOT/'scripts/report_blackwell_followup.py'))['render'](ROOT)
 
 
 if __name__ == '__main__':

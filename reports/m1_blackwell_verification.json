@@ -1,0 +1,17 @@
+{
+  "benchmark_sha256": "61fe794576415df0df1b92c23517144264f67be46974a7c684c615d4c141c297",
+  "dataset_revision": "b7ddb96d8ce8cfe55298e01a7d928b0f763e1c4c",
+  "dataset_services_accessed_during_import": false,
+  "dependency_locks_match": true,
+  "input_zip_sha256": "fbc61324f5ae4660eb58f0ca64decf919798dc99470668c36ff2342e1beac0f6",
+  "note": "Raw input/results ZIPs and worker logs remain in ignored local caches. Essential final reports, input/result manifests and this verification receipt are retained for Git review.",
+  "per_worker_aggregate_rows_match": true,
+  "results_zip_bytes": 29404,
+  "results_zip_sha256": "028cdf39821683bdb67791cb2fc4e0af8506c2f77c90439b459df170c11bae02",
+  "runtime_source_hashes_match": true,
+  "source_base_commit": "69fd040d5a9d979038bd222eb5e8b7e7ba9935d0",
+  "status": "PASS",
+  "throughput_arithmetic_matches": true,
+  "verified_input_files": 121,
+  "verified_result_members": 21
+}
