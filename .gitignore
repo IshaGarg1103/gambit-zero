@@ -115,3 +115,6 @@ htmlcov/
 
 # Final PR #5 full-training accounting summary; per-batch logs/originals remain local.
 !/reports/m2_stage1_full_train.json
+
+# Final Stage 2A architecture/correctness report; smoke artifacts remain ignored.
+!/reports/m2_stage2a.md
