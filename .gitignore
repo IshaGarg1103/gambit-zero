@@ -108,3 +108,10 @@ htmlcov/
 
 # M2 Stage 0 final correctness/setup report; runtime evidence stays ignored.
 !/reports/m2_stage0.md
+
+# M2 Stage 1 A-C: compact final validation only; tensors/runtime logs stay ignored.
+!/reports/m2_stage1_abc.md
+!/reports/m2_stage1_abc.json
+
+# Final PR #5 full-training accounting summary; per-batch logs/originals remain local.
+!/reports/m2_stage1_full_train.json

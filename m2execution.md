@@ -146,3 +146,19 @@ existing-Python CPU fallback verified. Rules, codec, encoder, schema, locks and
 Dataset A/D remain unchanged. Dataset revision stays
 `b7ddb96d8ce8cfe55298e01a7d928b0f763e1c4c`. No new GPU experiment was run.
 **Stages 1–3 remain NOT STARTED; await the owner's Stage 0 review.**
+
+## Verified Stage 1 Parts A–C — 30 October 2026
+
+**Parts A/B: PASS in the tested sample scope; Part C: explicitly deferred.**
+See [reports/m2_stage1_abc.md](reports/m2_stage1_abc.md) for source/base identity,
+exact loader API, bounded cross-game shuffle, fail-stop validation and measurements.
+After the owner merged PR #4 and rebased, `m2/stage-1` starts from main
+`7dc8e1540f81ae62e9c1fcab42cb64b3758a84bd`.
+All 39,766 sampled real positions decoded identically; 36 focused tests and
+305 full CPU tests passed. Training batches mixed at least 144 games; maximum
+10 positions from one game per 256-position batch. Warm original-Parquet loading
+measured 32,975–34,696 positions/s; no derived cache was needed or built.
+Full-data manifest counts are distinguished from the newly measured sample;
+a new complete 3.79M-row loader epoch was not run. Dataset A revision, chess rules,
+encoder, codec, schemas and dependency pins remain unchanged.
+**Stage 1 Parts D/E and Stages 2/3 remain pending and were not implemented.**
