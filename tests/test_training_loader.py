@@ -238,7 +238,7 @@ def test_download_atomic_integrity_cleanup_and_reuse(tmp_path, monkeypatch, mode
                 yield payload[:3]
                 raise OSError('interrupted')
             yield payload if mode=='ok' else payload[:-1] if mode=='short' else b'x'*len(payload) if mode=='hash' else payload+b'x'
-    store=VerifiedStore(tmp_path,download=True,reserve_bytes=0)
+    store=VerifiedStore(tmp_path,download=True,keep_downloads=False,reserve_bytes=0)
     monkeypatch.setattr(store,'_read_remote',lambda path: Response())
     if mode=='ok':
         with store.file(spec) as path:
@@ -269,3 +269,90 @@ def test_missing_game_unsupported_metadata_and_duplicate_ply(tmp_path, originals
         shard,_,_=write_shard(tmp_path, originals, mutate=mutate)
         with pytest.raises(RecordError,match=message):
             list(iter_records(VerifiedStore(tmp_path),[shard],'train'))
+
+
+def test_persistent_default_fetches_once_and_rechecks_checksum(tmp_path, monkeypatch):
+    payload=b'persistent-original';calls=[]
+    spec=FileSpec('data/original.parquet',len(payload),hashlib.sha256(payload).hexdigest())
+    class Response:
+        def __enter__(self):return self
+        def __exit__(self,*args):pass
+        def raise_for_status(self):pass
+        def iter_bytes(self,chunk_size):yield payload
+    store=VerifiedStore(tmp_path,download=True,reserve_bytes=0)
+    def fetch(path):calls.append(path);return Response()
+    monkeypatch.setattr(store,'_read_remote',fetch)
+    for _ in range(3):
+        with store.file(spec) as path:assert path.read_bytes()==payload
+    assert calls==[spec.path] and store.downloaded_bytes==len(payload)
+    path.write_bytes(b'x'*len(payload))
+    with pytest.raises(RecordError,match='SHA256'):
+        with store.file(spec):pass
+    assert calls==[spec.path]  # no overwrite/re-download to conceal corruption
+
+
+def test_large_default_is_memory_guarded_before_read(tmp_path, originals, monkeypatch):
+    from types import SimpleNamespace
+    import tinychess.data.training_loader as loader
+    assert loader.DEFAULT_SHUFFLE_BUFFER==200_000
+    shard,_,_=write_shard(tmp_path,originals)
+    monkeypatch.setattr(loader.psutil,'virtual_memory',lambda:SimpleNamespace(available=1))
+    with pytest.raises(RecordError,match='host bytes'):
+        list(iter_batches(VerifiedStore(tmp_path),[shard],'train'))
+
+
+def test_full_audit_two_epochs_exact_accounting_and_metrics(tmp_path, originals, monkeypatch):
+    from tinychess.data.loader_audit import audit_training_split
+    shards=[write_shard(tmp_path,originals,part=p)[0] for p in range(2)]
+    store=VerifiedStore(tmp_path)
+    monkeypatch.setattr(store,'_read_remote',lambda _:pytest.fail('Local epochs must not download'))
+    before={p.name:p.read_bytes() for p in tmp_path.glob('*.parquet')}
+    report=audit_training_split(store,shards,dict(games=6,positions=36),tmp_path/'audit.json',
+                               shuffle_buffer=12,batch_size=5,epochs=2)
+    assert report['status']=='PASS_FULL_TRAIN' and report['reference']['eligible']==36
+    assert len(report['epochs'])==2 and all(e['rows']==36 and e['downloaded_bytes']==0 for e in report['epochs'])
+    assert report['epochs'][0]['order_sha256']!=report['epochs'][1]['order_sha256']
+    assert report['epochs'][0]['last_batch']['size']==1
+    metrics=[json.loads(line) for line in (tmp_path/'audit.batches.jsonl').read_text().splitlines()]
+    assert len(metrics)==16 and all(set(['max_positions_one_game','distinct_games','distinct_source_months'])<=m.keys() for m in metrics)
+    assert all(m['distinct_source_months']==1 for m in metrics)
+    assert before=={p.name:p.read_bytes() for p in tmp_path.glob('*.parquet')}
+    assert not list(tmp_path.glob('loader-accounting-*'))
+
+
+@pytest.mark.parametrize('fault',['duplicate','missing','wrong_month','ineligible'])
+def test_full_audit_rejects_bad_epoch(tmp_path, originals, monkeypatch, fault):
+    import tinychess.data.loader_audit as audit
+    shard,_,_=write_shard(tmp_path,originals)
+    original=audit.iter_batches
+    def broken(*args,**kwargs):
+        batches=list(original(*args,**kwargs))
+        if fault=='missing':batches.pop()
+        if fault=='duplicate':batches.append(batches[0])
+        if fault=='wrong_month':batches[0].source_month=('2026-08',)+batches[0].source_month[1:]
+        if fault=='ineligible':batches[0].training_eligible[0]=False
+        yield from batches
+    monkeypatch.setattr(audit,'iter_batches',broken)
+    with pytest.raises(RecordError):
+        audit.audit_training_split(VerifiedStore(tmp_path),[shard],dict(games=3,positions=18),
+                                   tmp_path/'audit.json',shuffle_buffer=12,batch_size=5,epochs=1)
+    assert json.loads((tmp_path/'audit.json').read_text())['status']=='FAIL'
+    assert len(list(tmp_path.glob('*.parquet')))==2  # originals never removed
+
+
+def test_audit_rejects_temporary_store_or_wrong_manifest(tmp_path, originals):
+    from tinychess.data.loader_audit import audit_training_split,preflight
+    shard,_,_=write_shard(tmp_path,originals)
+    with pytest.raises(RecordError,match='persistent'):
+        preflight(VerifiedStore(tmp_path,keep_downloads=False),[shard])
+    with pytest.raises(RecordError,match='manifest counts'):
+        audit_training_split(VerifiedStore(tmp_path),[shard],dict(games=3,positions=19),
+                             tmp_path/'audit.json',shuffle_buffer=12,batch_size=5,epochs=1)
+
+
+@pytest.mark.parametrize('options',[dict(shuffle_buffer=-1),dict(batch_size=0),dict(chunk_rows=0)])
+def test_full_preflight_rejects_invalid_parameters_before_download(tmp_path, originals, options):
+    from tinychess.data.loader_audit import preflight
+    shard,_,_=write_shard(tmp_path,originals)
+    with pytest.raises(RecordError):
+        preflight(VerifiedStore(tmp_path),[shard],**options)

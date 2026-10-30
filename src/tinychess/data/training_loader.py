@@ -1,7 +1,7 @@
 """Lossless, bounded human_v3 minibatches; no chess replay or training here.
 
 Only the accepted immutable Dataset A is fetched. Compressed originals are
-verified before use; one shard pair is held on disk by default. The shuffle
+verified before every use and retained by default for repeated epochs. The shuffle
 buffer spans Arrow batches, games and shard boundaries. No malformed row is
 filtered: validation happens *before* the explicit eligibility filter.
 """
@@ -16,6 +16,8 @@ import shutil
 
 import numpy as np
 import pyarrow.parquet as pq
+import psutil
+from filelock import FileLock
 
 from tinychess.chess.action_codec import ACTION_MAP_VERSION
 from tinychess.chess.pgx_env import RULES_POLICY_VERSION
@@ -29,6 +31,26 @@ REVISION = 'b7ddb96d8ce8cfe55298e01a7d928b0f763e1c4c'
 CATALOG_SHA256 = 'ab791031be6b4aa2f7962ddc527fee9fbb91840223759339686d55ab1ab9daa1'
 SPLITS = ('train', 'validation', 'test')
 MAX_FILE_BYTES = 32 * 2**20
+DEFAULT_SHUFFLE_BUFFER = 200_000
+
+
+def shuffle_memory_plan(rows, capacity, batch_size=256, chunk_rows=128):
+    """Conservative host allocation estimate, not a device/VRAM estimate."""
+    return min(rows, capacity) * 36_000 + (2 * batch_size + 2 * chunk_rows) * 36_000
+
+
+def check_shuffle_memory(rows, capacity, batch_size=256, chunk_rows=128):
+    require(type(capacity) is int and type(batch_size) is int
+            and 1 <= batch_size <= 8192 and capacity >= batch_size,
+            'Invalid batch size or shuffle buffer')
+    require(type(chunk_rows) is int and 1 <= chunk_rows <= 512,
+            'chunk_rows must be 1..512')
+    estimate = shuffle_memory_plan(rows, capacity, batch_size, chunk_rows)
+    available = psutil.virtual_memory().available
+    require(estimate + 2**30 <= available,
+            f'Shuffle needs estimated {estimate:,} host bytes plus 1 GiB reserve; '
+            f'only {available:,} available. Set a smaller shuffle_buffer explicitly.')
+    return estimate
 
 
 class RecordError(ValueError):
@@ -85,14 +107,14 @@ class Shard:
 
 
 class VerifiedStore:
-    """Explicit local originals only; no global Hub cache or persistent tensors.
+    """Explicit checksummed originals, persistent by default; no global Hub cache.
 
     Local files may be symlinks to existing verified processed shards. A bad
     local checksum is an error, never a reason to overwrite/re-download it.
     Newly downloaded files are atomic; failures remove only their .partial.
     Tokens are read by the Hub SDK and are never written to reports/logs.
     """
-    def __init__(self, root, *, download=False, keep_downloads=False,
+    def __init__(self, root, *, download=False, keep_downloads=True,
                  reserve_bytes=20 * 2**30):
         self.root = Path(root)
         self.root.mkdir(parents=True, exist_ok=True)
@@ -109,6 +131,14 @@ class VerifiedStore:
             headers=build_hf_headers(), follow_redirects=True, timeout=120)
 
     def _fetch(self, path, limit, digest=None, size=None):
+        target = self.root / path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        # Serializes verification/download/atomic publication for this object;
+        # concurrent persistent readers never download a second copy.
+        with FileLock(str(target) + '.lock', timeout=180):
+            return self._fetch_locked(path, limit, digest, size)
+
+    def _fetch_locked(self, path, limit, digest=None, size=None):
         target = self.root / path
         if target.exists():
             require(target.stat().st_size <= limit, f'Local file exceeds bound: {path}')
@@ -160,6 +190,8 @@ class VerifiedStore:
             # Never delete pre-existing user files. Download failures retain no
             # trusted file; successful newly fetched originals may be ephemeral.
             if acquired and not self.keep_downloads:
+                require(path.stat().st_size == spec.size and sha256(path) == spec.sha256,
+                        'Refusing to delete a changed temporary original')
                 path.unlink()
 
 
@@ -391,7 +423,7 @@ def collate(rows, split):
 
 
 def iter_batches(store, shards, split, *, batch_size=256, chunk_rows=128,
-                 shuffle=None, shuffle_buffer=16384, seed=0, epoch=0):
+                 shuffle=None, shuffle_buffer=DEFAULT_SHUFFLE_BUFFER, seed=0, epoch=0):
     """CPU NumPy model inputs; seed+epoch fully determine the training order.
 
     Only eligible rows are emitted; ineligible rows are still validated first.
@@ -406,9 +438,12 @@ def iter_batches(store, shards, split, *, batch_size=256, chunk_rows=128,
     shuffle = split == 'train' if shuffle is None else shuffle
     require(not shuffle or split == 'train', 'Only training may shuffle')
     if shuffle:
-        require(shuffle_buffer >= batch_size, 'Shuffle buffer smaller than batch')
+        require(type(shuffle_buffer) is int and shuffle_buffer >= batch_size,
+                'Shuffle buffer smaller than batch or not an integer')
     selected = list(shards)
     require(all(s.split == split for s in selected), 'Mixed input splits')
+    if shuffle:
+        check_shuffle_memory(sum(s.rows for s in selected), shuffle_buffer, batch_size, chunk_rows)
     rng = np.random.Generator(np.random.PCG64(np.random.SeedSequence([seed, epoch])))
     if shuffle:
         rng.shuffle(selected)
