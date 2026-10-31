@@ -118,3 +118,10 @@ htmlcov/
 
 # Final Stage 2A architecture/correctness report; smoke artifacts remain ignored.
 !/reports/m2_stage2a.md
+
+# Stage 2B retains the final narrative; notebook results/logs stay in the returned ZIP.
+!/reports/m2_stage2b.md
+
+# Compact verified Stage 2B GPU results; raw notebook evidence remains ignored.
+!/reports/m2_stage2b_results.json
+!/reports/m2_stage2b_verification.json

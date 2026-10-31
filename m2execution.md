@@ -181,3 +181,18 @@ separate Blackwell loader profiling, and remaining Stage 2 GPU inference/search
 integration. No Blackwell model result is claimed. Stage 3 overfit/pilot training
 has not started. The original B0 → independent B1/B2 research plan is unchanged;
 this completes Stage 2A only, not all of Stage 2 or M2. Stop for review.
+
+
+## Verified Stage 2B — Blackwell model validation — 31 October 2026
+
+**Stage 2B: PASS within the bounded smoke scope.** See
+[`reports/m2_stage2b.md`](reports/m2_stage2b.md). Both accepted models
+(25,622,092 / 100,031,308 parameters) initialized and passed finite forward,
+backward and exactly one AdamW update per fresh case: fp32/bf16 at batch 4,
+and bf16 at batch 32. All six cases passed; 86 CUDA correctness tests passed.
+The CPU regression passed 373 tests. Measured bf16 batch-32 JAX peaks were
+0.892 / 2.702 GiB. Batch 32 is a conservative starting microbatch for Stage 3A,
+subject to memory checks in the actual loop. Dataset A revision, rules, codec,
+encoder and model are unchanged. Stage 3A was not executed. History dropout and
+openings_v2 remain deferred under the revised flow; original research objectives
+and B0 → B1/B2 sequencing remain unchanged. Stop for owner review.

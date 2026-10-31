@@ -1,0 +1,1202 @@
+{
+  "cases": [
+    {
+      "batch": 4,
+      "compute": "bfloat16",
+      "configuration": {
+        "config": {
+          "compute": "bfloat16",
+          "ff_width": 2048,
+          "heads": 8,
+          "layers": 8,
+          "width": 512
+        },
+        "input_context": [
+          8
+        ],
+        "input_planes": [
+          8,
+          8,
+          120
+        ],
+        "param_dtype": "float32",
+        "policy_order": "source=col*8+7-row; action=source*73+plane",
+        "tokens": 65,
+        "version": "tinychess-transformer-v1",
+        "wdl_order": [
+          "win",
+          "draw",
+          "loss"
+        ]
+      },
+      "default_matmul_precision": "highest",
+      "estimated_device_bytes": 1868967488,
+      "expected_parameter_count": 25622092,
+      "gpu_kind": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+      "gpu_measured": true,
+      "gradient_squared_norm": 6721.2958984375,
+      "gradients_finite": true,
+      "host_available_sources": {
+        "/sys/fs/cgroup/memory/memory.limit_in_bytes": 171207561216,
+        "psutil_available": 171206316032
+      },
+      "input_source": "synthetic labels; repeated four scripted canonical Pgx positions",
+      "jax_memory_stats": {
+        "bytes_in_use": 724875776,
+        "bytes_limit": 76481888256,
+        "bytes_reserved": 0,
+        "largest_alloc_size": 54544896,
+        "largest_free_block_bytes": 0,
+        "num_allocs": 2577,
+        "peak_bytes_in_use": 733935104,
+        "peak_bytes_reserved": 0,
+        "peak_pool_bytes": 1071644672,
+        "pool_bytes": 1071644672
+      },
+      "jax_peak_bytes_in_use": 733935104,
+      "loss_after": 3.201472759246826,
+      "loss_before": 5.231551647186279,
+      "master_params_fp32": true,
+      "memory_budget_bytes": 25769803776,
+      "optimizer": {
+        "b1": 0.9,
+        "b2": 0.95,
+        "learning_rate": 0.0001,
+        "name": "AdamW",
+        "weight_decay": 0.01
+      },
+      "optimizer_fp32": true,
+      "output_dtypes": {
+        "policy_logits": "float32",
+        "wdl_logits": "float32"
+      },
+      "output_shapes": {
+        "policy_logits": [
+          4,
+          4672
+        ],
+        "wdl_logits": [
+          4,
+          3
+        ]
+      },
+      "packages": {
+        "flax": "0.12.0",
+        "jax": "0.7.2",
+        "jaxlib": "0.7.2",
+        "optax": "0.2.6"
+      },
+      "parameter_count": 25622092,
+      "parameter_delta_squared": 0.2552567422389984,
+      "parameter_updates": 1,
+      "peak_host_rss_bytes": 2302111744,
+      "phases": {
+        "adamw_once": {
+          "compile_seconds": 0.9592521850000253,
+          "compiled_buffers": {
+            "arguments": 409953476,
+            "outputs": 307467756,
+            "temporaries": 28676
+          },
+          "synchronized_execution_seconds": 0.01689000299998611,
+          "trace_seconds": 0.5495911110000122
+        },
+        "backward": {
+          "compile_seconds": 3.8903009789999885,
+          "compiled_buffers": {
+            "arguments": 102630132,
+            "outputs": 102489293,
+            "temporaries": 54544680
+          },
+          "synchronized_execution_seconds": 0.013812204000004158,
+          "trace_seconds": 0.7774848030000214
+        },
+        "forward": {
+          "compile_seconds": 2.319317761999997,
+          "compiled_buffers": {
+            "arguments": 102611376,
+            "outputs": 74816,
+            "temporaries": 9059856
+          },
+          "synchronized_execution_seconds": 0.004939160000020593,
+          "trace_seconds": 0.16588293200001658
+        },
+        "initialize": {
+          "compile_seconds": 8.441875527999997,
+          "compiled_buffers": {
+            "arguments": 8,
+            "outputs": 102489248,
+            "temporaries": 15620
+          },
+          "synchronized_execution_seconds": 0.0052054960000020856,
+          "trace_seconds": 0.9761703780000062
+        },
+        "post_update_forward": {
+          "compile_seconds": 0.00017864399998757108,
+          "compiled_buffers": {
+            "arguments": 102611376,
+            "outputs": 74816,
+            "temporaries": 9059856
+          },
+          "synchronized_execution_seconds": 0.003988567999982706,
+          "trace_seconds": 0.00168680300001256
+        }
+      },
+      "physical_sample_errors": 0,
+      "physical_sampled_peak_used_bytes": 1724907520,
+      "physical_samples": 129,
+      "policy_loss": 3.921144485473633,
+      "profile": "25m",
+      "seed": 20261030,
+      "status": "PASS",
+      "update_note": "Exactly one step on a fresh initialization; no loss-decrease requirement or tuning",
+      "value_loss": 1.310407042503357,
+      "worker_returncode": 0
+    },
+    {
+      "batch": 4,
+      "compute": "bfloat16",
+      "configuration": {
+        "config": {
+          "compute": "bfloat16",
+          "ff_width": 3072,
+          "heads": 12,
+          "layers": 14,
+          "width": 768
+        },
+        "input_context": [
+          8
+        ],
+        "input_planes": [
+          8,
+          8,
+          120
+        ],
+        "param_dtype": "float32",
+        "policy_order": "source=col*8+7-row; action=source*73+plane",
+        "tokens": 65,
+        "version": "tinychess-transformer-v1",
+        "wdl_order": [
+          "win",
+          "draw",
+          "loss"
+        ]
+      },
+      "default_matmul_precision": "highest",
+      "estimated_device_bytes": 5606743616,
+      "expected_parameter_count": 100031308,
+      "gpu_kind": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+      "gpu_measured": true,
+      "gradient_squared_norm": 2832.67626953125,
+      "gradients_finite": true,
+      "host_available_sources": {
+        "/sys/fs/cgroup/memory/memory.limit_in_bytes": 171206373376,
+        "psutil_available": 171205128192
+      },
+      "input_source": "synthetic labels; repeated four scripted canonical Pgx positions",
+      "jax_memory_stats": {
+        "bytes_in_use": 2830988288,
+        "bytes_limit": 76481888256,
+        "bytes_reserved": 0,
+        "largest_alloc_size": 131196160,
+        "largest_free_block_bytes": 0,
+        "num_allocs": 3369,
+        "peak_bytes_in_use": 2846116352,
+        "peak_bytes_reserved": 0,
+        "peak_pool_bytes": 4297064448,
+        "pool_bytes": 4297064448
+      },
+      "jax_peak_bytes_in_use": 2846116352,
+      "loss_after": 3.318087577819824,
+      "loss_before": 4.2124223709106445,
+      "master_params_fp32": true,
+      "memory_budget_bytes": 25769803776,
+      "optimizer": {
+        "b1": 0.9,
+        "b2": 0.95,
+        "learning_rate": 0.0001,
+        "name": "AdamW",
+        "weight_decay": 0.01
+      },
+      "optimizer_fp32": true,
+      "output_dtypes": {
+        "policy_logits": "float32",
+        "wdl_logits": "float32"
+      },
+      "output_shapes": {
+        "policy_logits": [
+          4,
+          4672
+        ],
+        "wdl_logits": [
+          4,
+          3
+        ]
+      },
+      "packages": {
+        "flax": "0.12.0",
+        "jax": "0.7.2",
+        "jaxlib": "0.7.2",
+        "optax": "0.2.6"
+      },
+      "parameter_count": 100031308,
+      "parameter_delta_squared": 0.995091438293457,
+      "parameter_updates": 1,
+      "peak_host_rss_bytes": 2744258560,
+      "phases": {
+        "adamw_once": {
+          "compile_seconds": 1.5286296179999965,
+          "compiled_buffers": {
+            "arguments": 1600500932,
+            "outputs": 1200380076,
+            "temporaries": 47108
+          },
+          "synchronized_execution_seconds": 0.043680543000022,
+          "trace_seconds": 1.0236915179999926
+        },
+        "backward": {
+          "compile_seconds": 4.827733427999988,
+          "compiled_buffers": {
+            "arguments": 400266996,
+            "outputs": 400126733,
+            "temporaries": 131195944
+          },
+          "synchronized_execution_seconds": 0.020132244000024002,
+          "trace_seconds": 1.2047364870000195
+        },
+        "forward": {
+          "compile_seconds": 2.9295732789999818,
+          "compiled_buffers": {
+            "arguments": 400248240,
+            "outputs": 74816,
+            "temporaries": 15128592
+          },
+          "synchronized_execution_seconds": 0.00904345600000056,
+          "trace_seconds": 0.28402467800000863
+        },
+        "initialize": {
+          "compile_seconds": 13.683541701000024,
+          "compiled_buffers": {
+            "arguments": 8,
+            "outputs": 400126688,
+            "temporaries": 29188
+          },
+          "synchronized_execution_seconds": 0.009399975000007998,
+          "trace_seconds": 1.0480317820000096
+        },
+        "post_update_forward": {
+          "compile_seconds": 0.0001075419999949645,
+          "compiled_buffers": {
+            "arguments": 400248240,
+            "outputs": 74816,
+            "temporaries": 15128592
+          },
+          "synchronized_execution_seconds": 0.00649286699999152,
+          "trace_seconds": 0.002675499000019954
+        }
+      },
+      "physical_sample_errors": 0,
+      "physical_sampled_peak_used_bytes": 4969201664,
+      "physical_samples": 167,
+      "policy_loss": 2.884582996368408,
+      "profile": "100m",
+      "seed": 20261030,
+      "status": "PASS",
+      "update_note": "Exactly one step on a fresh initialization; no loss-decrease requirement or tuning",
+      "value_loss": 1.3278391361236572,
+      "worker_returncode": 0
+    },
+    {
+      "batch": 4,
+      "compute": "float32",
+      "configuration": {
+        "config": {
+          "compute": "float32",
+          "ff_width": 2048,
+          "heads": 8,
+          "layers": 8,
+          "width": 512
+        },
+        "input_context": [
+          8
+        ],
+        "input_planes": [
+          8,
+          8,
+          120
+        ],
+        "param_dtype": "float32",
+        "policy_order": "source=col*8+7-row; action=source*73+plane",
+        "tokens": 65,
+        "version": "tinychess-transformer-v1",
+        "wdl_order": [
+          "win",
+          "draw",
+          "loss"
+        ]
+      },
+      "default_matmul_precision": "highest",
+      "estimated_device_bytes": 1868967488,
+      "expected_parameter_count": 25622092,
+      "gpu_kind": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+      "gpu_measured": true,
+      "gradient_squared_norm": 6687.72412109375,
+      "gradients_finite": true,
+      "host_available_sources": {
+        "/sys/fs/cgroup/memory/memory.limit_in_bytes": 171208192000,
+        "psutil_available": 171206946816
+      },
+      "input_source": "synthetic labels; repeated four scripted canonical Pgx positions",
+      "jax_memory_stats": {
+        "bytes_in_use": 724875776,
+        "bytes_limit": 76481888256,
+        "bytes_reserved": 0,
+        "largest_alloc_size": 118096640,
+        "largest_free_block_bytes": 0,
+        "num_allocs": 2563,
+        "peak_bytes_in_use": 735474688,
+        "peak_bytes_reserved": 0,
+        "peak_pool_bytes": 1071644672,
+        "pool_bytes": 1071644672
+      },
+      "jax_peak_bytes_in_use": 735474688,
+      "loss_after": 3.2052807807922363,
+      "loss_before": 5.219195365905762,
+      "master_params_fp32": true,
+      "memory_budget_bytes": 25769803776,
+      "optimizer": {
+        "b1": 0.9,
+        "b2": 0.95,
+        "learning_rate": 0.0001,
+        "name": "AdamW",
+        "weight_decay": 0.01
+      },
+      "optimizer_fp32": true,
+      "output_dtypes": {
+        "policy_logits": "float32",
+        "wdl_logits": "float32"
+      },
+      "output_shapes": {
+        "policy_logits": [
+          4,
+          4672
+        ],
+        "wdl_logits": [
+          4,
+          3
+        ]
+      },
+      "packages": {
+        "flax": "0.12.0",
+        "jax": "0.7.2",
+        "jaxlib": "0.7.2",
+        "optax": "0.2.6"
+      },
+      "parameter_count": 25622092,
+      "parameter_delta_squared": 0.2552228569984436,
+      "parameter_updates": 1,
+      "peak_host_rss_bytes": 2138456064,
+      "phases": {
+        "adamw_once": {
+          "compile_seconds": 1.0268896919999975,
+          "compiled_buffers": {
+            "arguments": 409953476,
+            "outputs": 307467756,
+            "temporaries": 28676
+          },
+          "synchronized_execution_seconds": 0.01799753000000237,
+          "trace_seconds": 0.5587394339999605
+        },
+        "backward": {
+          "compile_seconds": 2.772856645000047,
+          "compiled_buffers": {
+            "arguments": 102630132,
+            "outputs": 102489293,
+            "temporaries": 68722320
+          },
+          "synchronized_execution_seconds": 0.015087820000019292,
+          "trace_seconds": 0.726545716999965
+        },
+        "forward": {
+          "compile_seconds": 1.3253776020000032,
+          "compiled_buffers": {
+            "arguments": 102611376,
+            "outputs": 74816,
+            "temporaries": 10599440
+          },
+          "synchronized_execution_seconds": 0.004649661000030392,
+          "trace_seconds": 0.14980786499998544
+        },
+        "initialize": {
+          "compile_seconds": 8.40753332700001,
+          "compiled_buffers": {
+            "arguments": 8,
+            "outputs": 102489248,
+            "temporaries": 15620
+          },
+          "synchronized_execution_seconds": 0.005006717999975763,
+          "trace_seconds": 0.9682311500000083
+        },
+        "post_update_forward": {
+          "compile_seconds": 2.9820000008839997e-05,
+          "compiled_buffers": {
+            "arguments": 102611376,
+            "outputs": 74816,
+            "temporaries": 10599440
+          },
+          "synchronized_execution_seconds": 0.00397614300004534,
+          "trace_seconds": 0.0016451340000003256
+        }
+      },
+      "physical_sample_errors": 0,
+      "physical_sampled_peak_used_bytes": 1731198976,
+      "physical_samples": 118,
+      "policy_loss": 3.911363363265991,
+      "profile": "25m",
+      "seed": 20261030,
+      "status": "PASS",
+      "update_note": "Exactly one step on a fresh initialization; no loss-decrease requirement or tuning",
+      "value_loss": 1.3078320026397705,
+      "worker_returncode": 0
+    },
+    {
+      "batch": 4,
+      "compute": "float32",
+      "configuration": {
+        "config": {
+          "compute": "float32",
+          "ff_width": 3072,
+          "heads": 12,
+          "layers": 14,
+          "width": 768
+        },
+        "input_context": [
+          8
+        ],
+        "input_planes": [
+          8,
+          8,
+          120
+        ],
+        "param_dtype": "float32",
+        "policy_order": "source=col*8+7-row; action=source*73+plane",
+        "tokens": 65,
+        "version": "tinychess-transformer-v1",
+        "wdl_order": [
+          "win",
+          "draw",
+          "loss"
+        ]
+      },
+      "default_matmul_precision": "highest",
+      "estimated_device_bytes": 5606743616,
+      "expected_parameter_count": 100031308,
+      "gpu_kind": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+      "gpu_measured": true,
+      "gradient_squared_norm": 2853.025634765625,
+      "gradients_finite": true,
+      "host_available_sources": {
+        "/sys/fs/cgroup/memory/memory.limit_in_bytes": 171206762496,
+        "psutil_available": 171205517312
+      },
+      "input_source": "synthetic labels; repeated four scripted canonical Pgx positions",
+      "jax_memory_stats": {
+        "bytes_in_use": 2830988288,
+        "bytes_limit": 76481888256,
+        "bytes_reserved": 0,
+        "largest_alloc_size": 195024896,
+        "largest_free_block_bytes": 0,
+        "num_allocs": 3355,
+        "peak_bytes_in_use": 2850035712,
+        "peak_bytes_reserved": 0,
+        "peak_pool_bytes": 4297064448,
+        "pool_bytes": 4297064448
+      },
+      "jax_peak_bytes_in_use": 2850035712,
+      "loss_after": 3.3186943531036377,
+      "loss_before": 4.2215576171875,
+      "master_params_fp32": true,
+      "memory_budget_bytes": 25769803776,
+      "optimizer": {
+        "b1": 0.9,
+        "b2": 0.95,
+        "learning_rate": 0.0001,
+        "name": "AdamW",
+        "weight_decay": 0.01
+      },
+      "optimizer_fp32": true,
+      "output_dtypes": {
+        "policy_logits": "float32",
+        "wdl_logits": "float32"
+      },
+      "output_shapes": {
+        "policy_logits": [
+          4,
+          4672
+        ],
+        "wdl_logits": [
+          4,
+          3
+        ]
+      },
+      "packages": {
+        "flax": "0.12.0",
+        "jax": "0.7.2",
+        "jaxlib": "0.7.2",
+        "optax": "0.2.6"
+      },
+      "parameter_count": 100031308,
+      "parameter_delta_squared": 0.9950222969055176,
+      "parameter_updates": 1,
+      "peak_host_rss_bytes": 2572873728,
+      "phases": {
+        "adamw_once": {
+          "compile_seconds": 1.500544901000012,
+          "compiled_buffers": {
+            "arguments": 1600500932,
+            "outputs": 1200380076,
+            "temporaries": 47108
+          },
+          "synchronized_execution_seconds": 0.04382471900004248,
+          "trace_seconds": 1.0869861689999993
+        },
+        "backward": {
+          "compile_seconds": 3.6394082570000137,
+          "compiled_buffers": {
+            "arguments": 400266996,
+            "outputs": 400126733,
+            "temporaries": 195024848
+          },
+          "synchronized_execution_seconds": 0.0236831240000015,
+          "trace_seconds": 1.1022484169999984
+        },
+        "forward": {
+          "compile_seconds": 1.7548160399999801,
+          "compiled_buffers": {
+            "arguments": 400248240,
+            "outputs": 74816,
+            "temporaries": 19047952
+          },
+          "synchronized_execution_seconds": 0.007740353000031064,
+          "trace_seconds": 0.32755972000001066
+        },
+        "initialize": {
+          "compile_seconds": 13.544679933999987,
+          "compiled_buffers": {
+            "arguments": 8,
+            "outputs": 400126688,
+            "temporaries": 29188
+          },
+          "synchronized_execution_seconds": 0.008224759999961861,
+          "trace_seconds": 1.0646177489999786
+        },
+        "post_update_forward": {
+          "compile_seconds": 4.839600001105282e-05,
+          "compiled_buffers": {
+            "arguments": 400248240,
+            "outputs": 74816,
+            "temporaries": 19047952
+          },
+          "synchronized_execution_seconds": 0.006857634000027701,
+          "trace_seconds": 0.0023198570000317886
+        }
+      },
+      "physical_sample_errors": 0,
+      "physical_sampled_peak_used_bytes": 4956618752,
+      "physical_samples": 155,
+      "policy_loss": 2.8914647102355957,
+      "profile": "100m",
+      "seed": 20261030,
+      "status": "PASS",
+      "update_note": "Exactly one step on a fresh initialization; no loss-decrease requirement or tuning",
+      "value_loss": 1.3300926685333252,
+      "worker_returncode": 0
+    },
+    {
+      "batch": 32,
+      "compute": "bfloat16",
+      "configuration": {
+        "config": {
+          "compute": "bfloat16",
+          "ff_width": 2048,
+          "heads": 8,
+          "layers": 8,
+          "width": 512
+        },
+        "input_context": [
+          8
+        ],
+        "input_planes": [
+          8,
+          8,
+          120
+        ],
+        "param_dtype": "float32",
+        "policy_order": "source=col*8+7-row; action=source*73+plane",
+        "tokens": 65,
+        "version": "tinychess-transformer-v1",
+        "wdl_order": [
+          "win",
+          "draw",
+          "loss"
+        ]
+      },
+      "default_matmul_precision": "highest",
+      "estimated_device_bytes": 2584620608,
+      "expected_parameter_count": 25622092,
+      "gpu_kind": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+      "gpu_measured": true,
+      "gradient_squared_norm": 6767.80078125,
+      "gradients_finite": true,
+      "host_available_sources": {
+        "/sys/fs/cgroup/memory/memory.limit_in_bytes": 171207938048,
+        "psutil_available": 171206692864
+      },
+      "input_source": "synthetic labels; repeated four scripted canonical Pgx positions",
+      "jax_memory_stats": {
+        "bytes_in_use": 729593600,
+        "bytes_limit": 76481888256,
+        "bytes_reserved": 0,
+        "largest_alloc_size": 536870912,
+        "largest_free_block_bytes": 0,
+        "num_allocs": 2577,
+        "peak_bytes_in_use": 957575680,
+        "peak_bytes_reserved": 0,
+        "peak_pool_bytes": 1071644672,
+        "pool_bytes": 1071644672
+      },
+      "jax_peak_bytes_in_use": 957575680,
+      "loss_after": 3.3496646881103516,
+      "loss_before": 5.258713722229004,
+      "master_params_fp32": true,
+      "memory_budget_bytes": 25769803776,
+      "optimizer": {
+        "b1": 0.9,
+        "b2": 0.95,
+        "learning_rate": 0.0001,
+        "name": "AdamW",
+        "weight_decay": 0.01
+      },
+      "optimizer_fp32": true,
+      "output_dtypes": {
+        "policy_logits": "float32",
+        "wdl_logits": "float32"
+      },
+      "output_shapes": {
+        "policy_logits": [
+          32,
+          4672
+        ],
+        "wdl_logits": [
+          32,
+          3
+        ]
+      },
+      "packages": {
+        "flax": "0.12.0",
+        "jax": "0.7.2",
+        "jaxlib": "0.7.2",
+        "optax": "0.2.6"
+      },
+      "parameter_count": 25622092,
+      "parameter_delta_squared": 0.2552064061164856,
+      "parameter_updates": 1,
+      "peak_host_rss_bytes": 2320404480,
+      "phases": {
+        "adamw_once": {
+          "compile_seconds": 1.034752381999965,
+          "compiled_buffers": {
+            "arguments": 409953476,
+            "outputs": 307467756,
+            "temporaries": 28676
+          },
+          "synchronized_execution_seconds": 0.010182310999994115,
+          "trace_seconds": 0.5277716909999981
+        },
+        "backward": {
+          "compile_seconds": 4.807199061000006,
+          "compiled_buffers": {
+            "arguments": 103622480,
+            "outputs": 102489293,
+            "temporaries": 457138216
+          },
+          "synchronized_execution_seconds": 0.02312905899998441,
+          "trace_seconds": 0.7450062500000172
+        },
+        "forward": {
+          "compile_seconds": 3.6435822220000205,
+          "compiled_buffers": {
+            "arguments": 103472432,
+            "outputs": 598416,
+            "temporaries": 36191760
+          },
+          "synchronized_execution_seconds": 0.005421280999996725,
+          "trace_seconds": 0.17662218099997062
+        },
+        "initialize": {
+          "compile_seconds": 8.385538439999948,
+          "compiled_buffers": {
+            "arguments": 8,
+            "outputs": 102489248,
+            "temporaries": 15620
+          },
+          "synchronized_execution_seconds": 0.00534423100003778,
+          "trace_seconds": 0.9802228400000104
+        },
+        "post_update_forward": {
+          "compile_seconds": 3.247000000783373e-05,
+          "compiled_buffers": {
+            "arguments": 103472432,
+            "outputs": 598416,
+            "temporaries": 36191760
+          },
+          "synchronized_execution_seconds": 0.004592835000039486,
+          "trace_seconds": 0.0016949520000366647
+        }
+      },
+      "physical_sample_errors": 0,
+      "physical_sampled_peak_used_bytes": 1731198976,
+      "physical_samples": 137,
+      "policy_loss": 3.923211097717285,
+      "profile": "25m",
+      "seed": 20261030,
+      "status": "PASS",
+      "update_note": "Exactly one step on a fresh initialization; no loss-decrease requirement or tuning",
+      "value_loss": 1.3355025053024292,
+      "worker_returncode": 0
+    },
+    {
+      "batch": 32,
+      "compute": "bfloat16",
+      "configuration": {
+        "config": {
+          "compute": "bfloat16",
+          "ff_width": 3072,
+          "heads": 12,
+          "layers": 14,
+          "width": 768
+        },
+        "input_context": [
+          8
+        ],
+        "input_planes": [
+          8,
+          8,
+          120
+        ],
+        "param_dtype": "float32",
+        "policy_order": "source=col*8+7-row; action=source*73+plane",
+        "tokens": 65,
+        "version": "tinychess-transformer-v1",
+        "wdl_order": [
+          "win",
+          "draw",
+          "loss"
+        ]
+      },
+      "default_matmul_precision": "highest",
+      "estimated_device_bytes": 7485333056,
+      "expected_parameter_count": 100031308,
+      "gpu_kind": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+      "gpu_measured": true,
+      "gradient_squared_norm": 2700.09619140625,
+      "gradients_finite": true,
+      "host_available_sources": {
+        "/sys/fs/cgroup/memory/memory.limit_in_bytes": 171206184960,
+        "psutil_available": 171204939776
+      },
+      "input_source": "synthetic labels; repeated four scripted canonical Pgx positions",
+      "jax_memory_stats": {
+        "bytes_in_use": 2845143296,
+        "bytes_limit": 76481888256,
+        "bytes_reserved": 0,
+        "largest_alloc_size": 1151285248,
+        "largest_free_block_bytes": 0,
+        "num_allocs": 3369,
+        "peak_bytes_in_use": 2901006080,
+        "peak_bytes_reserved": 0,
+        "peak_pool_bytes": 4301258752,
+        "pool_bytes": 4301258752
+      },
+      "jax_peak_bytes_in_use": 2901006080,
+      "loss_after": 3.585386276245117,
+      "loss_before": 4.106322765350342,
+      "master_params_fp32": true,
+      "memory_budget_bytes": 25769803776,
+      "optimizer": {
+        "b1": 0.9,
+        "b2": 0.95,
+        "learning_rate": 0.0001,
+        "name": "AdamW",
+        "weight_decay": 0.01
+      },
+      "optimizer_fp32": true,
+      "output_dtypes": {
+        "policy_logits": "float32",
+        "wdl_logits": "float32"
+      },
+      "output_shapes": {
+        "policy_logits": [
+          32,
+          4672
+        ],
+        "wdl_logits": [
+          32,
+          3
+        ]
+      },
+      "packages": {
+        "flax": "0.12.0",
+        "jax": "0.7.2",
+        "jaxlib": "0.7.2",
+        "optax": "0.2.6"
+      },
+      "parameter_count": 100031308,
+      "parameter_delta_squared": 0.9943730235099792,
+      "parameter_updates": 1,
+      "peak_host_rss_bytes": 2701881344,
+      "phases": {
+        "adamw_once": {
+          "compile_seconds": 1.445906367999953,
+          "compiled_buffers": {
+            "arguments": 1600500932,
+            "outputs": 1200380076,
+            "temporaries": 47108
+          },
+          "synchronized_execution_seconds": 0.013847165000015593,
+          "trace_seconds": 1.0143962709999528
+        },
+        "backward": {
+          "compile_seconds": 5.729748134999966,
+          "compiled_buffers": {
+            "arguments": 401259344,
+            "outputs": 400126733,
+            "temporaries": 1151285032
+          },
+          "synchronized_execution_seconds": 0.06838147100000924,
+          "trace_seconds": 1.1673114499999997
+        },
+        "forward": {
+          "compile_seconds": 4.430453198000009,
+          "compiled_buffers": {
+            "arguments": 401109296,
+            "outputs": 598416,
+            "temporaries": 55863312
+          },
+          "synchronized_execution_seconds": 0.013504485999987992,
+          "trace_seconds": 0.2916037189999656
+        },
+        "initialize": {
+          "compile_seconds": 13.556085577999966,
+          "compiled_buffers": {
+            "arguments": 8,
+            "outputs": 400126688,
+            "temporaries": 29188
+          },
+          "synchronized_execution_seconds": 0.009313480999992407,
+          "trace_seconds": 1.0399795749999612
+        },
+        "post_update_forward": {
+          "compile_seconds": 4.8993000007158116e-05,
+          "compiled_buffers": {
+            "arguments": 401109296,
+            "outputs": 598416,
+            "temporaries": 55863312
+          },
+          "synchronized_execution_seconds": 0.012288004999959412,
+          "trace_seconds": 0.002394892000040727
+        }
+      },
+      "physical_sample_errors": 0,
+      "physical_sampled_peak_used_bytes": 4962910208,
+      "physical_samples": 176,
+      "policy_loss": 2.8863303661346436,
+      "profile": "100m",
+      "seed": 20261030,
+      "status": "PASS",
+      "update_note": "Exactly one step on a fresh initialization; no loss-decrease requirement or tuning",
+      "value_loss": 1.2199925184249878,
+      "worker_returncode": 0
+    }
+  ],
+  "commands": [
+    [
+      "nvidia-smi"
+    ],
+    [
+      "/tmp/uv-venv/bin/python",
+      "-m",
+      "pip",
+      "install",
+      "--no-cache-dir",
+      "uv==0.10.9"
+    ],
+    [
+      "/tmp/uv-venv/bin/python",
+      "-m",
+      "uv",
+      "sync",
+      "--project",
+      "/marimo/gambit-zero-stage2b-ytv_6rg8/gambit-zero-stage2b",
+      "--locked",
+      "--python",
+      "3.11.15",
+      "--extra",
+      "test",
+      "--extra",
+      "data",
+      "--extra",
+      "cuda"
+    ],
+    [
+      "/tmp/uv-venv/bin/python",
+      "-m",
+      "uv",
+      "pip",
+      "check",
+      "--python",
+      "/marimo/gambit-zero-stage2b-ytv_6rg8/gambit-zero-stage2b/.venv/bin/python"
+    ],
+    [
+      "/marimo/gambit-zero-stage2b-ytv_6rg8/gambit-zero-stage2b/.venv/bin/python",
+      "scripts/inspect_stack.py",
+      "--require-gpu",
+      "--output",
+      "/marimo/gambit-zero-stage2b-ytv_6rg8/gambit-zero-stage2b/reports/stage2b_blackwell/stack.json"
+    ],
+    [
+      "/marimo/gambit-zero-stage2b-ytv_6rg8/gambit-zero-stage2b/.venv/bin/python",
+      "scripts/inspect_blackwell.py",
+      "--output",
+      "/marimo/gambit-zero-stage2b-ytv_6rg8/gambit-zero-stage2b/reports/stage2b_blackwell/host.json"
+    ],
+    [
+      "/marimo/gambit-zero-stage2b-ytv_6rg8/gambit-zero-stage2b/.venv/bin/python",
+      "scripts/check_model_blackwell.py",
+      "--profile",
+      "25m",
+      "--compute",
+      "bfloat16",
+      "--batch",
+      "4",
+      "--output",
+      "/marimo/gambit-zero-stage2b-ytv_6rg8/gambit-zero-stage2b/reports/stage2b_blackwell/25m-bfloat16-b4.json"
+    ],
+    [
+      "/marimo/gambit-zero-stage2b-ytv_6rg8/gambit-zero-stage2b/.venv/bin/python",
+      "scripts/check_model_blackwell.py",
+      "--profile",
+      "100m",
+      "--compute",
+      "bfloat16",
+      "--batch",
+      "4",
+      "--output",
+      "/marimo/gambit-zero-stage2b-ytv_6rg8/gambit-zero-stage2b/reports/stage2b_blackwell/100m-bfloat16-b4.json"
+    ],
+    [
+      "/marimo/gambit-zero-stage2b-ytv_6rg8/gambit-zero-stage2b/.venv/bin/python",
+      "scripts/check_model_blackwell.py",
+      "--profile",
+      "25m",
+      "--compute",
+      "float32",
+      "--batch",
+      "4",
+      "--output",
+      "/marimo/gambit-zero-stage2b-ytv_6rg8/gambit-zero-stage2b/reports/stage2b_blackwell/25m-float32-b4.json"
+    ],
+    [
+      "/marimo/gambit-zero-stage2b-ytv_6rg8/gambit-zero-stage2b/.venv/bin/python",
+      "scripts/check_model_blackwell.py",
+      "--profile",
+      "100m",
+      "--compute",
+      "float32",
+      "--batch",
+      "4",
+      "--output",
+      "/marimo/gambit-zero-stage2b-ytv_6rg8/gambit-zero-stage2b/reports/stage2b_blackwell/100m-float32-b4.json"
+    ],
+    [
+      "/marimo/gambit-zero-stage2b-ytv_6rg8/gambit-zero-stage2b/.venv/bin/python",
+      "scripts/check_model_blackwell.py",
+      "--profile",
+      "25m",
+      "--compute",
+      "bfloat16",
+      "--batch",
+      "32",
+      "--output",
+      "/marimo/gambit-zero-stage2b-ytv_6rg8/gambit-zero-stage2b/reports/stage2b_blackwell/25m-bfloat16-b32.json"
+    ],
+    [
+      "/marimo/gambit-zero-stage2b-ytv_6rg8/gambit-zero-stage2b/.venv/bin/python",
+      "scripts/check_model_blackwell.py",
+      "--profile",
+      "100m",
+      "--compute",
+      "bfloat16",
+      "--batch",
+      "32",
+      "--output",
+      "/marimo/gambit-zero-stage2b-ytv_6rg8/gambit-zero-stage2b/reports/stage2b_blackwell/100m-bfloat16-b32.json"
+    ],
+    [
+      "/marimo/gambit-zero-stage2b-ytv_6rg8/gambit-zero-stage2b/.venv/bin/python",
+      "-m",
+      "pytest",
+      "tests/test_transformer.py",
+      "tests/test_m2_stage0.py",
+      "tests/test_rules.py",
+      "-x",
+      "-q"
+    ]
+  ],
+  "completed_utc": "2026-10-31T06:54:41.456587+00:00",
+  "dataset_revision": "b7ddb96d8ce8cfe55298e01a7d928b0f763e1c4c",
+  "disk_preflight": {
+    "free_bytes": 9223372036852248576,
+    "minimum_bytes": 16106127360
+  },
+  "gate": "PASS",
+  "host": {
+    "backend_platform_version": "PJRT C API\ncuda 12090",
+    "backend_runtime_type": "pjrt_ifrt",
+    "captured_utc": "2026-10-31T06:45:02.483138+00:00",
+    "cuda_note": "nvidia-smi CUDA is driver capability; system nvcc may differ from the locked pip CUDA runtime. All are recorded separately.",
+    "dataset_revision": "b7ddb96d8ce8cfe55298e01a7d928b0f763e1c4c",
+    "dependency_lock_sha256": {
+      "requirements-cuda-lock.txt": "ac1f9819a153b55eb6a8e5ab08b0f0c5b1dfb2f7718fee1b9a4f28e7a7d1a02f",
+      "uv.lock": "9485b50f546896a0cd857b8a80566b4fb048fd881ddfe713266a12bd8de5cb08"
+    },
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "0",
+      "JAX_PLATFORMS": "cuda",
+      "XLA_PYTHON_CLIENT_PREALLOCATE": "false"
+    },
+    "gpu_kind": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+    "jax_device_id": 0,
+    "jax_memory_stats": {
+      "bytes_in_use": 0,
+      "bytes_limit": 76481888256,
+      "bytes_reserved": 0,
+      "largest_alloc_size": 0,
+      "largest_free_block_bytes": 0,
+      "num_allocs": 0,
+      "peak_bytes_in_use": 0,
+      "peak_bytes_reserved": 0,
+      "peak_pool_bytes": 0,
+      "pool_bytes": 0
+    },
+    "logical_cpus": 20,
+    "machine": "x86_64",
+    "nvidia_smi": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Sat Oct 31 06:45:02 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 595.71.05              Driver Version: 595.71.05      CUDA Version: 13.2     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA RTX PRO 6000 Blac...    Off |   00000000:20:00.0 Off |                    0 |\n| N/A   28C    P0             76W /  600W |     587MiB /  97887MiB |      1%      Default |\n|                                         |                        |             Disabled |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|    0   N/A  N/A               1      C   python                                  578MiB |\n+-----------------------------------------------------------------------------------------+"
+    },
+    "packages": {
+      "chess": "1.11.2",
+      "flax": "0.12.0",
+      "jax": "0.7.2",
+      "jax-cuda12-pjrt": "0.7.2",
+      "jax-cuda12-plugin": "0.7.2",
+      "jaxlib": "0.7.2",
+      "mctx": "0.0.6",
+      "nvidia-cublas-cu12": "12.9.2.10",
+      "nvidia-cuda-cccl-cu12": "12.9.27",
+      "nvidia-cuda-cupti-cu12": "12.9.79",
+      "nvidia-cuda-nvcc-cu12": "12.9.86",
+      "nvidia-cuda-nvrtc-cu12": "12.9.86",
+      "nvidia-cuda-runtime-cu12": "12.9.79",
+      "nvidia-cudnn-cu12": "9.27.0.42",
+      "nvidia-cufft-cu12": "11.4.1.4",
+      "nvidia-cusolver-cu12": "11.7.5.82",
+      "nvidia-cusparse-cu12": "12.5.10.65",
+      "nvidia-nccl-cu12": "2.32.3",
+      "nvidia-nvjitlink-cu12": "12.9.86",
+      "nvidia-nvshmem-cu12": "3.8.0",
+      "optax": "0.2.6",
+      "pgx": "2.6.0",
+      "psutil": "7.2.2",
+      "pytest": "8.4.1",
+      "python-chess": "1.999"
+    },
+    "physical_gpus": [
+      {
+        "driver_version": "595.71.05",
+        "free_bytes": 101361647616,
+        "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+        "pci_bus_id": "[Unknown Error]",
+        "total_bytes": 102641958912,
+        "uuid": "GPU-6c61f193-70da-1d6f-30b5-e512ee4e6f5a"
+      }
+    ],
+    "physical_mapping_note": "All physical GPUs listed; CUDA visibility may remap IDs. Memory budgets use the conservative minimum.",
+    "platform": "Linux-4.19.0-gvisor-x86_64-with-glibc2.41",
+    "python": "3.11.15",
+    "ram_available_bytes": 171234029568,
+    "ram_total_bytes": 171798691840,
+    "source_sha256": {
+      "src/tinychess/__init__.py": "df5a1026e5de8a160d7e5a77f915ac6325c562027514f52865cdf6babb7928cb",
+      "src/tinychess/chess/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/tinychess/chess/_pgx_legal.py": "d9e82b06c808cd18ea113faf6578af7cfffd2be069df95ef442a5d38443d26cd",
+      "src/tinychess/chess/action_codec.py": "e496df09cb2da47260ca116fc5c3f90a220c14e0d68442943f357b8b61a98ee2",
+      "src/tinychess/chess/adjudication.py": "e91dbff3ea1e83adb1659fe0defd5ce56c510eee8f6fc3afc286f4c57b3c8221",
+      "src/tinychess/chess/pgx_env.py": "4b9a0e9c9340e16dd56b1cf35a47a02a0e2546b935443f2bd205adba4d1ebd23",
+      "src/tinychess/chess/state_features.py": "114f5e9c632c8857facce6f7f1ff09fa12dd60db89603deafd93dbab78973e23",
+      "src/tinychess/data/__init__.py": "cc6401f931200d3a573ee39cbfe0d702a20399f4834feaff2224f5c189158548",
+      "src/tinychess/data/archive_http.py": "3c22efe3d903bd3a17fee535d5565a0fff4c7476649fe4742a14bbe5d38f4cc3",
+      "src/tinychess/data/archive_scan.py": "b9e3aa5c3d568ddb9c48e36f201bcc4d0e0faf8059a96cd1560c9fdf630848c1",
+      "src/tinychess/data/audits.py": "c7cfb3ed8182188b9f6569096e505bf6cfa86e2f4f679eb69cbcf0afcdc1fa89",
+      "src/tinychess/data/build_human.py": "1355bdc06b017969c78736cfb1923878272dfa756269f6e347b168d335aaff7d",
+      "src/tinychess/data/closeout.py": "70f311af181f6db050864a45b18fb116e4ca6176702eb3287ce2c408834faf2f",
+      "src/tinychess/data/eval_filter.py": "a1c557d60ad9cda473f0e5ca0290f2442839ace6666b7524109075c9fe79ffa2",
+      "src/tinychess/data/evidence.py": "77bdd6ec7eb56812be093ae6c7402e12e1d7599e18991f8335acbd1c19820190",
+      "src/tinychess/data/frozen_eval.py": "50b643f001c5337e3b8f166f28716c00e40a511a16350d1ed5988a3eb04061c0",
+      "src/tinychess/data/hf_audit.py": "1b3ff38be5b3a4483967e1164070ccf04deb0f8ad7bf00dcc211b115be24bea2",
+      "src/tinychess/data/hf_batch.py": "024eaada78941ae9f611b3fdb308e4c6c56acad5f78b74037248e4968615dce4",
+      "src/tinychess/data/hf_card.py": "f0714056033576fc253471c8e77008b57dfac9070216f0ce0e55a7621b2dc832",
+      "src/tinychess/data/hf_destination.py": "05e8a2c5e2849d870142490910a159598d2d929ff5b601025b3cffeb6c2b6200",
+      "src/tinychess/data/hf_month.py": "175598f34c6ed4ced95f21c373e84af0ad3d4b3f0f6b057596957a70951a0ee5",
+      "src/tinychess/data/hf_root.py": "0f0f6be485cede4693a44c8701329a4250c502da42a3169a13bf973a06b26eac",
+      "src/tinychess/data/hf_shards.py": "e7f8394f448a1c02d4c0dae17f64efc8f2960c18ac00f3c2aae384cc88a365e3",
+      "src/tinychess/data/hf_upload.py": "5759b9665c3513faca4c2f371ac6767a725daf3b610c340119a65266e4cb3f75",
+      "src/tinychess/data/human.py": "2b9c5d6c5f2c3e7173338fd51d405045409da8be0b0b1c73df905c88d9120b97",
+      "src/tinychess/data/loader_audit.py": "1cc2d194f3679131bb576115f8f5c96faab8562356a743537d9ae9f8cf895a39",
+      "src/tinychess/data/publication.py": "8af37b5ddbe45da51e38bf31e591f38cc07849faab46fc22af8a4276be510312",
+      "src/tinychess/data/sources.py": "06c1956f75fcbde3745e1f3ce460f9c12acfb155fc8e3fa49e7d906b6617355f",
+      "src/tinychess/data/storage.py": "4f4ab6d819f00ba9a3552e6479afe75a4bc33486c68cb7a8054ee24cb9832214",
+      "src/tinychess/data/training_loader.py": "08bbef43560b2744c8fda8672f4e36137a521e263ca670f8b0abc4d8e7cf0a33",
+      "src/tinychess/model/__init__.py": "3854ca6416660ab4c407f90ba0c5a7768fd6a361dc917e9812d2924064a1d04f",
+      "src/tinychess/model/objectives.py": "2aff0c39e439e09b7cc0db0294d49f71a32fab93b3c8107686560b7b5ee376ff",
+      "src/tinychess/model/transformer.py": "4cd0301d09e49fab9af6bab8c34397d9bec70dec4ecbff874d53f577ccc37509",
+      "src/tinychess/search/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/tinychess/search/mctx_recurrent.py": "e206d2e4a4ac6a299a23c8a14e783cff9d7cb95f129b9c8a403912c8991b27d0",
+      "src/tinychess/validation/__init__.py": "02824bcc9a9d176e161e6ee8b968e09fd9be8f7038ebfc85edfaf9d2891e0524",
+      "src/tinychess/validation/model_blackwell.py": "4c1da22326122454e2176cdcc0185f097c66e3993a61186d7fa4b1687e49544c",
+      "src/tinychess/validation/parity.py": "291c839707cdce8cd6218ecb99ecc2eb9a8d87cb1f2e8931ac4d00e7bcbe4062",
+      "src/tinychess/validation/stage2b_plan.py": "14a3f083f2b3a0a0a98f84f5b9199d66c4770b8efcbed002228aa6ac2a969b0c"
+    },
+    "status": "PASS",
+    "system_nvcc": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2026 NVIDIA Corporation\nBuilt on Tue_Jun_09_02:43:40_PM_PDT_2026\nCuda compilation tools, release 13.3, V13.3.73\nBuild cuda_13.3.r13.3/compiler.38244171_0"
+    }
+  },
+  "input_zip_sha256": "fbc97689f96de84cb8a7722dec62dbf40bc1e1648fee095b1259b84813303696",
+  "protected_sources_unchanged": true,
+  "recommended_bf16_microbatch": {
+    "100m": 32,
+    "25m": 32
+  },
+  "regression_passed": 86,
+  "regression_returncode": 0,
+  "source_base_commit": "44a7d28bb23830111863c65ddc25a3cb90dddb48",
+  "source_manifest_sha256": "a27afa4062b2c06b7f876f0846ca04d0cd46227791e8c7e0b87c48a46e951ae6",
+  "stage3a_technical_readiness": true,
+  "started_utc": "2026-10-31T06:43:13.507453+00:00",
+  "status": "COMPLETE"
+}
