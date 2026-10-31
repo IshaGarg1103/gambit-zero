@@ -162,3 +162,37 @@ Full-data manifest counts are distinguished from the newly measured sample;
 a new complete 3.79M-row loader epoch was not run. Dataset A revision, chess rules,
 encoder, codec, schemas and dependency pins remain unchanged.
 **Stage 1 Parts D/E and Stages 2/3 remain pending and were not implemented.**
+
+## Verified Stage 2A — chess transformer implementation — 30 October 2026
+
+**Stage 2A: PASS for CPU architecture/correctness smoke scope.** See
+[reports/m2_stage2a.md](reports/m2_stage2a.md). PR #5 is merged; the owner created
+`m2/model-architecture` from verified main `e36829f216baaa6de4f943aaad06e7913e9c25d1`.
+Implemented a bidirectional pre-LN Flax transformer with the exact spatial-to-Pgx
+policy permutation, checked legal masking and policy/WDL loss primitives.
+Initialized parameter counts: **25,622,092** (8×512) and **100,031,308** (14×768).
+Both profiles passed real-data B=2 inference and one full backward in fp32 and
+bf16-compute modes; every parameter/gradient stayed fp32. Zero optimizer updates.
+New focused suite: 32 passed; full CPU suite: 348 passed. Rules, datasets, encoder,
+codec, schema and dependency locks remain unchanged. No training or self-play.
+
+**Deferred, not cancelled:** Stage 1D history dropout, Stage 1E `openings_v2`,
+separate Blackwell loader profiling, and remaining Stage 2 GPU inference/search
+integration. No Blackwell model result is claimed. Stage 3 overfit/pilot training
+has not started. The original B0 → independent B1/B2 research plan is unchanged;
+this completes Stage 2A only, not all of Stage 2 or M2. Stop for review.
+
+
+## Verified Stage 2B — Blackwell model validation — 31 October 2026
+
+**Stage 2B: PASS within the bounded smoke scope.** See
+[`reports/m2_stage2b.md`](reports/m2_stage2b.md). Both accepted models
+(25,622,092 / 100,031,308 parameters) initialized and passed finite forward,
+backward and exactly one AdamW update per fresh case: fp32/bf16 at batch 4,
+and bf16 at batch 32. All six cases passed; 86 CUDA correctness tests passed.
+The CPU regression passed 373 tests. Measured bf16 batch-32 JAX peaks were
+0.892 / 2.702 GiB. Batch 32 is a conservative starting microbatch for Stage 3A,
+subject to memory checks in the actual loop. Dataset A revision, rules, codec,
+encoder and model are unchanged. Stage 3A was not executed. History dropout and
+openings_v2 remain deferred under the revised flow; original research objectives
+and B0 → B1/B2 sequencing remain unchanged. Stop for owner review.

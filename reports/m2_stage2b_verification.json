@@ -1,0 +1,50 @@
+{
+  "gpu_tests_passed": 86,
+  "independent_gate": "PASS",
+  "input_zip_sha256": "fbc97689f96de84cb8a7722dec62dbf40bc1e1648fee095b1259b84813303696",
+  "limitations": [
+    "Synthetic labels on four scripted positions; no overfit or real-data training.",
+    "Physical GPU memory is sampled device-wide and can miss brief peaks.",
+    "Molab filesystem free-byte reading is a virtualized sentinel, not verified usable disk capacity.",
+    "Batch 32 is validated for this split-phase smoke; integrated training may use different memory."
+  ],
+  "local_cpu_seconds": 67.99,
+  "local_cpu_tests_passed": 373,
+  "original_results_manifest": {
+    "files": {
+      "BLACKWELL_BUNDLE.json": "a27afa4062b2c06b7f876f0846ca04d0cd46227791e8c7e0b87c48a46e951ae6",
+      "reports/m2_stage2b.md": "0e979c54de078298461611529e69745d6c0389f81e1483500c28015a1c04972c",
+      "reports/stage2b_blackwell/100m-bfloat16-b32.json": "1b91ada458c72606b4e9f41eaa22123fe8dfc89ceeca170623d8787d27791256",
+      "reports/stage2b_blackwell/100m-bfloat16-b32.log": "d44d88bd1874278d26ca45683685387b19802e168b318563ff4dc6869ca6d29c",
+      "reports/stage2b_blackwell/100m-bfloat16-b4.json": "2090688dffcf3204979f1ad8f4bfe75d93937a37c1a716697062e3cc7133bfa1",
+      "reports/stage2b_blackwell/100m-bfloat16-b4.log": "9e9407ceeec7f4fc79e04dc3948088d6bf3e2f8dcb3f3345a943f546863926d4",
+      "reports/stage2b_blackwell/100m-float32-b4.json": "c42c9b4444e1b6a9f66cbb1fdda9d6372278967290cd6174d4ed73121a280855",
+      "reports/stage2b_blackwell/100m-float32-b4.log": "159dd7ea8224efdee2f7963cd6d009d8cf4802058dfe3a828397832b2e8824d7",
+      "reports/stage2b_blackwell/25m-bfloat16-b32.json": "486ee3c7c95d1257d3dd091dcc69528a380fc58ef6ac9b10ecfab1a7819f0129",
+      "reports/stage2b_blackwell/25m-bfloat16-b32.log": "37fd08cdedb9ff698bcda4222411432b1e6b126f4a8f122bb8b25a2353e49bba",
+      "reports/stage2b_blackwell/25m-bfloat16-b4.json": "76ba80cd6b59ca8708e9a3c36bd309b6bfa9715c0200f4a0f7464981092f8c9e",
+      "reports/stage2b_blackwell/25m-bfloat16-b4.log": "7e8b6c5a0c0f89f6f7d3caba2ea5c23e1ac9665bebd7599075850575d342e0b3",
+      "reports/stage2b_blackwell/25m-float32-b4.json": "0f2289321cc5102f2eafae310f6dcc5a29209e61e998e5c184c9e5240970f27b",
+      "reports/stage2b_blackwell/25m-float32-b4.log": "f08cadd7f1e2d589f777f3e378ee2c7e700930608e5075e80a9716f82e8c34a0",
+      "reports/stage2b_blackwell/commands.json": "3046d4625ca71802462be47e5d7b22384a791d6391e72cc65a2c846d287cb6a8",
+      "reports/stage2b_blackwell/correctness.log": "b5ef885b457d2edcf2cfaa3a8047401ac37a77cb33161465f0d06303ea0c8946",
+      "reports/stage2b_blackwell/host.json": "d0f5def83d1f09f1ea4195c1b928d76a432891fc677d74e39d4677e559b52aa9",
+      "reports/stage2b_blackwell/host.log": "563f724d10e8c90e749b290c8f7b09b04df3af1aa3c7de1478a297052bbc1880",
+      "reports/stage2b_blackwell/nvidia-smi.log": "0288f04e1e86c67035d17c24c60ba744513ee38a1d6628b6631de88b5b551860",
+      "reports/stage2b_blackwell/package-check.log": "07fe8506b6d5eed27ed5d13ac9c5cc5a9b2770a003f6e686c495f123eb3079c8",
+      "reports/stage2b_blackwell/run.json": "7506cd43f936fc9c640439915f7e7f41876d73ebce24923a2d6a6581cec4c480",
+      "reports/stage2b_blackwell/setup.log": "87c4a53e660709e5b413cf2cca34d16d8bf8351358d3c419ef38da53aa3e1078",
+      "reports/stage2b_blackwell/stack.json": "163251967854dad8c9654601c79f2feb0d6af74fe6265f46d897a9a1151ef100",
+      "reports/stage2b_blackwell/stack.log": "426c777b2f8c478616d2181945043f0b2c9eae7ed2bf19db092a97ce257bd63c",
+      "reports/stage2b_blackwell/uv-install.log": "40ecc6242bffc3c88590a5ef95a486b60691a5f4fce2606cfa92e2220fbdabc9"
+    },
+    "format": "gambit-zero-stage2b-results-v1",
+    "gate": "PASS"
+  },
+  "protected_checkout_files_match": true,
+  "report_reproduced_byte_for_byte": true,
+  "source_manifest_sha256": "a27afa4062b2c06b7f876f0846ca04d0cd46227791e8c7e0b87c48a46e951ae6",
+  "source_matches_input_bundle": true,
+  "verified_evidence_files": 25,
+  "zip_sha256": "bd2caae129706a751836639ff73dbc5d6372f658f782c1dcfea32296ad351e1a"
+}
