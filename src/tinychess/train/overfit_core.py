@@ -1,4 +1,4 @@
-"""Minimal JIT training, deterministic minibatches and atomic checksum checkpoints."""
+"""Accepted optimizer state, weighted metrics and atomic checksum checkpoints."""
 import hashlib
 import json
 import os
@@ -14,11 +14,11 @@ import optax
 from tinychess.model.objectives import supervised_loss,masked_policy
 
 
-def learning_rate(step, peak=1e-3, warmup=100):
+def learning_rate(step, peak=3e-4, warmup=100):
     return jnp.float32(peak)*jnp.minimum((jnp.asarray(step,jnp.float32)+1)/warmup,1.)
 
 
-def create_state(model, key, batch, peak=1e-3):
+def create_state(model, key, batch, peak=3e-4):
     params=model.init(key,batch['planes'],batch['context'])['params']
     # Run-specific initialization only: uniform policy/WDL for the sanity gate.
     for name in ('policy_head','value_head'):
@@ -42,29 +42,11 @@ def finite_tree(tree):
     return jnp.all(jnp.stack([jnp.all(jnp.isfinite(x)) for x in jax.tree_util.tree_leaves(tree)]))
 
 
-@jax.jit
-def train_step(state,batch):
-    def objective(params):
-        m=metric_sums(state.apply_fn({'params':params},batch['planes'],batch['context']),batch)
-        return m['loss'],m
-    (_,m),grad=jax.value_and_grad(objective,has_aux=True)(state.params)
-    candidate=state.apply_gradients(grads=grad)
-    okay=m['valid'] & finite_tree(grad) & finite_tree(candidate.params) & finite_tree(candidate.opt_state)
-    # An invalid update never commits even under a compiled caller.
-    state=jax.lax.cond(okay,lambda:candidate,lambda:state)
-    return state,dict(m,finite=okay,grad_norm=optax.global_norm(grad))
-
-
-@jax.jit
-def evaluate(state,batch):
-    return metric_sums(state.apply_fn({'params':state.params},batch['planes'],batch['context']),batch)
-
-
-def indices(seed,step,size,batch_size):
-    if size%batch_size:raise ValueError('Frozen overfit sample must divide microbatch exactly')
-    per_epoch=size//batch_size;epoch,slot=divmod(step,per_epoch)
-    rng=np.random.Generator(np.random.PCG64(np.random.SeedSequence([seed,epoch])))
-    return rng.permutation(size)[slot*batch_size:(slot+1)*batch_size]
+def fingerprint(tree):
+    h=hashlib.sha256()
+    for x in jax.tree_util.tree_leaves(tree):
+        x=np.asarray(x);h.update(str(x.shape).encode());h.update(x.dtype.str.encode());h.update(x.tobytes())
+    return h.hexdigest()
 
 
 def save_checkpoint(directory,state,metadata):
@@ -96,11 +78,3 @@ def restore_checkpoint(directory,template,expected):
     state=serialization.from_bytes(template,payload)
     if int(state.step)!=r['step']:raise ValueError('Checkpoint step mismatch')
     return state,r
-
-
-def verdict(initial,final,steps):
-    if steps>3000 or not final.get('finite',True):return 'FAIL'
-    if (final['policy_accuracy']>=.99 and final['policy_loss']<=.05
-        and final['policy_loss']<initial['policy_loss']
-        and final['wdl_accuracy']>=.95 and final['wdl_loss']<initial['wdl_loss']):return 'PASS'
-    return 'FAIL'

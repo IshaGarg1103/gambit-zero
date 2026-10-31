@@ -8,7 +8,8 @@ def render(path,output):
     data=json.loads(Path(path).read_text());r=data['run'];s=r['stratification'];v=data['verification']
     lines=['# Stage 3A — single full-batch confirmation — 31 October 2026','',
         f"**Result: {r['status']}.** Policy gate: accuracy >=99% and masked policy CE <=0.05, checked after every update.",
-        'This report supplements the unchanged original failed run and failure diagnosis; it does not overwrite their evidence.',
+        'Only the successful implementation is retained in the current tree. Historical code and reports remain recoverable from',
+        'Git parent `3670cf67ac19602b3a0c6bdc41fc974b713aed1b`; historical W&B runs are preserved.',
         'No Stage 3B, full-data pilot, model change or parameter sweep was started.','',
         '## Configuration and execution','',
         'Same frozen 1,024 eligible training positions, same 25,622,092-parameter model, same seed 20261031,',
@@ -36,7 +37,7 @@ def render(path,output):
         'The earlier minibatch runs saw 96,000 presentations in 3,000 updates (93.75 passes). This run changes both',
         'gradient noise and presentations per update; it does not isolate their individual causal contributions.',
         '', f"W&B: [{r['wandb_url']}]({r['wandb_url']}). Every update logs losses, accuracy, LR and pre/post clipping norms.",
-        '', '![Measured full-batch learning](m2_stage3a_fullbatch_confirmation_curve.svg)','',
+        '', '[Per-update learning curves on W&B](https://wandb.ai/ishagarg-research/gambit-zero/runs/f9hphmku)','',
         '## Final policy error breakdown','',
         'Ply is the original zero-based pre-move ply. Bounds are inclusive. Legal counts come from the original Pgx legal mask.',
         'Board hash is the existing Dataset A SHA256 of pieces, side to move, castling and legal en-passant FEN fields;',
@@ -72,9 +73,11 @@ def render(path,output):
         f"JAX allocator peak: **{r['jax_memory_stats']['peak_bytes_in_use']/2**30:.3f} GiB**; physical sampled peak: **{r['physical_sampled_peak_bytes']/2**30:.3f} GiB**.",
         f"Host peak RSS: **{r['host_peak_rss_bytes']/2**30:.3f} GiB**. Physical sampling includes other processes and may miss brief peaks.",
         'These are full-batch tiny-sample measurements, not full-dataset training throughput or generalization.',
-        f"Tests: **{v['focused_passed']} focused passed; {v['regression_passed']} full CPU regression passed in {v['regression_seconds']:.2f}s**.",
+        f"Historical GPU-handoff tests: **{v['focused_passed']} focused passed; {v['regression_passed']} full CPU regression passed in {v['regression_seconds']:.2f}s**.",
         'Final checkpoint save/restore reproduces parameter fingerprint and evaluation metrics exactly; weights remain outside Git.',
-        'Original source, frozen sample and old evidence hashes were verified unchanged.',
+        'These measurements and source hashes describe the original successful GPU execution. Cleanup changed packaging,',
+        'logging integration and support-code layout; it did not rerun the experiment or alter recorded measurements.',
+        'The accepted configuration is read and validated by the current runner; only 32x32 accumulation is enabled.',
         f"Raw results archive SHA256: `{v['zip_sha256']}`; all indexed members verified.",
         'The complete per-update curve is retained in the raw archive and W&B; the [compact results JSON](m2_stage3a_fullbatch_confirmation_results.json)',
         'contains the 10-update curve plus the exact final step, all final predictions, subgroup counts and hashes.',
@@ -86,28 +89,42 @@ def render(path,output):
         '', '```bash',
         'JAX_PLATFORMS=cpu .venv/bin/python -m pytest tests/test_fullbatch_confirmation.py -q',
         'JAX_PLATFORMS=cpu .venv/bin/python -m pytest -q',
-        '# Exact authorized command inside the existing Molab source directory:',
+        '# Explicit reproduction only when separately authorized (fresh output):',
         'JAX_PLATFORMS=cuda XLA_PYTHON_CLIENT_PREALLOCATE=false JAX_DEFAULT_MATMUL_PRECISION=highest \\',
-        '  .venv/bin/python scripts/confirm_stage3a_fullbatch.py',
+        '  .venv/bin/python scripts/confirm_stage3a_fullbatch.py --config configs/stage3a_fullbatch_accepted.json',
         '```']
+    lines += ['', '## Historical W&B runs (preserved)', '',
+        '- [Original minibatch run](https://wandb.ai/ishagarg-research/gambit-zero/runs/fm3wotuj)',
+        '- [A-bfloat16-0.001](https://wandb.ai/ishagarg-research/gambit-zero/runs/5dtqwi7m)',
+        '- [B-bfloat16-0.0001-v2](https://wandb.ai/ishagarg-research/gambit-zero/runs/7ufebhaa)',
+        '- [B-bfloat16-0.0003](https://wandb.ai/ishagarg-research/gambit-zero/runs/bbz8or4k)',
+        '- [B-bfloat16-0.0003-v2](https://wandb.ai/ishagarg-research/gambit-zero/runs/8iwy5h6h)',
+        '- [B-bfloat16-0.001](https://wandb.ai/ishagarg-research/gambit-zero/runs/xqmyqpsr)',
+        '- [D-bfloat16-0.0003-v2](https://wandb.ai/ishagarg-research/gambit-zero/runs/5y9tovjt)',
+        '', 'Cleanup preserves these runs and their outcomes. They are historical references, not alternate runnable recipes.']
+    lines += ['', '## Cleanup verification — 31 October 2026', '',
+        'Normal follow-up to `3670cf67ac19602b3a0c6bdc41fc974b713aed1b` on `m2/stage-3a-overfit`.',
+        'Removed 16 obsolete failed-run/diagnosis scripts, configuration, reports and generated SVGs.',
+        'Historical files remain recoverable byte-for-byte from that committed parent; W&B runs/artifacts were untouched.',
+        'Current tree retains the accepted runner/configuration, sample-freezing and packaging tools, reusable tracking,',
+        'checkpoint handling, independent mapping/gradient tests and this final compact measured evidence.',
+        '', 'Actual cleanup checks:',
+        '- Focused CPU tests: **22 passed in 11.41s**.',
+        '- Complete CPU regression: **395 passed in 82.24s**.',
+        '- Accepted gradient, clipping, evaluation and checkpoint routines match the parent AST.',
+        '  Optimizer/schedule bodies match too; their defaults now use the already accepted explicit LR 3e-4.',
+        '- Real frozen sample packaged successfully; all 92 payload member hashes verified; extracted runner --help passed.',
+        '- Compact results JSON remains byte-identical: SHA256 `f42e15e2d0efcf831f98b53f664b250172fed7384fad68d15781c07d172aa022`.',
+        '- No references to removed runners remain. Retained project documentation links resolve.',
+        '  The vendored official Pgx README already references an absent assets/pgx-az-training.png illustration;',
+        '  this is unrelated to Stage 3A and is not a runtime dependency.',
+        '- No dataset, model, encoder, action codec, rules or core dependency lock changes.',
+        '', 'Commands are listed in [the reproduction guide](../docs/m2_stage3a_run.md).',
+        'These are CPU/support-code checks, not a new GPU run. No Stage 3B work was started.']
     Path(output).write_text('\n'.join(lines)+'\n')
 
 
-def plot(path,output):
-    import matplotlib
-    matplotlib.use('Agg')
-    import matplotlib.pyplot as plt
-    plt.rcParams['svg.hashsalt']='fullbatch-confirmation-v1'
-    data=json.loads(Path(path).read_text());r=data['run'];rows=r['learning_curve'];x=[v['step'] for v in rows]
-    fig,axes=plt.subplots(1,2,figsize=(10,3.6),layout='constrained')
-    for k,label in [('policy_loss','Policy CE'),('wdl_loss','Weighted WDL CE')]:axes[0].plot(x,[v[k] for v in rows],label=label)
-    for k,label in [('policy_accuracy','Policy top-1'),('wdl_accuracy','Weighted WDL')]:axes[1].plot(x,[100*v[k] for v in rows],label=label)
-    axes[0].axhline(.05,color='gray',ls='--',lw=1);axes[1].axhline(99,color='gray',ls='--',lw=1,label='99% policy gate')
-    axes[0].set_ylabel('Cross-entropy');axes[1].set_ylabel('Accuracy (%)');axes[1].set_ylim(0,102)
-    for ax in axes:ax.set_xlabel('Full-batch optimizer updates');ax.grid(alpha=.2);ax.legend(fontsize=8)
-    fig.suptitle('One full-batch 1,024-position confirmation — '+r['status']);fig.savefig(output,metadata={'Date':None});plt.close(fig)
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--results',required=True);p.add_argument('--output',required=True);p.add_argument('--plot')
+    p=argparse.ArgumentParser();p.add_argument('--results',required=True);p.add_argument('--output',required=True)
     a=p.parse_args();render(a.results,a.output)
-    if a.plot:plot(a.results,a.plot)

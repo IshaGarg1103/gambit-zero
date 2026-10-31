@@ -1,7 +1,8 @@
 # Stage 3A — single full-batch confirmation — 31 October 2026
 
 **Result: PASS.** Policy gate: accuracy >=99% and masked policy CE <=0.05, checked after every update.
-This report supplements the unchanged original failed run and failure diagnosis; it does not overwrite their evidence.
+Only the successful implementation is retained in the current tree. Historical code and reports remain recoverable from
+Git parent `3670cf67ac19602b3a0c6bdc41fc974b713aed1b`; historical W&B runs are preserved.
 No Stage 3B, full-data pilot, model change or parameter sweep was started.
 
 ## Configuration and execution
@@ -40,7 +41,7 @@ gradient noise and presentations per update; it does not isolate their individua
 
 W&B: [https://wandb.ai/ishagarg-research/gambit-zero/runs/f9hphmku](https://wandb.ai/ishagarg-research/gambit-zero/runs/f9hphmku). Every update logs losses, accuracy, LR and pre/post clipping norms.
 
-![Measured full-batch learning](m2_stage3a_fullbatch_confirmation_curve.svg)
+[Per-update learning curves on W&B](https://wandb.ai/ishagarg-research/gambit-zero/runs/f9hphmku)
 
 ## Final policy error breakdown
 
@@ -116,9 +117,11 @@ Total worker wall time including initialization, compile, checkpoint and trackin
 JAX allocator peak: **1.430 GiB**; physical sampled peak: **2.604 GiB**.
 Host peak RSS: **3.178 GiB**. Physical sampling includes other processes and may miss brief peaks.
 These are full-batch tiny-sample measurements, not full-dataset training throughput or generalization.
-Tests: **4 focused passed; 394 full CPU regression passed in 78.72s**.
+Historical GPU-handoff tests: **4 focused passed; 394 full CPU regression passed in 78.72s**.
 Final checkpoint save/restore reproduces parameter fingerprint and evaluation metrics exactly; weights remain outside Git.
-Original source, frozen sample and old evidence hashes were verified unchanged.
+These measurements and source hashes describe the original successful GPU execution. Cleanup changed packaging,
+logging integration and support-code layout; it did not rerun the experiment or alter recorded measurements.
+The accepted configuration is read and validated by the current runner; only 32x32 accumulation is enabled.
 Raw results archive SHA256: `61c8fe4fa7c1c2e840ba83784401eaf992d5ae60d92004a4594ee34f6176fb0d`; all indexed members verified.
 The complete per-update curve is retained in the raw archive and W&B; the [compact results JSON](m2_stage3a_fullbatch_confirmation_results.json)
 contains the 10-update curve plus the exact final step, all final predictions, subgroup counts and hashes.
@@ -137,7 +140,42 @@ only if a future repetition is explicitly authorized. No second run was executed
 ```bash
 JAX_PLATFORMS=cpu .venv/bin/python -m pytest tests/test_fullbatch_confirmation.py -q
 JAX_PLATFORMS=cpu .venv/bin/python -m pytest -q
-# Exact authorized command inside the existing Molab source directory:
+# Explicit reproduction only when separately authorized (fresh output):
 JAX_PLATFORMS=cuda XLA_PYTHON_CLIENT_PREALLOCATE=false JAX_DEFAULT_MATMUL_PRECISION=highest \
-  .venv/bin/python scripts/confirm_stage3a_fullbatch.py
+  .venv/bin/python scripts/confirm_stage3a_fullbatch.py --config configs/stage3a_fullbatch_accepted.json
 ```
+
+## Historical W&B runs (preserved)
+
+- [Original minibatch run](https://wandb.ai/ishagarg-research/gambit-zero/runs/fm3wotuj)
+- [A-bfloat16-0.001](https://wandb.ai/ishagarg-research/gambit-zero/runs/5dtqwi7m)
+- [B-bfloat16-0.0001-v2](https://wandb.ai/ishagarg-research/gambit-zero/runs/7ufebhaa)
+- [B-bfloat16-0.0003](https://wandb.ai/ishagarg-research/gambit-zero/runs/bbz8or4k)
+- [B-bfloat16-0.0003-v2](https://wandb.ai/ishagarg-research/gambit-zero/runs/8iwy5h6h)
+- [B-bfloat16-0.001](https://wandb.ai/ishagarg-research/gambit-zero/runs/xqmyqpsr)
+- [D-bfloat16-0.0003-v2](https://wandb.ai/ishagarg-research/gambit-zero/runs/5y9tovjt)
+
+Cleanup preserves these runs and their outcomes. They are historical references, not alternate runnable recipes.
+
+## Cleanup verification — 31 October 2026
+
+Normal follow-up to `3670cf67ac19602b3a0c6bdc41fc974b713aed1b` on `m2/stage-3a-overfit`.
+Removed 16 obsolete failed-run/diagnosis scripts, configuration, reports and generated SVGs.
+Historical files remain recoverable byte-for-byte from that committed parent; W&B runs/artifacts were untouched.
+Current tree retains the accepted runner/configuration, sample-freezing and packaging tools, reusable tracking,
+checkpoint handling, independent mapping/gradient tests and this final compact measured evidence.
+
+Actual cleanup checks:
+- Focused CPU tests: **22 passed in 11.41s**.
+- Complete CPU regression: **395 passed in 82.24s**.
+- Accepted gradient, clipping, evaluation and checkpoint routines match the parent AST.
+  Optimizer/schedule bodies match too; their defaults now use the already accepted explicit LR 3e-4.
+- Real frozen sample packaged successfully; all 92 payload member hashes verified; extracted runner --help passed.
+- Compact results JSON remains byte-identical: SHA256 `f42e15e2d0efcf831f98b53f664b250172fed7384fad68d15781c07d172aa022`.
+- No references to removed runners remain. Retained project documentation links resolve.
+  The vendored official Pgx README already references an absent assets/pgx-az-training.png illustration;
+  this is unrelated to Stage 3A and is not a runtime dependency.
+- No dataset, model, encoder, action codec, rules or core dependency lock changes.
+
+Commands are listed in [the reproduction guide](../docs/m2_stage3a_run.md).
+These are CPU/support-code checks, not a new GPU run. No Stage 3B work was started.

@@ -94,3 +94,29 @@ def strata(identities,actions,predictions,legal_counts):
         board_hash_groups={'shared':group(shared),'unique':group(~shared)},
         distinct_board_hashes=len(counts),shared_board_hash_count=sum(n>1 for n in counts.values()),
         missed_rows=missed,rows=len(identities),correct=int(correct.sum()),accuracy=float(correct.mean()))
+
+
+def load_accepted_config(path):
+    """Read and fail-stop on drift from the one verified engineering recipe."""
+    import json
+    from pathlib import Path
+    value=json.loads(Path(path).read_text())
+    if value.get('format')!='gambit-zero-accepted-stage3a-recipe-v1':
+        raise ValueError('Wrong accepted recipe format')
+    config=value['training_configuration']
+    expected=dict(model='25m',parameters=25622092,compute='bfloat16',master_dtype='float32',
+        effective_batch=1024,lr=.0003,warmup=100,beta1=.9,beta2=.95,epsilon=1e-8,
+        weight_decay=0.,clip_norm=1.,seed=20261031,history_dropout=0.,max_updates=2000,
+        policy_gate_accuracy=.99,policy_gate_ce=.05,
+        sample_sha256='cc00bda4d5feb8a980be6e32208712f50eb94bb197ae60d01aeaff6e47ced590',
+        sample_logical_sha256='f2dca7915a44569801b824b2815c04be04703a69827f46b9139f3b7cce1bb498')
+    for key,want in expected.items():
+        if config.get(key)!=want:raise ValueError('Accepted configuration drift: '+key)
+    batch=value['executed_batch']
+    for key,want in dict(effective_batch=1024,microbatch=32,accumulation_steps=32,
+                         execution_mode='32x32-global-normalized-accumulation').items():
+        if batch.get(key)!=want:raise ValueError('Accepted accumulation configuration drift: '+key)
+    from tinychess.data.training_loader import REVISION,REPO
+    if value['dataset']['revision']!=REVISION or value['dataset']['repo_id']!=REPO or value['dataset']['split']!='train':
+        raise ValueError('Wrong accepted dataset provenance')
+    return value

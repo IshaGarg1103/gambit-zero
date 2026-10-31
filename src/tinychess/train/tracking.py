@@ -14,7 +14,8 @@ class Tracker:
         directory=Path(directory);directory.mkdir(parents=True,exist_ok=True)
         # All recorded config is caller-selected scientific metadata, never env dumps.
         self.run=wandb.init(entity='ishagarg-research',project='gambit-zero',
-            name='stage3a-25m-1k-overfit',job_type='overfit-diagnostic',
+            name='stage3a-fullbatch-1024-confirmation',job_type='single-fullbatch-confirmation',
+            group='m2-overfit-diagnostics',
             id=run_id,resume='allow' if run_id else None,mode=mode,dir=str(directory),
             config=config,tags=['stage3a','25m','history-dropout-0'],
             settings=wandb.Settings(disable_git=True,save_code=False,disable_code=True,console='off'))
@@ -27,7 +28,7 @@ class Tracker:
     def checkpoint(self,directory,receipt):
         if not self.run:return None
         import wandb
-        artifact=wandb.Artifact('stage3a-25m-checkpoint',type='checkpoint',
+        artifact=wandb.Artifact('stage3a-fullbatch-confirmation-checkpoint',type='checkpoint',
             metadata={'step':receipt['step'],'sha256':receipt['sha256']})
         artifact.add_file(str(Path(directory)/receipt['file']))
         artifact.add_file(str(Path(directory)/'checkpoint.json'))

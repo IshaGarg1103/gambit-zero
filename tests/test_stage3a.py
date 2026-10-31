@@ -11,8 +11,8 @@ import pytest
 
 from tinychess.model.transformer import ChessTransformer,ModelConfig
 from tinychess.model.objectives import validate_batch
-from tinychess.train.overfit_core import (create_state,train_step,evaluate,indices,learning_rate,
-    save_checkpoint,restore_checkpoint,verdict)
+from tinychess.train.overfit_core import (create_state,learning_rate,save_checkpoint,restore_checkpoint)
+from tinychess.train.fullbatch_confirmation import direct_step as train_step,evaluate_rows as evaluate
 from tinychess.train.overfit_sample import choose_rows,rank,logical_hash,FIELDS
 from tinychess.train.tracking import Tracker
 
@@ -41,7 +41,7 @@ def test_initial_loss_exact_uniform_and_master_fp32():
 def test_weight_zero_labels_do_not_affect_loss_or_gradient():
     s=state();b=batch();other=dict(b,wdl_class=b['wdl_class'].at[-1].set(2))
     a,ma=train_step(s,b);c,mc=train_step(s,other)
-    assert equal(a,c);assert float(ma['wdl_loss'])==float(mc['wdl_loss'])
+    assert equal(a,c);assert float(ma['value_loss'])==float(mc['value_loss'])
 
 
 def test_nonfinite_update_rejected():
@@ -67,26 +67,10 @@ def test_checkpoint_atomic_retains_one_and_no_partial(tmp_path):
     assert len(list(tmp_path.glob('*.msgpack')))==1 and not list(tmp_path.glob('*.partial'))
 
 
-def test_indices_exact_once_and_resume_reproducible():
-    first=np.concatenate([indices(8,s,1024,32) for s in range(32)])
-    second=np.concatenate([indices(8,s,1024,32) for s in range(32,64)])
-    np.testing.assert_array_equal(np.sort(first),np.arange(1024))
-    np.testing.assert_array_equal(np.sort(second),np.arange(1024))
-    assert not np.array_equal(first,second)
-    np.testing.assert_array_equal(indices(8,17,1024,32),first[17*32:18*32])
-    with pytest.raises(ValueError):indices(8,0,1000,32)
-
-
-def test_schedule_and_gate_bounds():
-    assert float(learning_rate(0))==pytest.approx(1e-5)
-    assert float(learning_rate(99))==pytest.approx(1e-3)
-    assert float(learning_rate(2999))==pytest.approx(1e-3)
-    a=dict(policy_loss=3.,wdl_loss=1.1)
-    b=dict(policy_loss=.01,policy_accuracy=.995,wdl_loss=.01,wdl_accuracy=.99,finite=True)
-    assert verdict(a,b,3000)=='PASS'
-    assert verdict(a,b,3001)=='FAIL'
-    assert verdict(a,dict(b,policy_accuracy=.98),100)=='FAIL'
-    assert verdict(a,dict(b,wdl_accuracy=.5),100)=='FAIL'
+def test_accepted_learning_rate_schedule():
+    assert float(learning_rate(0))==pytest.approx(3e-6)
+    assert float(learning_rate(99))==pytest.approx(3e-4)
+    assert float(learning_rate(1999))==pytest.approx(3e-4)
 
 
 def test_sample_selection_deterministic_one_per_game_and_duplicates_reported():
@@ -125,10 +109,10 @@ def test_tracking_checkpoint_only_explicit_files(monkeypatch,tmp_path):
         def __init__(self,name,**kwargs):self.name=name
         def add_file(self,path):attached.append(path)
     class Run:
-        def log_artifact(self,a):assert a.name=='stage3a-25m-checkpoint'
+        def log_artifact(self,a):assert a.name=='stage3a-fullbatch-confirmation-checkpoint'
     monkeypatch.setitem(sys.modules,'wandb',SimpleNamespace(Artifact=Artifact))
     t=Tracker({},tmp_path,mode='disabled');t.run=Run()
-    assert t.checkpoint(tmp_path,dict(file='state.msgpack',step=5,sha256='abc'))=='stage3a-25m-checkpoint'
+    assert t.checkpoint(tmp_path,dict(file='state.msgpack',step=5,sha256='abc'))=='stage3a-fullbatch-confirmation-checkpoint'
     assert attached==[str(tmp_path/'state.msgpack'),str(tmp_path/'checkpoint.json')]
 
 

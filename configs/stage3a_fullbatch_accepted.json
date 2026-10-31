@@ -7,7 +7,7 @@
     "profile": "25m",
     "width": 512
   },
-  "config_role": "Post-run configuration receipt extracted from verified results. The unchanged runner fixes these values in code; it does not parse this JSON.",
+  "config_role": "Runtime accepted recipe, validated by the cleaned runner. Recorded result/source hashes describe the original verified GPU run, not the later cleanup source bytes.",
   "dataset": {
     "games": 1024,
     "positions": 1024,
