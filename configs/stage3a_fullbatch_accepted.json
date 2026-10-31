@@ -1,0 +1,93 @@
+{
+  "architecture": {
+    "attention_heads": 8,
+    "ff_width": 2048,
+    "layers": 8,
+    "parameters": 25622092,
+    "profile": "25m",
+    "width": 512
+  },
+  "config_role": "Post-run configuration receipt extracted from verified results. The unchanged runner fixes these values in code; it does not parse this JSON.",
+  "dataset": {
+    "games": 1024,
+    "positions": 1024,
+    "repo_id": "ishagarg1103/gambit-zero",
+    "revision": "b7ddb96d8ce8cfe55298e01a7d928b0f763e1c4c",
+    "sample_logical_sha256": "f2dca7915a44569801b824b2815c04be04703a69827f46b9139f3b7cce1bb498",
+    "sample_sha256": "cc00bda4d5feb8a980be6e32208712f50eb94bb197ae60d01aeaff6e47ced590",
+    "split": "train",
+    "value_masked_rows": 172
+  },
+  "executed_batch": {
+    "accumulation_steps": 32,
+    "clipping": "global norm 1.0 once after gradient accumulation; one AdamW update per full batch",
+    "effective_batch": 1024,
+    "execution_mode": "32x32-global-normalized-accumulation",
+    "microbatch": 32,
+    "normalization": "sum policy NLL / 1024 + sum(value_weight * WDL NLL) / 852"
+  },
+  "format": "gambit-zero-accepted-stage3a-recipe-v1",
+  "provenance": {
+    "checkpoint_artifacts": [
+      {
+        "digest": "c86e5dff9f8bd18c938cd54f3e16449c",
+        "files": [
+          {
+            "bytes": 1359,
+            "digest_matches": true,
+            "file": "checkpoint.json"
+          },
+          {
+            "bytes": 307476462,
+            "digest_matches": true,
+            "file": "step-000281-a4bf71664d1792bf.msgpack"
+          }
+        ],
+        "name": "stage3a-fullbatch-confirmation-checkpoint:v0"
+      }
+    ],
+    "checkpoint_sha256": "a4bf71664d1792bf72004a3c034a4a2f72e1172fc7dcf986974d983f7cfb4bdc",
+    "report": "reports/m2_stage3a_fullbatch_confirmation.md",
+    "results": "reports/m2_stage3a_fullbatch_confirmation_results.json",
+    "results_sha256": "f42e15e2d0efcf831f98b53f664b250172fed7384fad68d15781c07d172aa022",
+    "wandb_url": "https://wandb.ai/ishagarg-research/gambit-zero/runs/f9hphmku"
+  },
+  "result": {
+    "clip_active_fraction": 0.9608540925266904,
+    "policy_accuracy": 0.990234375,
+    "policy_loss": 0.04158882796764374,
+    "status": "PASS",
+    "updates": 281,
+    "wdl_accuracy": 0.9741784334182739,
+    "wdl_loss": 0.05031261965632439
+  },
+  "scope": "Frozen engineering-overfit recipe only; not a Stage 3B pilot configuration.",
+  "training_configuration": {
+    "beta1": 0.9,
+    "beta2": 0.95,
+    "clip_norm": 1.0,
+    "compute": "bfloat16",
+    "effective_batch": 1024,
+    "epsilon": 1e-08,
+    "history_dropout": 0.0,
+    "initialization": "original random backbone / zero output heads",
+    "lr": 0.0003,
+    "master_dtype": "float32",
+    "max_updates": 2000,
+    "model": "25m",
+    "parameters": 25622092,
+    "policy_gate_accuracy": 0.99,
+    "policy_gate_ce": 0.05,
+    "sample_logical_sha256": "f2dca7915a44569801b824b2815c04be04703a69827f46b9139f3b7cce1bb498",
+    "sample_sha256": "cc00bda4d5feb8a980be6e32208712f50eb94bb197ae60d01aeaff6e47ced590",
+    "seed": 20261031,
+    "source_hashes": {
+      "scripts/confirm_stage3a_fullbatch.py": "7646743f3922b70584486311b0018d489f3b589608d4283c556350ce234dfc99",
+      "src/tinychess/model/transformer.py": "4cd0301d09e49fab9af6bab8c34397d9bec70dec4ecbff874d53f577ccc37509",
+      "src/tinychess/train/fullbatch_confirmation.py": "8c4aa94523e8ee2d0366be75329bf55717bfd0fd0b8a766c73f58f7817f42892",
+      "src/tinychess/train/overfit_core.py": "ac9178d93d90556a4b67458efd850bfe75f29e86b03f61782c7361e580a5167b"
+    },
+    "warmup": 100,
+    "weight_decay": 0.0
+  }
+}

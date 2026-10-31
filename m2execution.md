@@ -196,3 +196,41 @@ subject to memory checks in the actual loop. Dataset A revision, rules, codec,
 encoder and model are unchanged. Stage 3A was not executed. History dropout and
 openings_v2 remain deferred under the revised flow; original research objectives
 and B0 → B1/B2 sequencing remain unchanged. Stop for owner review.
+
+## Stage 3A — bounded 1K-position diagnostic — 31 October 2026
+
+**Stage 3A: FAIL; Stage 3B remains blocked.** See
+[reports/m2_stage3a.md](reports/m2_stage3a.md). The owner merged Stage 2A/2B;
+`m2/stage-3a-overfit` starts at `68e8381bd3457cd2dcbbb0a76588fc07df8192e7`.
+Implemented a minimal JIT 25M trainer, fixed-seed real training sample, environment-only
+W&B integration, and atomic checksummed checkpoint save/restore. The sample has
+1,024 positions from 1,024 games, with original histories and 172 zero-value-weight
+rows. Two sample builds reproduced identical bytes. Full CPU regression: 385 passed;
+12 focused tests also passed in the isolated Molab environment.
+
+The single bf16/microbatch-32 run used 100-step warmup to LR 1e-3, no weight decay,
+clip 1.0 and 0% history dropout. Initial policy/WDL losses matched uniform baselines.
+At exactly 3,000 updates, policy accuracy was 25.3906% / CE 2.68855; weighted WDL
+accuracy 59.2723% / CE 0.80280. These do not satisfy the overfit gate. Finite checks
+and six checkpoint roundtrips passed, including continued training after restore.
+Stop for diagnosis/review; no LR fallback, sweep, pilot, history dropout, openings_v2,
+MCTS or self-play was started. Original model/rules/encoder/codec/loader/data/core
+locks are unchanged. The B0 → independent B1/B2 research objectives are preserved.
+
+## Stage 3A — single full-batch confirmation — 31 October 2026
+
+**Stage 3A: PASS under the owner's policy confirmation gate.** See
+[reports/m2_stage3a_fullbatch_confirmation.md](reports/m2_stage3a_fullbatch_confirmation.md).
+One run, unchanged frozen 1,024-position sample and 25M model, LR 3e-4, warmup
+100 updates, clip 1.0, no weight decay or history dropout. Correct globally
+normalized accumulation of 32 microbatches produced one full-batch update.
+The policy gate was first met at 281 updates: 99.0234% accuracy / CE 0.041589;
+weighted WDL accuracy 97.4178% / CE 0.050313. Clip-active fraction 270/281 (96.09%).
+Nine of ten residual policy misses occur at ply 0–10; both shared-board-hash
+rows are correct. All missed identities and denominator-aware breakdowns are
+retained in the report. D had no saved checkpoint, so its per-row analysis is
+unavailable and was not reconstructed by another training run.
+This clears the bounded engineering memorization gate; previous failed evidence
+remains intact. Batch noise and presentation budget changed jointly, not as
+individually isolated causes. Full CPU regression: 394 passed. Stop for review;
+Stage 3B, model changes, sweeps and later experiments remain unstarted.
