@@ -1,0 +1,2 @@
+# Optional experiment tracking only; core JAX/Flax/CUDA pins remain in uv.lock.
+wandb==0.28.1

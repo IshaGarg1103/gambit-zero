@@ -196,3 +196,21 @@ subject to memory checks in the actual loop. Dataset A revision, rules, codec,
 encoder and model are unchanged. Stage 3A was not executed. History dropout and
 openings_v2 remain deferred under the revised flow; original research objectives
 and B0 → B1/B2 sequencing remain unchanged. Stop for owner review.
+
+## Stage 3A — single full-batch confirmation — 31 October 2026
+
+**Stage 3A: PASS under the owner's policy confirmation gate.** See
+[reports/m2_stage3a_fullbatch_confirmation.md](reports/m2_stage3a_fullbatch_confirmation.md).
+One run, unchanged frozen 1,024-position sample and 25M model, LR 3e-4, warmup
+100 updates, clip 1.0, no weight decay or history dropout. Correct globally
+normalized accumulation of 32 microbatches produced one full-batch update.
+The policy gate was first met at 281 updates: 99.0234% accuracy / CE 0.041589;
+weighted WDL accuracy 97.4178% / CE 0.050313. Clip-active fraction 270/281 (96.09%).
+Nine of ten residual policy misses occur at ply 0–10; both shared-board-hash
+rows are correct. All missed identities and denominator-aware breakdowns are
+retained in the report. D had no saved checkpoint, so its per-row analysis is
+unavailable and was not reconstructed by another training run.
+This clears the bounded engineering memorization gate; previous failed evidence
+remains intact. Batch noise and presentation budget changed jointly, not as
+individually isolated causes. Full CPU regression: 394 passed. Stop for review;
+Stage 3B, model changes, sweeps and later experiments remain unstarted.

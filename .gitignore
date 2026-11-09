@@ -125,3 +125,12 @@ htmlcov/
 # Compact verified Stage 2B GPU results; raw notebook evidence remains ignored.
 !/reports/m2_stage2b_results.json
 !/reports/m2_stage2b_verification.json
+
+# Stage 3A: final compact evidence only; credentials/tracking/checkpoints stay local.
+wandb/
+.netrc
+*.msgpack
+
+# Single full-batch Stage 3A confirmation: retain final compact results only.
+!/reports/m2_stage3a_fullbatch_confirmation.md
+!/reports/m2_stage3a_fullbatch_confirmation_results.json
