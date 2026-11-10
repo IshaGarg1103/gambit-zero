@@ -134,3 +134,10 @@ wandb/
 # Single full-batch Stage 3A confirmation: retain final compact results only.
 !/reports/m2_stage3a_fullbatch_confirmation.md
 !/reports/m2_stage3a_fullbatch_confirmation_results.json
+
+# Stage 3B preparation: retain the reviewed plan/report, not runtime evidence.
+!/reports/m2_stage3b_preparation.md
+
+# Final Stage 3B measurements; raw logs, originals and checkpoints stay ignored.
+!/reports/m2_stage3b.md
+!/reports/m2_stage3b_curves.svg

@@ -4,9 +4,13 @@ from pathlib import Path
 
 
 class Tracker:
-    def __init__(self, config, directory, *, mode='online', run_id=None):
+    def __init__(self, config, directory, *, mode='online', run_id=None,
+                 group='m2-overfit-diagnostics', name='stage3a-fullbatch-1024-confirmation',
+                 job_type='single-fullbatch-confirmation', tags=None,
+                 artifact_name='stage3a-fullbatch-confirmation-checkpoint'):
         if mode not in ('online','offline','disabled'):raise ValueError('Invalid W&B mode')
         self.run=None
+        self.artifact_name=artifact_name
         if mode=='disabled':return
         import wandb
         if mode=='online' and not os.environ.get('WANDB_API_KEY'):
@@ -14,10 +18,9 @@ class Tracker:
         directory=Path(directory);directory.mkdir(parents=True,exist_ok=True)
         # All recorded config is caller-selected scientific metadata, never env dumps.
         self.run=wandb.init(entity='ishagarg-research',project='gambit-zero',
-            name='stage3a-fullbatch-1024-confirmation',job_type='single-fullbatch-confirmation',
-            group='m2-overfit-diagnostics',
+            name=name,job_type=job_type,group=group,
             id=run_id,resume='allow' if run_id else None,mode=mode,dir=str(directory),
-            config=config,tags=['stage3a','25m','history-dropout-0'],
+            config=config,tags=tags if tags is not None else ['stage3a','25m','history-dropout-0'],
             settings=wandb.Settings(disable_git=True,save_code=False,disable_code=True,console='off'))
     @property
     def url(self):return self.run.url if self.run else None
@@ -28,7 +31,7 @@ class Tracker:
     def checkpoint(self,directory,receipt):
         if not self.run:return None
         import wandb
-        artifact=wandb.Artifact('stage3a-fullbatch-confirmation-checkpoint',type='checkpoint',
+        artifact=wandb.Artifact(self.artifact_name,type='checkpoint',
             metadata={'step':receipt['step'],'sha256':receipt['sha256']})
         artifact.add_file(str(Path(directory)/receipt['file']))
         artifact.add_file(str(Path(directory)/'checkpoint.json'))

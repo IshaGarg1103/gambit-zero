@@ -214,3 +214,58 @@ This clears the bounded engineering memorization gate; previous failed evidence
 remains intact. Batch noise and presentation budget changed jointly, not as
 individually isolated causes. Full CPU regression: 394 passed. Stop for review;
 Stage 3B, model changes, sweeps and later experiments remain unstarted.
+
+
+## Stage 3B preparation — 9 November 2026
+
+**Preparation only; no sweep or supervised pilot executed.** On
+`m2/stage-3b-supervised` from merged main
+`9c53aabad8ef8eeaa4bc7373fa307d1f94683284`, reuse the accepted 25M model,
+losses, globally normalized accumulation, tracker and checkpoint code. Add bounded
+original-Parquet orchestration, partial-batch weighting, deterministic replay
+recovery, full validation accounting, LR scheduling and explicit launch/resource
+guards. Proposed recipe: 32×32 accumulation, 32,768 shuffle buffer, three independent
+LR candidates (1e-4/3e-4/6e-4), 0% history dropout and fresh seeded initialization.
+See [the preparation report](reports/m2_stage3b_preparation.md) and
+[reviewable experiment plan](docs/m2_stage3b_run.md).
+
+CPU checks: **28 focused tests and 423 full regression tests passed**. Tiny synthetic
+interruption/recovery reproduces an uninterrupted checkpoint byte-for-byte.
+The actual Mac metadata-only preflight blocked on available host RAM; disk checks
+passed, and no shard downloads or real-data model updates ran. No new GPU result
+is claimed. **CONDITIONAL PASS for preparation, pending plan/resource review and
+explicit approval before one bounded GPU candidate.** Published datasets, model,
+encoder, codec, rules and locks remain unchanged. Extra evaluation diagnostics,
+history dropout, openings_v2, 100M training, MCTS/self-play and the final B0 decision
+remain deferred under the original research sequence.
+
+## Stage 3B — verified 25M execution — 10 November 2026
+
+**CONDITIONAL PASS for the completed 25M pilot execution; value probability
+quality remains unresolved.** See [the execution report](reports/m2_stage3b.md)
+and [full-validation curves](reports/m2_stage3b_curves.svg).
+
+The owner authorized the bounded smoke, matched one-epoch 1e-4 / 3e-4 / 6e-4
+comparison and fresh selected pilot. All candidates used 2,593 updates and full
+569,124-position validation; 3e-4 won validation policy NLL (2.350768). The
+owner-paused candidate recovered exact checkpoint bytes and completed validation
+with zero repeated optimizer updates. The fresh 25M pilot early-stopped after
+12 epochs / 31,116 updates; best was epoch 10, step 25,930: policy NLL 1.873244,
+top-1 42.5791%, top-3 69.3316%. Weighted WDL NLL 1.635764 and Brier 0.710530 at
+that checkpoint are worse than uniform-probability baselines; no implementation
+root cause is established and no corrective experiment was launched.
+
+Pilot wall time was 3.6353 active GPU-host hours; candidates plus pilot 4.6513 h,
+excluding setup, prefetch, smoke/tests and overnight idle time. Synchronized
+optimizer throughput was 5,130.98 real positions/s versus 2,434.31 end-to-end;
+sampled GPU peak was 2.606 GiB. The best W&B checkpoint is pinned at version v9
+and its full SHA256 passed an uncached round trip. Source/configuration, scalar
+curves and verification evidence are linked in the report. CPU regression:
+423 passed; focused CUDA regression: 33 passed. No OOM/nonfinite/correctness
+failure occurred. Dataset revision remains
+`b7ddb96d8ce8cfe55298e01a7d928b0f763e1c4c` with no dataset writes.
+
+This does not complete the 25M/100M comparison or freeze B0. Review value
+generalization and the recorded limitations before authorizing another run.
+History dropout, openings_v2, 100M training, MCTS/self-play, dataset expansion
+and later research stages remain deferred. No automatic commit, push or merge.

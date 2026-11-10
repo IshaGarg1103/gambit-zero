@@ -18,13 +18,16 @@ def learning_rate(step, peak=3e-4, warmup=100):
     return jnp.float32(peak)*jnp.minimum((jnp.asarray(step,jnp.float32)+1)/warmup,1.)
 
 
-def create_state(model, key, batch, peak=3e-4):
+def create_state(model, key, batch, peak=3e-4, *, schedule=None,
+                 weight_decay=0., decay_mask=None):
     params=model.init(key,batch['planes'],batch['context'])['params']
     # Run-specific initialization only: uniform policy/WDL for the sanity gate.
     for name in ('policy_head','value_head'):
         params[name]=jax.tree_util.tree_map(jnp.zeros_like,params[name])
     tx=optax.chain(optax.clip_by_global_norm(1.),optax.adamw(
-        lambda s:learning_rate(s,peak),b1=.9,b2=.95,eps=1e-8,weight_decay=0.,mu_dtype=jnp.float32))
+        schedule if schedule is not None else lambda s:learning_rate(s,peak),
+        b1=.9,b2=.95,eps=1e-8,weight_decay=weight_decay,
+        mask=decay_mask,mu_dtype=jnp.float32))
     return TrainState.create(apply_fn=model.apply,params=params,tx=tx)
 
 
